@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://c1amy2ape0ne7"]
+
+[node name="Control" type="Control" unique_id=1426797441]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1370957555]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08400001
+anchor_top = 0.24700001
+anchor_right = 0.89900005
+anchor_bottom = 0.68100005
+offset_left = -12.432001
+offset_top = -65.208
+offset_right = 14.947998
+offset_bottom = 84.21599
+rotation = -0.000517386
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=245725427]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -39.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.004362469
+alignment = 1
+
+[node name="начать игру" type="Button" parent="VBoxContainer" unique_id=174551196]
+layout_mode = 2
+text = "начать игру"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=566822079]
+layout_mode = 2
+text = "туториал"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1621201355]
+layout_mode = 2
