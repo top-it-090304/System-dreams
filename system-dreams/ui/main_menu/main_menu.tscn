@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://c1amy2ape0ne7"]
 
+[ext_resource type="Texture2D" uid="uid://brprr3vyp70mv" path="res://ui/main_menu/main_menu_back.png" id="1_i5wg5"]
+[ext_resource type="Texture2D" uid="uid://q6vyuss0gohw" path="res://ui/main_menu/button_start.png" id="2_3c04x"]
+[ext_resource type="Texture2D" uid="uid://bquftf3ei1njm" path="res://ui/main_menu/button_settings.png" id="3_joh67"]
+[ext_resource type="Texture2D" uid="uid://by3lqnk6u8qwr" path="res://ui/main_menu/button_tutorial.png" id="4_u184e"]
+
 [node name="Control" type="Control" unique_id=1426797441]
 layout_mode = 3
 anchors_preset = 15
@@ -12,37 +17,52 @@ grow_vertical = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.08400001
-anchor_top = 0.24700001
-anchor_right = 0.89900005
+anchor_top = 0.23
+anchor_right = 1.1350001
 anchor_bottom = 0.68100005
-offset_left = -12.432001
-offset_top = -65.208
-offset_right = 14.947998
-offset_bottom = 84.21599
+offset_left = -12.432359
+offset_top = -59.93262
+offset_right = -20.677917
+offset_bottom = 84.50505
 rotation = -0.000517386
-stretch_mode = 6
+texture = ExtResource("1_i5wg5")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=245725427]
 layout_direction = 2
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -39.0
-offset_bottom = 39.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = 0.31651005
+offset_top = 72.55251
+offset_right = 163.83725
+offset_bottom = 158.55252
 rotation = -0.004362469
+scale = Vector2(0.9, 0.9)
 alignment = 1
 
-[node name="начать игру" type="Button" parent="VBoxContainer" unique_id=174551196]
+[node name="strart" type="Button" parent="VBoxContainer" unique_id=174551196]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 2
 layout_mode = 2
-text = "начать игру"
+icon = ExtResource("2_3c04x")
+flat = true
+icon_alignment = 1
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=566822079]
+[node name="settings" type="Button" parent="VBoxContainer" unique_id=566822079]
 layout_mode = 2
-text = "туториал"
+icon = ExtResource("3_joh67")
+flat = true
+icon_alignment = 1
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1621201355]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2747975]
+layout_mode = 0
+offset_left = 37.000004
+offset_top = 159.0
+offset_right = 181.70589
+offset_bottom = 244.88235
+scale = Vector2(0.85, 0.85)
+
+[node name="Button" type="Button" parent="CenterContainer" unique_id=717707663]
 layout_mode = 2
+icon = ExtResource("4_u184e")
+flat = true
