@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://csg127egno6b2"]
 
 [ext_resource type="Script" uid="uid://ct5xao8lt0a2j" path="res://src/Player/script/player.gd" id="1_rxibo"]
-[ext_resource type="Texture2D" uid="uid://sdwh3x7rjot4" path="res://src/art/character/sprites_character.png" id="2_fdvkn"]
+[ext_resource type="Texture2D" uid="uid://sdwh3x7rjot4" path="res://src/assets/animated_shits/sprites_character.png" id="2_fdvkn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdvkn"]
 
