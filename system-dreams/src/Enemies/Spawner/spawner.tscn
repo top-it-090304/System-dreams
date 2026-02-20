@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dry0ti53pt71f"]
+
+[ext_resource type="Script" uid="uid://d1rsy86gjm0yq" path="res://src/Enemies/Spawner/spawner.gd" id="1_tmi8f"]
+
+[node name="Spawner" type="Node2D" unique_id=1069112289]
+script = ExtResource("1_tmi8f")
+
+[node name="Timer" type="Timer" parent="." unique_id=684817458]
+wait_time = 2.0
+autostart = true
