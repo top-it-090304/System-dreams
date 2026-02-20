@@ -7,12 +7,18 @@ var direction : Vector2 = Vector2.ZERO
 var move_speed : float = 100.0
 var state : String = "idle"
 
+@export var bullet_scene: PackedScene
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
+@onready var shoot_timer : Timer = $ShootTimer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() :
-	pass # Replace with function body.
+	# Подключаем сигнал таймера к функции стрельбы
+	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
+	# интервал стрельбы
+	if shoot_timer.wait_time == 0:
+		shoot_timer.wait_time = 0.25  
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -74,3 +80,34 @@ func AnimDirection() -> String:
 	else:
 		return "side"
 	
+func _on_shoot_timer_timeout():
+	var target = find_closest_enemy()
+	if target:
+		shoot(target)
+
+func find_closest_enemy():
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	if enemies.is_empty():
+		return null
+	
+	var closest_enemy = enemies[0]
+	var min_dist = global_position.distance_to(closest_enemy.global_position)
+	
+	for enemy in enemies:
+		var dist = global_position.distance_to(enemy.global_position)
+		if dist < min_dist:
+			min_dist = dist
+			closest_enemy = enemy
+			
+	return closest_enemy
+
+func shoot(target):
+	if not bullet_scene:
+		print("Ошибка: bullet_scene не назначен!")
+		return
+		
+	var bullet = bullet_scene.instantiate()
+	bullet.global_position = $Marker2D.global_position
+	bullet.direction = (target.global_position - global_position).normalized()
+	
+	get_parent().add_child(bullet)

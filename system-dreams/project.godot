@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="system_dreams"
-run/main_scene="uid://csg127egno6b2"
+run/main_scene="uid://c1amy2ape0ne7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [display]
@@ -21,6 +21,10 @@ window/size/viewport_height=264
 window/size/window_width_override=252
 window/size/window_height_override=448
 window/stretch/mode="viewport"
+
+[global_group]
+
+Player=""
 
 [input]
 
