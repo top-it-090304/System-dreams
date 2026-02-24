@@ -7,6 +7,7 @@
 size = Vector2(14, 11)
 
 [node name="DefaultEnemy" type="CharacterBody2D" unique_id=940495428]
+scale = Vector2(3, 3)
 script = ExtResource("1_rcrw2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1427238615 groups=["enemy"]]

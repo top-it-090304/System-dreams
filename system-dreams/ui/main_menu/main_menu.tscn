@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://c1amy2ape0ne7"]
 
-[ext_resource type="Texture2D" uid="uid://brprr3vyp70mv" path="res://ui/main_menu/main_menu_back.png" id="1_i5wg5"]
-[ext_resource type="Texture2D" uid="uid://q6vyuss0gohw" path="res://ui/main_menu/button_start.png" id="2_3c04x"]
-[ext_resource type="Texture2D" uid="uid://bquftf3ei1njm" path="res://ui/main_menu/button_settings.png" id="3_joh67"]
+[ext_resource type="Texture2D" uid="uid://cfdm6df6tfgpv" path="res://ui/main_menu/menu_back.png" id="1_i5wg5"]
+[ext_resource type="Texture2D" uid="uid://cc7f0d4jk4bmw" path="res://ui/main_menu/button_start.png" id="2_3c04x"]
+[ext_resource type="Texture2D" uid="uid://drt5bljqgu30v" path="res://ui/main_menu/button_setting.png" id="3_omy8q"]
 [ext_resource type="Script" uid="uid://ib37v45hgodl" path="res://ui/main_menu/strart.gd" id="3_u184e"]
-[ext_resource type="Texture2D" uid="uid://dbdjivdxn62kk" path="res://ui/main_menu/main_menu_character.png" id="4_3c04x"]
-[ext_resource type="Texture2D" uid="uid://by3lqnk6u8qwr" path="res://ui/main_menu/button_tutorial.png" id="4_u184e"]
+[ext_resource type="Texture2D" uid="uid://cs52caresdf34" path="res://ui/main_menu/button_tuttorial.png" id="5_3c04x"]
+[ext_resource type="Script" uid="uid://bo8r1m0kcwcej" path="res://ui/main_menu/settings.gd" id="5_joh67"]
+[ext_resource type="Script" uid="uid://x4dlkujbe1a0" path="res://ui/main_menu/button.gd" id="7_u184e"]
 
-[node name="Control" type="Control" unique_id=1426797441]
+[node name="main_menu" type="Node2D" unique_id=1349091975]
+
+[node name="Control" type="Control" parent="." unique_id=1426797441]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,68 +18,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1370957555]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.08400001
-anchor_top = 0.23
-anchor_right = 1.1350001
-anchor_bottom = 0.68100005
-offset_left = -12.432001
-offset_top = -60.72
-offset_right = -19.980011
-offset_bottom = 84.21599
-rotation = -0.000517386
+[node name="background" type="TextureRect" parent="Control" unique_id=819731091]
+layout_mode = 0
+offset_right = 270.0
+offset_bottom = 480.0
 texture = ExtResource("1_i5wg5")
-expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=245725427]
+[node name="buttons_box" type="VBoxContainer" parent="Control" unique_id=245725427]
 layout_direction = 2
 layout_mode = 0
-offset_left = 0.19746834
-offset_top = 45.265
-offset_right = 165.18663
-offset_bottom = 161.58476
-rotation = -0.004362469
-scale = Vector2(0.9, 0.9)
+offset_left = 15.0
+offset_top = 112.0
+offset_right = 254.0
+offset_bottom = 244.0
 alignment = 1
 
-[node name="strart" type="Button" parent="VBoxContainer" unique_id=174551196]
-clip_contents = true
+[node name="strart" type="Button" parent="Control/buttons_box" unique_id=174551196]
+texture_filter = 3
 custom_minimum_size = Vector2(100, 0)
-layout_direction = 2
 layout_mode = 2
 icon = ExtResource("2_3c04x")
 flat = true
 icon_alignment = 1
 script = ExtResource("3_u184e")
 
-[node name="settings" type="Button" parent="VBoxContainer" unique_id=566822079]
+[node name="settings" type="Button" parent="Control/buttons_box" unique_id=566822079]
 layout_mode = 2
-icon = ExtResource("3_joh67")
+icon = ExtResource("3_omy8q")
 flat = true
 icon_alignment = 1
+script = ExtResource("5_joh67")
 
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=1679798785]
+[node name="tut_cont" type="VBoxContainer" parent="Control" unique_id=593041244]
 layout_mode = 0
-offset_left = -1.0
-offset_top = 146.0
-offset_right = 91.0
-offset_bottom = 262.0
-texture = ExtResource("4_3c04x")
-stretch_mode = 2
+offset_left = 94.0
+offset_top = 302.0
+offset_right = 282.0
+offset_bottom = 476.0
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2747975]
-layout_mode = 0
-offset_left = 45.0
-offset_top = 154.99998
-offset_right = 181.4706
-offset_bottom = 229.5294
-scale = Vector2(0.85, 0.85)
-
-[node name="Button" type="Button" parent="CenterContainer" unique_id=717707663]
+[node name="go_to_tut" type="Button" parent="Control/tut_cont" unique_id=1857907929]
 layout_mode = 2
-icon = ExtResource("4_u184e")
+icon = ExtResource("5_3c04x")
 flat = true
+script = ExtResource("7_u184e")
 
-[connection signal="pressed" from="VBoxContainer/strart" to="VBoxContainer/strart" method="_on_pressed"]
+[connection signal="pressed" from="Control/buttons_box/strart" to="Control/buttons_box/strart" method="_on_pressed"]
+[connection signal="pressed" from="Control/buttons_box/settings" to="Control/buttons_box/settings" method="_on_pressed"]
+[connection signal="pressed" from="Control/tut_cont/go_to_tut" to="Control/tut_cont/go_to_tut" method="_on_pressed"]

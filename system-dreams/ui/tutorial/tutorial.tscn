@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://q2o6jkc6nm0n"]
+
+[ext_resource type="Script" uid="uid://r8hdjkky1dyu" path="res://ui/tutorial/go_back_button.gd" id="1_tkdws"]
+
+[node name="tutorial" type="Node2D" unique_id=352184919]
+
+[node name="Control" type="Control" parent="." unique_id=1879035514]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="go_back_button" type="Button" parent="Control" unique_id=447492836]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 428.0
+offset_right = 245.0
+offset_bottom = 459.0
+script = ExtResource("1_tkdws")
+
+[connection signal="pressed" from="Control/go_back_button" to="Control/go_back_button" method="_on_pressed"]
