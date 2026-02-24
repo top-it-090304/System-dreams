@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cdp6txfoquc17"]
+
+[ext_resource type="Script" uid="uid://dbug5dd8ylbbu" path="res://ui/setting/go_back_button.gd" id="1_cduwi"]
+
+[node name="settings" type="Node2D" unique_id=987135045]
+
+[node name="Control" type="Control" parent="." unique_id=2106951274]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="go_back_button" type="Button" parent="Control" unique_id=742984275]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 409.0
+offset_right = 246.0
+offset_bottom = 449.0
+script = ExtResource("1_cduwi")
+
+[connection signal="pressed" from="Control/go_back_button" to="Control/go_back_button" method="_on_pressed"]
