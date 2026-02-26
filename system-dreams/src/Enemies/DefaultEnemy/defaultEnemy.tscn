@@ -2,16 +2,21 @@
 
 [ext_resource type="Script" uid="uid://c8no42rnbyu6u" path="res://src/Enemies/DefaultEnemy/default_enemy.gd" id="1_rcrw2"]
 [ext_resource type="Texture2D" uid="uid://bcqnlrk7ou50b" path="res://src/assets/enemies_sprites/enemy1.png" id="2_1ywfu"]
+[ext_resource type="PackedScene" path="res://src/Player/exp/exp.tscn" id="2_utufr"]
+[ext_resource type="Texture2D" uid="uid://dvrj16ecdxyjl" path="res://src/assets/enemies_sprites/hurted_enemy1.png" id="4_6leix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utufr"]
-size = Vector2(14, 11)
+size = Vector2(12.333334, 9.666667)
 
-[node name="DefaultEnemy" type="CharacterBody2D" unique_id=940495428]
+[node name="DefaultEnemy" type="CharacterBody2D" unique_id=940495428 groups=["enemy"]]
 scale = Vector2(3, 3)
 script = ExtResource("1_rcrw2")
+exp_scene = ExtResource("2_utufr")
+normal_texture = ExtResource("2_1ywfu")
+hurt_texture = ExtResource("4_6leix")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1427238615 groups=["enemy"]]
-position = Vector2(0, -0.5)
+position = Vector2(-0.16666698, -0.49999976)
 shape = SubResource("RectangleShape2D_utufr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1973856869]
