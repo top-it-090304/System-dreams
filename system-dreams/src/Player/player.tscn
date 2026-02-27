@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://ct5xao8lt0a2j" path="res://src/Player/script/player.gd" id="1_rxibo"]
 [ext_resource type="PackedScene" uid="uid://kca4335hfy3k" path="res://src/Player/bullet/cursor.tscn" id="2_chuli"]
 [ext_resource type="Texture2D" uid="uid://sdwh3x7rjot4" path="res://src/assets/animated_shits/sprites_character.png" id="2_fdvkn"]
-[ext_resource type="Script" uid="uid://b0ryy1eabkdn6" path="res://src/Player/joystick_con.gd" id="4_vgmdf"]
-[ext_resource type="Texture2D" uid="uid://b3rjj1bmqtiok" path="res://addons/versatile-mobile-joystick/default_textures/BaseJoystickTest.png" id="5_52h17"]
-[ext_resource type="Texture2D" uid="uid://dlgmq4q7t23o8" path="res://addons/versatile-mobile-joystick/default_textures/TipJoystickTest.png" id="6_vtbm7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdvkn"]
 
@@ -136,16 +133,6 @@ _data = {
 &"walk_up": SubResource("Animation_0m8bu")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0m8bu"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_pl8oh"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjf0q"]
-
-[sub_resource type="Curve" id="Curve_cql7s"]
-_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
-point_count = 2
-
 [node name="Player" type="CharacterBody2D" unique_id=1779298022 groups=["Player"]]
 script = ExtResource("1_rxibo")
 bullet_scene = ExtResource("2_chuli")
@@ -166,12 +153,3 @@ libraries/ = SubResource("AnimationLibrary_pl8oh")
 autostart = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=540514452]
-
-[node name="JoystickCon" type="Node2D" parent="." unique_id=1564731360]
-script = ExtResource("4_vgmdf")
-base_texture = ExtResource("5_52h17")
-tip_texture = ExtResource("6_vtbm7")
-deadzone_circle = SubResource("CircleShape2D_0m8bu")
-tip_limit_circle = SubResource("CircleShape2D_pl8oh")
-touch_detection_region = SubResource("RectangleShape2D_jjf0q")
-strength_curve = SubResource("Curve_cql7s")

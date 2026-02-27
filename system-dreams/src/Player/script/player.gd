@@ -43,9 +43,11 @@ func SetDirection() -> bool:
 		return false
 	
 	var new_dir: Vector2 = cardinal_direction
-	if direction.y == 0:
+	
+	
+	if abs(direction.x) > abs(direction.y):
 		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
-	elif direction.x == 0:
+	else:
 		new_dir = Vector2.UP if direction.y < 0 else Vector2.DOWN
 	
 	if new_dir == cardinal_direction:
@@ -54,7 +56,6 @@ func SetDirection() -> bool:
 	cardinal_direction = new_dir
 	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
 	return true
-
 func SetState() -> bool:
 	var new_state: String = "idle" if direction == Vector2.ZERO else "walk"
 	if new_state == state:
