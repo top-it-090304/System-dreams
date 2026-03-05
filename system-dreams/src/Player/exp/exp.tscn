@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/Player/exp/exp.gd" id="1_gh0xp"]
+[ext_resource type="Texture2D" path="res://src/assets/drop/exp.png" id="2_gh0xp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_exp"]
+radius = 4.0
+
+[node name="Exp" type="Area2D"]
+script = ExtResource("1_gh0xp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gh0xp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_exp")
+

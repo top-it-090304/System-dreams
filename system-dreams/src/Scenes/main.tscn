@@ -77,6 +77,12 @@ position = Vector2(78, 118)
 scale = Vector2(3, 3)
 enemy_scene = ExtResource("2_2av6j")
 
+[node name="HUD" type="CanvasLayer" parent="." unique_id=987654321]
+
+[node name="HPLabel" type="Label" parent="HUD" unique_id=987654322]
+offset_left = 4.0
+offset_top = 4.0
+text = "HP: 0/0"
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1950706563]
 
 [node name="JoystickController" parent="CanvasLayer" unique_id=2019039376 instance=ExtResource("5_tx72l")]
