@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlgmq4q7t23o8"
-path="res://.godot/imported/TipJoystickTest.png-073ebf6380b428c49c3a495903854022.ctex"
+uid="uid://cs4h51homajet"
+path="res://.godot/imported/BaseJoystick.png-cbd7840f3df1561e528dda60a92f7cce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/versatile-mobile-joystick/default_textures/TipJoystickTest.png"
-dest_files=["res://.godot/imported/TipJoystickTest.png-073ebf6380b428c49c3a495903854022.ctex"]
+source_file="res://addons/versatile-mobile-joystick/default_textures/BaseJoystick.png"
+dest_files=["res://.godot/imported/BaseJoystick.png-cbd7840f3df1561e528dda60a92f7cce.ctex"]
 
 [params]
 

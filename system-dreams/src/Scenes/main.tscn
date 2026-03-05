@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bpcdgjg8am0o7" path="res://src/Enemies/DefaultEnemy/defaultEnemy.tscn" id="2_2av6j"]
 [ext_resource type="PackedScene" uid="uid://dry0ti53pt71f" path="res://src/Enemies/Spawner/spawner.tscn" id="3_7j17x"]
 [ext_resource type="PackedScene" uid="uid://btf0iccai10qr" path="res://addons/versatile-mobile-joystick/joystick.tscn" id="5_tx72l"]
-[ext_resource type="Texture2D" uid="uid://b3rjj1bmqtiok" path="res://addons/versatile-mobile-joystick/default_textures/BaseJoystickTest.png" id="6_1dkgf"]
-[ext_resource type="Texture2D" uid="uid://dlgmq4q7t23o8" path="res://addons/versatile-mobile-joystick/default_textures/TipJoystickTest.png" id="7_vdiyp"]
+[ext_resource type="Texture2D" uid="uid://cs4h51homajet" path="res://addons/versatile-mobile-joystick/default_textures/BaseJoystick.png" id="6_1dkgf"]
+[ext_resource type="Texture2D" uid="uid://bmdhjcypdf6t0" path="res://addons/versatile-mobile-joystick/default_textures/TipJoystick.png" id="7_vdiyp"]
 [ext_resource type="Script" uid="uid://cj0nb40ad0gkd" path="res://src/Scenes/camera_2d.gd" id="8_1dkgf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h6v6y"]
