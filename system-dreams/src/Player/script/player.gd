@@ -36,7 +36,7 @@ func _ready():
 	
 	print("Current level: ", level)
 
-shoot_timer.wait_time = 0.25
+	shoot_timer.wait_time = 1
 
 func _physics_process(_delta):
 	# Получаем ввод от джойстика
@@ -54,11 +54,16 @@ func _physics_process(_delta):
 		direction = key_input
 	
 	velocity = direction * move_speed
+	
+	# Обновляем состояние и анимацию в зависимости от направления движения
+	if SetState() or SetDirection():
+		UpdateAnimation()
+	
 	move_and_slide()
 	
 	# таймер неуязвимости после удара
 	if _invincibility_timer > 0.0:
-		_invincibility_timer -= delta
+		_invincibility_timer -= _delta
 	
 	_check_enemy_collisions()
 
