@@ -95,10 +95,10 @@ strength_curve = SubResource("Curve_timk5")
 visibility_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2133521390 node_paths=PackedStringArray("target")]
-limit_left = -20
-limit_top = -20
-limit_right = 400
-limit_bottom = 600
+limit_left = -100000
+limit_top = -100000
+limit_right = 100000
+limit_bottom = 100000
 limit_smoothed = true
 script = ExtResource("8_1dkgf")
 target = NodePath("../Player")
