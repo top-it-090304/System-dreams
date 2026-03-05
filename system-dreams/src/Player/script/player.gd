@@ -18,6 +18,8 @@ var next_level_xp: int = 10
 var health: int
 var _invincibility_timer: float = 0.0
 var _hp_label: Label = null
+var _time_label: Label = null
+var _run_time: float = 0.0
 @export var bullet_scene: PackedScene
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
@@ -34,9 +36,11 @@ func _ready():
 	_hp_label = get_tree().root.get_node_or_null("Main/HUD/HPLabel")
 	_update_hp_ui()
 	
+	_time_label = get_tree().root.get_node_or_null("Main/HUD/TimeLabel")
+	
 	print("Current level: ", level)
 
-shoot_timer.wait_time = 0.25
+	shoot_timer.wait_time = 1
 
 func _physics_process(_delta):
 	# Получаем ввод от джойстика
@@ -54,11 +58,20 @@ func _physics_process(_delta):
 		direction = key_input
 	
 	velocity = direction * move_speed
+	
+	# Обновляем состояние и анимацию в зависимости от направления движения
+	if SetState() or SetDirection():
+		UpdateAnimation()
+	
 	move_and_slide()
+	
+	# Обновляем таймер забега
+	_run_time += _delta
+	_update_time_ui()
 	
 	# таймер неуязвимости после удара
 	if _invincibility_timer > 0.0:
-		_invincibility_timer -= delta
+		_invincibility_timer -= _delta
 	
 	_check_enemy_collisions()
 
@@ -183,3 +196,8 @@ func _on_level_up() -> void:
 func _update_hp_ui() -> void:
 	if _hp_label:
 		_hp_label.text = "HP: %d/%d" % [health, max_health]
+
+
+func _update_time_ui() -> void:
+	if _time_label:
+		_time_label.text = "				%.2f" % _run_time

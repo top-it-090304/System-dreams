@@ -83,6 +83,11 @@ enemy_scene = ExtResource("2_2av6j")
 offset_left = 4.0
 offset_top = 4.0
 text = "HP: 0/0"
+
+[node name="TimeLabel" type="Label" parent="HUD" unique_id=987654323]
+offset_left = 4.0
+offset_top = 20.0
+text = "Time: 0.0"
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1950706563]
 
 [node name="JoystickController" parent="CanvasLayer" unique_id=2019039376 instance=ExtResource("5_tx72l")]
@@ -95,10 +100,10 @@ strength_curve = SubResource("Curve_timk5")
 visibility_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2133521390 node_paths=PackedStringArray("target")]
-limit_left = -20
-limit_top = -20
-limit_right = 400
-limit_bottom = 600
+limit_left = -100000
+limit_top = -100000
+limit_right = 100000
+limit_bottom = 100000
 limit_smoothed = true
 script = ExtResource("8_1dkgf")
 target = NodePath("../Player")
