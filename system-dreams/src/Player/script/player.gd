@@ -21,6 +21,8 @@ var _hp_label: Label = null
 var _time_label: Label = null
 var _run_time: float = 0.0
 @export var bullet_scene: PackedScene
+var bullet_damage_bonus: int = 0
+const LEVEL_UP_MENU_SCENE := preload("res://ui/level_up_menu.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var shoot_timer: Timer = $ShootTimer
@@ -176,6 +178,7 @@ func shoot(target):
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = $Marker2D.global_position
 	bullet.direction = (target.global_position - global_position).normalized()
+	bullet.damage += bullet_damage_bonus
 	get_parent().add_child(bullet)
 
 
@@ -191,6 +194,33 @@ func add_xp(amount: int) -> void:
 
 func _on_level_up() -> void:
 	print("Level up! New level: ", level)
+	
+	if not LEVEL_UP_MENU_SCENE:
+		return
+	
+	var menu = LEVEL_UP_MENU_SCENE.instantiate()
+	if menu:
+		if menu.has_signal("option_chosen"):
+			menu.option_chosen.connect(_on_level_up_option_chosen)
+		
+		get_tree().root.add_child(menu)
+		get_tree().paused = true
+
+
+func _on_level_up_option_chosen(option_id: String) -> void:
+	match option_id:
+		"hp":
+			max_health += 20
+			health = max_health
+			_update_hp_ui()
+		"move":
+			move_speed += 20.0
+		"shoot":
+			shoot_timer.wait_time = shoot_timer.wait_time * 0.8
+		"dmg":
+			bullet_damage_bonus += 10
+	
+	get_tree().paused = false
 
 
 func _update_hp_ui() -> void:
