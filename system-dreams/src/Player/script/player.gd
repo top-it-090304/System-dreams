@@ -191,6 +191,10 @@ func add_xp(amount: int) -> void:
 		next_level_xp *= 2
 		_on_level_up()
 
+func heal(amount: int) -> void:
+	health = min(health + amount, max_health)
+	_update_hp_ui()
+
 
 func _on_level_up() -> void:
 	print("Level up! New level: ", level)

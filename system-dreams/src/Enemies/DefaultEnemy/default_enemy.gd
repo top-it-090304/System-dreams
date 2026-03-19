@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var speed: float = 20
 @export var health: int = 100
 @export var exp_scene: PackedScene
+@export var heal_scene: PackedScene
+@export var heal_drop_chance: float = 0.1
 @export var normal_texture: Texture2D
 @export var hurt_texture: Texture2D
 @export var hurt_time: float = 0.1
@@ -43,7 +45,12 @@ func take_damage(amount: int) -> void:
 
 
 func die() -> void:
-	if exp_scene:
+	# иногда вместо опыта падает хилка
+	if heal_scene and randf() < heal_drop_chance:
+		var heal = heal_scene.instantiate()
+		heal.global_position = global_position
+		get_parent().add_child(heal)
+	elif exp_scene:
 		var exp = exp_scene.instantiate()
 		exp.global_position = global_position
 		get_parent().add_child(exp)

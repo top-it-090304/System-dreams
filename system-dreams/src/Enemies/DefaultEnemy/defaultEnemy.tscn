@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c8no42rnbyu6u" path="res://src/Enemies/DefaultEnemy/default_enemy.gd" id="1_rcrw2"]
 [ext_resource type="Texture2D" uid="uid://bcqnlrk7ou50b" path="res://src/assets/enemies_sprites/enemy1.png" id="2_1ywfu"]
 [ext_resource type="PackedScene" path="res://src/Player/exp/exp.tscn" id="2_utufr"]
+[ext_resource type="PackedScene" path="res://src/Player/heal/heal.tscn" id="3_3l7jv"]
 [ext_resource type="Texture2D" uid="uid://dvrj16ecdxyjl" path="res://src/assets/enemies_sprites/hurted_enemy1.png" id="4_6leix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utufr"]
@@ -12,6 +13,7 @@ size = Vector2(12.333334, 9.666667)
 scale = Vector2(3, 3)
 script = ExtResource("1_rcrw2")
 exp_scene = ExtResource("2_utufr")
+heal_scene = ExtResource("3_3l7jv")
 normal_texture = ExtResource("2_1ywfu")
 hurt_texture = ExtResource("4_6leix")
 
