@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://73bsucnawmc3"]
+
+[ext_resource type="Texture2D" uid="uid://dmrlesx1aahjp" path="res://dropUi/death.png" id="1_7lfr4"]
+
+[node name="Death" type="Node2D" unique_id=873719540]
+
+[node name="Control" type="Control" parent="." unique_id=1878066665]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1352031745]
+layout_mode = 0
+offset_right = 269.0
+offset_bottom = 481.0
+texture = ExtResource("1_7lfr4")

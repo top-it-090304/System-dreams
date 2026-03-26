@@ -33,6 +33,7 @@ var _options_data := [
 func _ready() -> void:
 	#process_mode, 2 == PROCESS_MODE_WHEN_PAUSED
 	process_mode = 2
+	layer = 20 
 	_randomize_and_apply_options()
 
 
