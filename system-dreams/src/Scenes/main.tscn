@@ -88,6 +88,7 @@ text = "HP: 0/0"
 offset_left = 4.0
 offset_top = 20.0
 text = "Time: 0.0"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1950706563]
 
 [node name="JoystickController" parent="CanvasLayer" unique_id=2019039376 instance=ExtResource("5_tx72l")]
