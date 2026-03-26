@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://73bsucnawmc3"]
 
 [ext_resource type="Texture2D" uid="uid://dmrlesx1aahjp" path="res://dropUi/death.png" id="1_7lfr4"]
+[ext_resource type="Script" uid="uid://0dt3ryuou1ys" path="res://src/Scenes/DeathScreen.gd" id="1_dmtfs"]
+[ext_resource type="Texture2D" uid="uid://du4d6vjyp2ulq" path="res://ui/base/death_restart_button.png" id="3_4q7u4"]
+[ext_resource type="Texture2D" uid="uid://bgs18abm5bcwx" path="res://ui/base/death_menu_button.png" id="4_v5ly4"]
 
-[node name="Death" type="Node2D" unique_id=873719540]
+[node name="DeathScreen" type="CanvasLayer" unique_id=91102058]
+script = ExtResource("1_dmtfs")
 
 [node name="Control" type="Control" parent="." unique_id=1878066665]
 layout_mode = 3
@@ -10,8 +14,25 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1352031745]
+[node name="BackGround" type="TextureRect" parent="Control" unique_id=1352031745]
 layout_mode = 0
 offset_right = 269.0
 offset_bottom = 481.0
 texture = ExtResource("1_7lfr4")
+
+[node name="GameOver" type="HBoxContainer" parent="Control" unique_id=1291868737]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 215.0
+offset_right = 245.0
+offset_bottom = 264.0
+
+[node name="RestartButton" type="Button" parent="Control/GameOver" unique_id=143155042]
+layout_mode = 2
+icon = ExtResource("3_4q7u4")
+flat = true
+
+[node name="MenuButton" type="Button" parent="Control/GameOver" unique_id=1569046608]
+layout_mode = 2
+icon = ExtResource("4_v5ly4")
+flat = true
