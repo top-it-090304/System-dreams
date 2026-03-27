@@ -106,30 +106,35 @@ func _apply_damage(amount: int) -> void:
 	if health <= 0:
 		_on_player_died()
 
-
 func _on_player_died() -> void:
 	print("Player died")
-	is_alive = false 
+	
+	const DEATH_SCREEN_SCENE := preload("res://src/Scenes/death.tscn")
+	
+	if not DEATH_SCREEN_SCENE:
+		print("ERROR: DEATH_SCREEN_SCENE is null!")
+		return
 	
 	velocity = Vector2.ZERO
-	SetDirection()
-	SetState()
-	UpdateAnimation()
-	_show_death_screen()
-   
-
-func _show_death_screen() -> void:
-	if not DEATH_SCREEN_SCENE:
-		return
-		
+	get_tree().paused = true
+	
 	var death_screen = DEATH_SCREEN_SCENE.instantiate()
+	print("Death screen instance: ", death_screen)
+	print("Death screen type: ", death_screen.get_class())
+	
+	# Проверяем кнопки внутри сцены
+	print("Has restart_btn: ", death_screen.has_node("VBoxContainer/RestartButton"))
+	print("Has menu_btn: ", death_screen.has_node("VBoxContainer/MenuButton"))
+	
+	get_tree().root.add_child(death_screen)
+	
 	if death_screen:
 		death_screen.restart_requested.connect(_on_death_screen_restart)
 		death_screen.menu_requested.connect(_on_death_screen_menu)
-		
-		get_tree().root.add_child(death_screen)
-		get_tree().paused = true
-
+	
+	SetDirection()
+	SetState()
+	UpdateAnimation()
 
 func _on_death_screen_restart() -> void:
 	# Перезагрузка текущей сцены
@@ -141,7 +146,7 @@ func _on_death_screen_restart() -> void:
 
 func _on_death_screen_menu() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
 
 func SetDirection() -> bool:
 	if direction == Vector2.ZERO:
