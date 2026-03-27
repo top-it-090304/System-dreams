@@ -46,9 +46,12 @@ offset_bottom = 179.0
 
 [node name="TimeLabel" type="Label" parent="Control/Recods" unique_id=1178033826]
 layout_mode = 2
+text = "Уровень: 1"
 
 [node name="MaxLevelLabel" type="Label" parent="Control/Recods" unique_id=568452135]
 layout_mode = 2
+text = "Рекорд уровня: 1"
 
 [node name="LevelLabel" type="Label" parent="Control/Recods" unique_id=1762059966]
 layout_mode = 2
+text = "Время: 00:00"
