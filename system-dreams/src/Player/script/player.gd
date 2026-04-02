@@ -21,6 +21,7 @@ var health: int
 var _invincibility_timer: float = 0.0
 var _hp_label: Label = null
 var _time_label: Label = null
+var _xp_label: Label = null
 var _run_time: float = 0.0
 @export var bullet_scene: PackedScene
 var bullet_damage_bonus: int = 0
@@ -41,6 +42,8 @@ func _ready():
 	_update_hp_ui()
 	
 	_time_label = get_tree().root.get_node_or_null("Main/HUD/TimeLabel")
+	_xp_label = get_tree().root.get_node_or_null("Main/HUD/XPLabel")
+	_update_xp_ui()
 	
 	print("Current level: ", level)
 
@@ -72,6 +75,7 @@ func _physics_process(_delta):
 	# Обновляем таймер забега
 	_run_time += _delta
 	_update_time_ui()
+	_update_xp_ui()
 	
 	# таймер неуязвимости после удара
 	if _invincibility_timer > 0.0:
@@ -212,11 +216,13 @@ func shoot(target):
 
 func add_xp(amount: int) -> void:
 	current_xp += amount
+	_update_xp_ui()
 	
 	while current_xp >= next_level_xp:
 		current_xp -= next_level_xp
 		level += 1
 		next_level_xp *= 2
+		_update_xp_ui()
 		_on_level_up()
 
 func heal(amount: int) -> void:
@@ -263,3 +269,7 @@ func _update_hp_ui() -> void:
 func _update_time_ui() -> void:
 	if _time_label:
 		_time_label.text = "				%.2f" % _run_time
+
+func _update_xp_ui() -> void:
+	if _xp_label:
+		_xp_label.text = "XP: %d/%d" % [current_xp, next_level_xp]
