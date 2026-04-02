@@ -8,11 +8,9 @@ signal menu_requested
 @onready var restart_btn: Button = $Control/GameOver/RestartButton
 @onready var menu_btn: Button = $Control/GameOver/MenuButton
 
-# Узлы для статистики
-@onready var time_label: Label = $Control/GameOver/MarginContainer/VBoxContainer/TimeLabel
-@onready var level_label: Label = $Control/GameOver/MarginContainer/VBoxContainer/LevelLabel
-@onready var max_level_label: Label = $Control/GameOver/MarginContainer/VBoxContainer/MaxLevelLabel
-
+@onready var time_label: Label = $Control/Records/TimeLabel
+@onready var level_label: Label = $Control/Records/LevelLabel
+@onready var max_level_label: Label = $Control/Records/MaxLevelLabel
 var session_time: float = 0.0
 var final_level: int = 1
 var max_level_ever: int = 1
@@ -23,34 +21,35 @@ func _ready() -> void:
 	
 	max_level_ever = _load_max_level()
 	
-	# НЕ вызываем _update_stats_ui() здесь!
 	
 	if restart_btn:
 		restart_btn.pressed.connect(_on_restart_pressed)
 	if menu_btn:
 		menu_btn.pressed.connect(_on_menu_pressed)
+		
+	if time_label:
+		time_label.text = "TEST"
 
 
 func init_stats(time: float, level: int) -> void:
+	print("init_stats called with time=", time, " level=", level)
 	session_time = time
 	final_level = level
 	
-	# Обновляем рекорд
 	if final_level > max_level_ever:
 		max_level_ever = final_level
 		save_max_level(max_level_ever)
-	
-	# Теперь обновляем UI с правильными данными
-	_update_stats_ui()
-# =============================
 
+	_update_stats_ui()
 
 func _update_stats_ui() -> void:
+	print("Updating UI: time_label=", time_label, " level_label=", level_label, " max_label=", max_level_label)
 	if time_label:
 		var minutes = int(session_time) / 60
 		var seconds = int(session_time) % 60
-		time_label.text = " Время: %02d:%02d" % [minutes, seconds]
-		print("Time label updated: ", time_label.text)  
+		var new_text = " Время: %02d:%02d" % [minutes, seconds]
+		print("Setting time text to: ", new_text)
+		time_label.text = new_text
 	
 	if level_label:
 		level_label.text = " Уровень: %d" % final_level

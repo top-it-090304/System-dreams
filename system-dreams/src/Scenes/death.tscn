@@ -37,18 +37,21 @@ layout_mode = 2
 icon = ExtResource("4_v5ly4")
 flat = true
 
-[node name="Recods" type="VBoxContainer" parent="Control" unique_id=104023553]
+[node name="Records" type="VBoxContainer" parent="Control" unique_id=104023553]
 layout_mode = 0
 offset_left = 70.0
 offset_top = 102.0
 offset_right = 212.0
 offset_bottom = 179.0
 
-[node name="TimeLabel" type="Label" parent="Control/Recods" unique_id=1178033826]
+[node name="TimeLabel" type="Label" parent="Control/Records" unique_id=1178033826]
 layout_mode = 2
+text = "time"
 
-[node name="MaxLevelLabel" type="Label" parent="Control/Recods" unique_id=568452135]
+[node name="MaxLevelLabel" type="Label" parent="Control/Records" unique_id=568452135]
 layout_mode = 2
+text = "max"
 
-[node name="LevelLabel" type="Label" parent="Control/Recods" unique_id=1762059966]
+[node name="LevelLabel" type="Label" parent="Control/Records" unique_id=1762059966]
 layout_mode = 2
+text = "cur"
