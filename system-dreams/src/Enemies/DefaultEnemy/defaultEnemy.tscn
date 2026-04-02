@@ -4,7 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bcqnlrk7ou50b" path="res://src/assets/enemies_sprites/enemy1.png" id="2_1ywfu"]
 [ext_resource type="PackedScene" path="res://src/Player/exp/exp.tscn" id="2_utufr"]
 [ext_resource type="PackedScene" path="res://src/Player/heal/heal.tscn" id="3_3l7jv"]
+[ext_resource type="Texture2D" path="res://src/assets/enemies_sprites/enemy1(1).png" id="4_b6g4m"]
 [ext_resource type="Texture2D" uid="uid://dvrj16ecdxyjl" path="res://src/assets/enemies_sprites/hurted_enemy1.png" id="4_6leix"]
+[ext_resource type="Texture2D" path="res://src/assets/enemies_sprites/enemy1(2).png" id="5_4s2u1"]
+[ext_resource type="Texture2D" path="res://src/assets/enemies_sprites/enemy1(3).png" id="6_jq1sb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utufr"]
 size = Vector2(12.333334, 9.666667)
@@ -15,6 +18,7 @@ script = ExtResource("1_rcrw2")
 exp_scene = ExtResource("2_utufr")
 heal_scene = ExtResource("3_3l7jv")
 normal_texture = ExtResource("2_1ywfu")
+normal_texture_variants = [ExtResource("2_1ywfu"), ExtResource("4_b6g4m"), ExtResource("5_4s2u1"), ExtResource("6_jq1sb")]
 hurt_texture = ExtResource("4_6leix")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1427238615 groups=["enemy"]]

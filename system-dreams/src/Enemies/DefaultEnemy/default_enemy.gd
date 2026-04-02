@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var heal_scene: PackedScene
 @export var heal_drop_chance: float = 0.1
 @export var normal_texture: Texture2D
+@export var normal_texture_variants: Array[Texture2D] = []
 @export var hurt_texture: Texture2D
 @export var hurt_time: float = 0.1
 
@@ -16,6 +17,9 @@ var _hurt_timer: float = 0.0
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
+
+	if not normal_texture_variants.is_empty():
+		normal_texture = normal_texture_variants[randi() % normal_texture_variants.size()]
 
 	if _sprite and normal_texture:
 		_sprite.texture = normal_texture
