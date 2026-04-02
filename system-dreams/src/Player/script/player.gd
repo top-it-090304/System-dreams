@@ -99,6 +99,7 @@ func _on_hit_by_enemy() -> void:
 	if not is_alive:  
 		return
 	
+	_flash_red()
 	_apply_damage(damage_from_enemy)
 	_invincibility_timer = invincibility_time
 
@@ -273,3 +274,9 @@ func _update_time_ui() -> void:
 func _update_xp_ui() -> void:
 	if _xp_label:
 		_xp_label.text = "XP: %d/%d" % [current_xp, next_level_xp]
+
+func _flash_red() -> void:
+	if sprite:
+		sprite.modulate = Color(1.0, 0.2, 0.2, 1.0)
+		var tween := get_tree().create_tween()
+		tween.tween_property(sprite, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.2)
