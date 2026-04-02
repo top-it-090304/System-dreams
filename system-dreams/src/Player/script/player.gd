@@ -10,8 +10,10 @@ var state : String = "idle"
 
 var level: int = 1
 var current_xp: int = 0
+var is_alive: bool = true 
 var next_level_xp: int = 10
 
+@export var DEATH_SCREEN_SCENE: PackedScene
 @export var max_health: int = 100
 @export var damage_from_enemy: int = 3
 @export var invincibility_time: float = 0.3
@@ -90,6 +92,8 @@ func _check_enemy_collisions() -> void:
 func _on_hit_by_enemy() -> void:
 	if _invincibility_timer > 0.0:
 		return
+	if not is_alive:  
+		return
 	
 	_apply_damage(damage_from_enemy)
 	_invincibility_timer = invincibility_time
@@ -101,15 +105,39 @@ func _apply_damage(amount: int) -> void:
 	
 	if health <= 0:
 		_on_player_died()
-
-
 func _on_player_died() -> void:
 	print("Player died")
-	queue_free()
+	
+	velocity = Vector2.ZERO
+	get_tree().paused = true
+	
+	const DEATH_SCREEN_SCENE := preload("res://src/Scenes/death.tscn")
+	
+	if not DEATH_SCREEN_SCENE:
+		return
+	
+	var death_screen = DEATH_SCREEN_SCENE.instantiate()
+	get_tree().root.add_child(death_screen)
+	
+	if death_screen:
+		death_screen.init_stats(_run_time, level)
+		death_screen.restart_requested.connect(_on_death_screen_restart)
+		death_screen.menu_requested.connect(_on_death_screen_menu)
 	
 	SetDirection()
 	SetState()
 	UpdateAnimation()
+
+func _on_death_screen_restart() -> void:
+	var current_scene = get_tree().current_scene.scene_file_path
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+  
+
+
+func _on_death_screen_menu() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
 
 func SetDirection() -> bool:
 	if direction == Vector2.ZERO:
