@@ -2,6 +2,11 @@ class_name Player
 extends CharacterBody2D
 
 
+signal health_updated(new_health, new_max_health)
+signal level_updated(new_level)
+
+
+
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
@@ -37,6 +42,8 @@ func _ready():
 		shoot_timer.wait_time = 0.25  
 	
 	health = max_health
+	health_updated.emit(health, max_health)
+	level_updated.emit(level)
 	
 	_hp_label = get_tree().root.get_node_or_null("Main/HUD/HPLabel")
 	_update_hp_ui()
@@ -107,9 +114,14 @@ func _on_hit_by_enemy() -> void:
 func _apply_damage(amount: int) -> void:
 	health -= amount
 	_update_hp_ui()
+	health_updated.emit(health, max_health) 
 	
 	if health <= 0:
 		_on_player_died()
+		
+	health_updated.emit(health, max_health)
+	
+	
 func _on_player_died() -> void:
 	print("Player died")
 	
@@ -229,10 +241,12 @@ func add_xp(amount: int) -> void:
 func heal(amount: int) -> void:
 	health = min(health + amount, max_health)
 	_update_hp_ui()
+	health_updated.emit(health, max_health)
 
 
 func _on_level_up() -> void:
 	print("Level up! New level: ", level)
+	level_updated.emit(level)
 	
 	if not LEVEL_UP_MENU_SCENE:
 		return
@@ -252,6 +266,7 @@ func _on_level_up_option_chosen(option_id: String) -> void:
 			max_health += 20
 			health = max_health
 			_update_hp_ui()
+			health_updated.emit(health, max_health) 
 		"move":
 			move_speed += 20.0
 		"shoot":
