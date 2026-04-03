@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cs4h51homajet" path="res://addons/versatile-mobile-joystick/default_textures/BaseJoystick.png" id="6_1dkgf"]
 [ext_resource type="Texture2D" uid="uid://bmdhjcypdf6t0" path="res://addons/versatile-mobile-joystick/default_textures/TipJoystick.png" id="7_vdiyp"]
 [ext_resource type="Script" uid="uid://cj0nb40ad0gkd" path="res://src/Scenes/camera_2d.gd" id="8_1dkgf"]
+[ext_resource type="PackedScene" uid="uid://dnw8mkrfkfgr3" path="res://src/Scenes/HUD.tscn" id="9_vdiyp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h6v6y"]
 texture = ExtResource("1_7j17x")
@@ -78,6 +79,7 @@ scale = Vector2(3, 3)
 enemy_scene = ExtResource("2_2av6j")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=987654321]
+visible = false
 
 [node name="HPLabel" type="Label" parent="HUD" unique_id=987654322]
 offset_left = 4.0
@@ -113,3 +115,5 @@ limit_bottom = 100000
 limit_smoothed = true
 script = ExtResource("8_1dkgf")
 target = NodePath("../Player")
+
+[node name="Hud" parent="." unique_id=1545635808 instance=ExtResource("9_vdiyp")]

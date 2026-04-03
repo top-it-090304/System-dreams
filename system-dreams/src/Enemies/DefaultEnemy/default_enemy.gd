@@ -16,7 +16,7 @@ var _hurt_timer: float = 0.0
 
 
 func _ready() -> void:
-	player = get_tree().get_first_node_in_group("Player")
+	player = get_tree().get_first_node_in_group("player")
 
 	if not normal_texture_variants.is_empty():
 		normal_texture = normal_texture_variants[randi() % normal_texture_variants.size()]
