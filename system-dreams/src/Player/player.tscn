@@ -133,15 +133,15 @@ _data = {
 &"walk_up": SubResource("Animation_0m8bu")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=1779298022 groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1779298022 groups=["player"]]
 script = ExtResource("1_rxibo")
 bullet_scene = ExtResource("2_chuli")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1581354019 groups=["Player"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1581354019 groups=["player"]]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_fdvkn")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1984181769 groups=["Player"]]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1984181769 groups=["player"]]
 position = Vector2(1, 4)
 texture = ExtResource("2_fdvkn")
 hframes = 21

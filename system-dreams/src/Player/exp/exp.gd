@@ -11,7 +11,7 @@ var _player: Node2D = null
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
-	_player = get_tree().get_first_node_in_group("Player")
+	_player = get_tree().get_first_node_in_group("player")
 
 func _physics_process(delta: float) -> void:
 	if not magnet_enabled:

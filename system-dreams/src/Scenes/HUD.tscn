@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c80lfjbhjp0d0" path="res://src/Scenes/hud.gd" id="1_kvnwt"]
 [ext_resource type="Texture2D" uid="uid://qh72tpub4wsj" path="res://ui/pause_button.png" id="2_7cpmb"]
+[ext_resource type="Texture2D" uid="uid://bidm8256or8kk" path="res://ui/Level_place.png" id="2_c15gx"]
+[ext_resource type="Texture2D" uid="uid://2h80careamth" path="res://ui/under_hp_bar.png" id="3_7cpmb"]
 [ext_resource type="Texture2D" uid="uid://dcxge3mtycgpu" path="res://ui/hp_bar.png" id="3_c15gx"]
 
 [node name="Hud" type="CanvasLayer" unique_id=1545635808]
@@ -16,6 +18,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="Container" unique_id=1671127936]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 11.0
+offset_right = 264.0
+offset_bottom = 39.0
+texture = ExtResource("2_c15gx")
+
 [node name="PauseButton" type="Button" parent="Container" unique_id=1501869449]
 layout_mode = 0
 offset_left = -7.0
@@ -26,16 +36,6 @@ scale = Vector2(4, 4)
 icon = ExtResource("2_7cpmb")
 flat = true
 
-[node name="HealthBar" type="TextureRect" parent="Container" unique_id=232344113]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 10.0
-offset_right = 147.0
-offset_bottom = 76.0
-scale = Vector2(3, 3)
-texture = ExtResource("3_c15gx")
-stretch_mode = 2
-
 [node name="LevelLabel" type="Label" parent="Container" unique_id=1565089002]
 layout_mode = 0
 offset_left = 241.0
@@ -43,3 +43,13 @@ offset_top = 13.0
 offset_right = 281.0
 offset_bottom = 36.0
 text = " 1"
+
+[node name="HealthBar" type="TextureProgressBar" parent="Container" unique_id=1664349747]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 10.0
+offset_right = 230.54546
+offset_bottom = 42.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_7cpmb")
+texture_progress = ExtResource("3_c15gx")
