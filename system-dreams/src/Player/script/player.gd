@@ -7,34 +7,37 @@ signal level_updated(new_level)
 
 
 
-
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
 var move_speed : float = 140.0
 var state : String = "idle"
-
 var level: int = 1
 var current_xp: int = 0
 var is_alive: bool = true 
 var next_level_xp: int = 10
+# как сильно пинают котенка
+var knockback_force: float = 500.0
+var _knockback_timer: float = 0.0
 
-@export var DEATH_SCREEN_SCENE: PackedScene
-@export var max_health: int = 100
-@export var damage_from_enemy: int = 3
-@export var invincibility_time: float = 0.3
 var health: int
 var _invincibility_timer: float = 0.0
 var _hp_label: Label = null
 var _time_label: Label = null
 var _xp_label: Label = null
 var _run_time: float = 0.0
-@export var bullet_scene: PackedScene
 var bullet_damage_bonus: int = 0
+
 const LEVEL_UP_MENU_SCENE := preload("res://ui/level_up_menu.tscn")
+
+@export var bullet_scene: PackedScene
+@export var DEATH_SCREEN_SCENE: PackedScene
+@export var max_health: int = 100
+@export var invincibility_time: float = 0.1
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var joystick = $JoystickUI/JoystickArea
+
 
 func _ready():
 	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
@@ -56,16 +59,25 @@ func _ready():
 
 	shoot_timer.wait_time = 1
 
-func _physics_process(_delta):
-	# Получаем ввод от джойстика
+func _physics_process(delta):
+	# уменьшения таймера неприкосаемости после пинка
+	if _invincibility_timer > 0.0:
+		_invincibility_timer -= delta
+	# уменьшения таймера для прекращения улета от пинка
+	if _knockback_timer > 0.0:
+		_knockback_timer -= delta
+		
+		# Во время отбрасывания управление котиком блокируется
+		move_and_slide()
+		_run_time += delta
+		_update_time_ui()
+		_update_xp_ui()
+		return  
+		
 	var joy_input = joystick.get_input_vector() if joystick else Vector2.ZERO
-	
-	# Получаем ввод от клавиатуры (для тестов на ПК)
 	var key_input = Vector2(
 		Input.get_axis("ui_left", "ui_right"),
 		Input.get_axis("ui_up", "ui_down"))
-	
-	# Используем джойстик если активен, иначе клавиатуру
 	if joy_input.length() > 0.1:
 		direction = joy_input
 	else:
@@ -73,54 +85,39 @@ func _physics_process(_delta):
 	
 	velocity = direction * move_speed
 	
-	# Обновляем состояние и анимацию в зависимости от направления движения
 	if SetState() or SetDirection():
 		UpdateAnimation()
 	
 	move_and_slide()
 	
-	# Обновляем таймер забега
-	_run_time += _delta
+	_run_time += delta
 	_update_time_ui()
 	_update_xp_ui()
+
+func take_damage(amount: int, knockback_direction: Vector2 = Vector2.ZERO) -> void:
+	_apply_damage(amount, knockback_direction)
 	
-	# таймер неуязвимости после удара
-	if _invincibility_timer > 0.0:
-		_invincibility_timer -= _delta
-	
-	_check_enemy_collisions()
 
+func _apply_damage(amount: int, knockback_direction: Vector2) -> void:
 
-func _check_enemy_collisions() -> void:
-	for i in range(get_slide_collision_count()):
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		if collider and collider.is_in_group("enemy"):
-			_on_hit_by_enemy()
-			break
-
-
-func _on_hit_by_enemy() -> void:
 	if _invincibility_timer > 0.0:
 		return
-	if not is_alive:  
-		return
 	
-	_flash_red()
-	_apply_damage(damage_from_enemy)
-	_invincibility_timer = invincibility_time
-
-
-func _apply_damage(amount: int) -> void:
 	health -= amount
+	_invincibility_timer = invincibility_time  
+	_flash_red()                               
+	
+	
+	if knockback_direction != Vector2.ZERO:
+		_knockback_timer = 0.10
+		velocity = knockback_direction * knockback_force
+	
 	_update_hp_ui()
-	health_updated.emit(health, max_health) 
+	health_updated.emit(health, max_health)
 	
 	if health <= 0:
 		_on_player_died()
-		
-	health_updated.emit(health, max_health)
-	
+
 	
 func _on_player_died() -> void:
 	print("Player died")

@@ -4,6 +4,13 @@
 [ext_resource type="Script" uid="uid://0dt3ryuou1ys" path="res://src/Scenes/DeathScreen.gd" id="1_dmtfs"]
 [ext_resource type="Texture2D" uid="uid://du4d6vjyp2ulq" path="res://ui/base/death_restart_button.png" id="3_4q7u4"]
 [ext_resource type="Texture2D" uid="uid://bgs18abm5bcwx" path="res://ui/base/death_menu_button.png" id="4_v5ly4"]
+[ext_resource type="FontFile" uid="uid://d13h3oltd154h" path="res://src/assets/LCD5x8HRU.ttf" id="5_4q7u4"]
+
+[sub_resource type="FontVariation" id="FontVariation_v5ly4"]
+base_font = ExtResource("5_4q7u4")
+
+[sub_resource type="FontVariation" id="FontVariation_g40y4"]
+base_font = ExtResource("5_4q7u4")
 
 [node name="DeathScreen" type="CanvasLayer" unique_id=91102058]
 script = ExtResource("1_dmtfs")
@@ -38,20 +45,31 @@ icon = ExtResource("4_v5ly4")
 flat = true
 
 [node name="Records" type="VBoxContainer" parent="Control" unique_id=104023553]
+clip_contents = true
 layout_mode = 0
-offset_left = 70.0
-offset_top = 102.0
-offset_right = 212.0
-offset_bottom = 179.0
+offset_left = 62.0
+offset_top = 82.0
+offset_right = 214.0
+offset_bottom = 227.0
+alignment = 1
 
 [node name="TimeLabel" type="Label" parent="Control/Records" unique_id=1178033826]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.16078432, 0.13333334, 0.21568628, 1)
+theme_override_fonts/font = SubResource("FontVariation_v5ly4")
 text = "time"
+horizontal_alignment = 1
 
 [node name="MaxLevelLabel" type="Label" parent="Control/Records" unique_id=568452135]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.16078432, 0.13725491, 0.21176471, 1)
+theme_override_fonts/font = SubResource("FontVariation_g40y4")
 text = "max"
+horizontal_alignment = 1
 
 [node name="LevelLabel" type="Label" parent="Control/Records" unique_id=1762059966]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.16078432, 0.13333334, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("5_4q7u4")
 text = "cur"
+horizontal_alignment = 1
