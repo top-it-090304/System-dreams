@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://5wne2ydj1dtl"]
+
+[ext_resource type="Texture2D" uid="uid://drfnnl0clau5c" path="res://ui/base/base_back.png" id="1_04pby"]
+[ext_resource type="Texture2D" uid="uid://dfibuyjqbpaoc" path="res://dropUi/dmgUp.png" id="2_uoan1"]
+
+[node name="Settings" type="CanvasLayer" unique_id=1886999747]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1711862640]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_04pby")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1098984363]
+offset_left = 44.0
+offset_top = 93.0
+offset_right = 228.0
+offset_bottom = 341.0
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=268611816]
+layout_mode = 2
+icon = ExtResource("2_uoan1")
+flat = true
+text_overrun_behavior = 2
+autowrap_trim_flags = 192
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1016975006]
+layout_mode = 2
+text = "звук всей игры"
+
+[node name="HSlider2" type="HSlider" parent="VBoxContainer" unique_id=1961387289]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1667070318]
+layout_mode = 2
+text = "звуки врагов"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer" unique_id=356328721]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1642400319]
+layout_mode = 2
+text = "музыка"
+
+[node name="HSlider3" type="HSlider" parent="VBoxContainer" unique_id=1781288809]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=128460622]
+layout_mode = 2
+icon = ExtResource("2_uoan1")
+flat = true

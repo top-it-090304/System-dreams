@@ -8,6 +8,7 @@ class_name HUD
 
 
 var player: Player
+var pause_menu_instance: Node = null 
 
 func _ready():
 	process_mode = PROCESS_MODE_ALWAYS
@@ -40,5 +41,25 @@ func _on_level_updated(new_level: int):
 	level_label.text = str(new_level)
 	
 func _on_pause_pressed():
-	get_tree().paused = !get_tree().paused
-	print("Paused: ", get_tree().paused)
+	if pause_menu_instance == null:
+		_show_pause_menu()
+	else:
+		_hide_pause_menu()
+
+func _show_pause_menu():
+	var pause_scene = load("res://src/Scenes/Pause.tscn")  
+	if pause_scene == null:
+		print("Ошибка: не удалось загрузить сцену паузы! Проверьте путь.")
+		return
+	pause_menu_instance = pause_scene.instantiate()
+	get_tree().root.add_child(pause_menu_instance)
+	get_tree().paused = true
+
+
+func _hide_pause_menu():
+	if pause_menu_instance:
+		
+		pause_menu_instance.queue_free()
+		pause_menu_instance = null
+	
+		get_tree().paused = false
