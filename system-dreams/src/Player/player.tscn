@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://kca4335hfy3k" path="res://src/Player/bullet/cursor.tscn" id="2_chuli"]
 [ext_resource type="Texture2D" uid="uid://sdwh3x7rjot4" path="res://src/assets/animated_shits/sprites_character.png" id="2_fdvkn"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fdvkn"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_chuli"]
+radius = 8.0
+height = 22.0
 
 [sub_resource type="Animation" id="Animation_chuli"]
 length = 0.001
@@ -138,8 +140,8 @@ script = ExtResource("1_rxibo")
 bullet_scene = ExtResource("2_chuli")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1581354019 groups=["player"]]
-position = Vector2(0, 5)
-shape = SubResource("CircleShape2D_fdvkn")
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_chuli")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1984181769 groups=["player"]]
 position = Vector2(1, 4)

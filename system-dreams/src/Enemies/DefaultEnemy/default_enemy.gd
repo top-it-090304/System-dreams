@@ -1,7 +1,8 @@
 extends CharacterBody2D
-
-@export var speed: float = 20
+@export var speed = 20;
+@export var speed_variants: Array[float]= [100.0, 200.0 ,70.0, 85.0]
 @export var health: int = 100
+@export var health_variants: Array[int]= [100, 10, 50, 66, 200]
 @export var exp_scene: PackedScene
 @export var heal_scene: PackedScene
 @export var heal_drop_chance: float = 0.1
@@ -9,34 +10,55 @@ extends CharacterBody2D
 @export var normal_texture_variants: Array[Texture2D] = []
 @export var hurt_texture: Texture2D
 @export var hurt_time: float = 0.1
-
-var player: Node2D = null
-var _hurt_timer: float = 0.0
+@export var attack_range: float = 70.0
+@export var attack_cooldown: float = 0.8
 @onready var _sprite: Sprite2D = $Sprite2D
+@export var damage: int = 10  
 
+var _attack_timer: float = 0.0
+var _hurt_timer: float = 0.0
+var player: Node2D = null
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
-
+	#рандомизация врагов по цвету, hp и скорости
+	if not speed_variants.is_empty():
+		speed = speed_variants[randi() % speed_variants.size()]
+	if not health_variants.is_empty():
+		health = health_variants[randi() % health_variants.size()]
 	if not normal_texture_variants.is_empty():
 		normal_texture = normal_texture_variants[randi() % normal_texture_variants.size()]
-
 	if _sprite and normal_texture:
 		_sprite.texture = normal_texture
 
-
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if player:
-		var direction := (player.global_position - global_position).normalized()
-		velocity = direction * speed
-		move_and_slide()
+		var distance_to_player = global_position.distance_to(player.global_position)
+		if distance_to_player > attack_range:
+			var direction = (player.global_position - global_position).normalized()
+			velocity = direction * speed
+			move_and_slide()
+		else:
+			velocity = Vector2.ZERO
+			move_and_slide()
+			
+			if _attack_timer <= 0.0:
+				attack()
+				_attack_timer = attack_cooldown
+			else:
+				_attack_timer -= delta
 	
 	if _hurt_timer > 0.0:
-		_hurt_timer -= _delta
+		_hurt_timer -= delta
 		if _hurt_timer <= 0.0 and _sprite and normal_texture:
 			_sprite.texture = normal_texture
-
-
+			
+func attack() -> void:
+	if player and player.has_method("take_damage"):
+		var direction_to_player = (player.global_position - global_position).normalized()
+		
+		player.take_damage(damage, direction_to_player)
+		
 func take_damage(amount: int) -> void:
 	health -= amount
 	
@@ -60,3 +82,6 @@ func die() -> void:
 		get_parent().add_child(exp)
 	
 	queue_free()
+	
+	
+	
