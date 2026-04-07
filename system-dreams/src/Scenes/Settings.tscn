@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://5wne2ydj1dtl"]
+
+[ext_resource type="Script" uid="uid://dul4mu47arh4d" path="res://src/Scenes/settings.gd" id="1_obkvi"]
+[ext_resource type="Texture2D" uid="uid://bfqspwd2k2u7k" path="res://ui/base/pause_back.png" id="2_jhvp6"]
+[ext_resource type="Texture2D" uid="uid://b3wqnfqwn264h" path="res://ui/base/back_button.png" id="3_yfv6p"]
+[ext_resource type="Texture2D" uid="uid://beodq1br1ry22" path="res://ui/base/slider.png" id="4_o2id4"]
+[ext_resource type="Texture2D" uid="uid://c04yc1utxivif" path="res://ui/base/Sprite-0001.png" id="5_t23tx"]
+
+[node name="Settings" type="CanvasLayer" unique_id=1886999747]
+script = ExtResource("1_obkvi")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1711862640]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_jhvp6")
+
+[node name="Control" type="Control" parent="." unique_id=1968262533]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1098984363]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 93.0
+offset_right = 234.0
+offset_bottom = 430.0
+
+[node name="settings_back" type="Button" parent="Control/VBoxContainer" unique_id=268611816]
+layout_mode = 2
+icon = ExtResource("3_yfv6p")
+flat = true
+text_overrun_behavior = 2
+autowrap_trim_flags = 192
+
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=1016975006]
+layout_mode = 2
+text = "звук всей игры"
+
+[node name="HSlider2" type="HSlider" parent="Control/VBoxContainer" unique_id=1961387289]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("4_o2id4")
+theme_override_icons/grabber_highlight = ExtResource("4_o2id4")
+theme_override_icons/grabber_disabled = ExtResource("4_o2id4")
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer" unique_id=1667070318]
+layout_mode = 2
+text = "звуки врагов"
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer" unique_id=356328721]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("4_o2id4")
+theme_override_icons/grabber_highlight = ExtResource("4_o2id4")
+theme_override_icons/grabber_disabled = ExtResource("4_o2id4")
+
+[node name="Label3" type="Label" parent="Control/VBoxContainer" unique_id=1642400319]
+layout_mode = 2
+text = "музыка"
+
+[node name="HSlider3" type="HSlider" parent="Control/VBoxContainer" unique_id=1781288809]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("4_o2id4")
+theme_override_icons/grabber_highlight = ExtResource("4_o2id4")
+theme_override_icons/grabber_disabled = ExtResource("4_o2id4")
+
+[node name="reset_progress" type="Button" parent="Control/VBoxContainer" unique_id=128460622]
+layout_mode = 2
+icon = ExtResource("5_t23tx")
+flat = true
+
+[connection signal="pressed" from="Control/VBoxContainer/settings_back" to="." method="_on_settings_back_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/reset_progress" to="." method="_on_reset_progress_pressed"]

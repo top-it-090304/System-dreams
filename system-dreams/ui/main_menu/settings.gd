@@ -1,5 +1,6 @@
 extends Button
 
+var settings_menu_instance: Node = null 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,4 +11,17 @@ func _process(_delta: float) -> void:
 	
 	
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file("res://ui/setting/settings.tscn")
+	var pause_scene = load("res://src/Scenes/Settings.tscn")  
+	if pause_scene == null:
+		print("Ошибка: не удалось загрузить сцену настроек! Проверьте путь.")
+		return
+
+	settings_menu_instance = pause_scene.instantiate()
+	get_tree().root.add_child(settings_menu_instance)
+
+
+func _hide_settings_menu():
+	if settings_menu_instance:
+		settings_menu_instance.queue_free()
+		settings_menu_instance = null
+	
