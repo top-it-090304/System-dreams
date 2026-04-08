@@ -28,6 +28,7 @@ var _run_time: float = 0.0
 var bullet_damage_bonus: int = 0
 
 const LEVEL_UP_MENU_SCENE := preload("res://ui/level_up_menu.tscn")
+const DAMAGE_SFX_STREAM := preload("res://src/music/playerGetDamage.mp3")
 
 @export var bullet_scene: PackedScene
 @export var DEATH_SCREEN_SCENE: PackedScene
@@ -37,9 +38,15 @@ const LEVEL_UP_MENU_SCENE := preload("res://ui/level_up_menu.tscn")
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var joystick = $JoystickUI/JoystickArea
+var _damage_sfx_player: AudioStreamPlayer
 
 
 func _ready():
+	_damage_sfx_player = AudioStreamPlayer.new()
+	_damage_sfx_player.stream = DAMAGE_SFX_STREAM
+	_damage_sfx_player.bus = "Master"
+	add_child(_damage_sfx_player)
+
 	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
 	if shoot_timer.wait_time == 0:
 		shoot_timer.wait_time = 0.25  
@@ -105,6 +112,8 @@ func _apply_damage(amount: int, knockback_direction: Vector2) -> void:
 	
 	health -= amount
 	_invincibility_timer = invincibility_time  
+	if _damage_sfx_player:
+		_damage_sfx_player.play()
 	_flash_red()                               
 	
 	
