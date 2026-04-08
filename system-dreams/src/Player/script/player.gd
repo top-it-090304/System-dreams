@@ -143,14 +143,15 @@ func _on_player_died() -> void:
 	UpdateAnimation()
 
 func _on_death_screen_restart() -> void:
-	var current_scene = get_tree().current_scene.scene_file_path
 	get_tree().paused = false
+	MusicManager.play_gameplay_music()
 	get_tree().reload_current_scene()
   
 
 
 func _on_death_screen_menu() -> void:
 	get_tree().paused = false
+	MusicManager.play_menu_music()
 	get_tree().change_scene_to_file("res://ui/main_menu/main_menu.tscn")
 
 func SetDirection() -> bool:
