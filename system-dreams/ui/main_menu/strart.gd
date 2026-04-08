@@ -11,6 +11,7 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_pressed() -> void:
+	MusicManager.play_gameplay_music()
 	get_tree().change_scene_to_file("res://src/Scenes/main.tscn")
 
 
