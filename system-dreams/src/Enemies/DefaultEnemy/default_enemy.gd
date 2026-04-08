@@ -13,13 +13,22 @@ extends CharacterBody2D
 @export var attack_range: float = 70.0
 @export var attack_cooldown: float = 0.8
 @onready var _sprite: Sprite2D = $Sprite2D
-@export var damage: int = 10  
+@export var damage: int = 10
+const ENEMY_DAMAGE_SFX_STREAM := preload("res://src/music/enemyGetDamage.mp3")
+const BUS_ENEMIES_PRIMARY := "Enemies"
+const BUS_ENEMIES_FALLBACK := "SFX"
 
 var _attack_timer: float = 0.0
 var _hurt_timer: float = 0.0
 var player: Node2D = null
+var _damage_sfx_player: AudioStreamPlayer
 
 func _ready() -> void:
+	_damage_sfx_player = AudioStreamPlayer.new()
+	_damage_sfx_player.stream = ENEMY_DAMAGE_SFX_STREAM
+	_damage_sfx_player.bus = _resolve_enemy_sfx_bus()
+	add_child(_damage_sfx_player)
+
 	player = get_tree().get_first_node_in_group("player")
 	#рандомизация врагов по цвету, hp и скорости
 	if not speed_variants.is_empty():
@@ -61,6 +70,8 @@ func attack() -> void:
 		
 func take_damage(amount: int) -> void:
 	health -= amount
+	if _damage_sfx_player:
+		_damage_sfx_player.play()
 	
 	if _sprite and hurt_texture:
 		_sprite.texture = hurt_texture
@@ -82,6 +93,11 @@ func die() -> void:
 		get_parent().add_child(exp)
 	
 	queue_free()
-	
-	
-	
+
+
+func _resolve_enemy_sfx_bus() -> String:
+	if AudioServer.get_bus_index(BUS_ENEMIES_PRIMARY) != -1:
+		return BUS_ENEMIES_PRIMARY
+	if AudioServer.get_bus_index(BUS_ENEMIES_FALLBACK) != -1:
+		return BUS_ENEMIES_FALLBACK
+	return "Master"
