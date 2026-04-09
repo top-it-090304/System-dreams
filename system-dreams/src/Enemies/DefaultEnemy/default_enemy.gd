@@ -76,6 +76,7 @@ func attack() -> void:
 func take_damage(amount: int) -> void:
 	health -= amount
 	if _damage_sfx_player:
+		_damage_sfx_player.volume_db = _get_enemy_sfx_volume_db()
 		_damage_sfx_player.play()
 	
 	if _sprite and hurt_texture:

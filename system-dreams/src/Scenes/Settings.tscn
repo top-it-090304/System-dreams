@@ -46,7 +46,7 @@ theme_override_icons/grabber_disabled = ExtResource("4_o2id4")
 
 [node name="Label2" type="Label" parent="Control/VBoxContainer" unique_id=1667070318]
 layout_mode = 2
-text = "звуки врагов"
+text = "звуки эффектов"
 
 [node name="HSlider" type="HSlider" parent="Control/VBoxContainer" unique_id=356328721]
 layout_mode = 2

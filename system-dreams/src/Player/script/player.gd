@@ -29,6 +29,9 @@ var bullet_damage_bonus: int = 0
 
 const LEVEL_UP_MENU_SCENE := preload("res://ui/level_up_menu.tscn")
 const DAMAGE_SFX_STREAM := preload("res://src/music/playerGetDamage.mp3")
+const AUDIO_SETTINGS_PATH := "user://audio_settings.cfg"
+const AUDIO_SETTINGS_SECTION := "audio"
+const AUDIO_ENEMIES_KEY := "enemies"
 
 @export var bullet_scene: PackedScene
 @export var DEATH_SCREEN_SCENE: PackedScene
@@ -45,6 +48,7 @@ func _ready():
 	_damage_sfx_player = AudioStreamPlayer.new()
 	_damage_sfx_player.stream = DAMAGE_SFX_STREAM
 	_damage_sfx_player.bus = "Master"
+	_damage_sfx_player.volume_db = _get_combat_sfx_volume_db()
 	add_child(_damage_sfx_player)
 
 	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
@@ -113,6 +117,7 @@ func _apply_damage(amount: int, knockback_direction: Vector2) -> void:
 	health -= amount
 	_invincibility_timer = invincibility_time  
 	if _damage_sfx_player:
+		_damage_sfx_player.volume_db = _get_combat_sfx_volume_db()
 		_damage_sfx_player.play()
 	_flash_red()                               
 	
@@ -302,3 +307,15 @@ func _flash_red() -> void:
 		sprite.modulate = Color(1.0, 0.2, 0.2, 1.0)
 		var tween := get_tree().create_tween()
 		tween.tween_property(sprite, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.2)
+
+
+func _get_combat_sfx_volume_db() -> float:
+	var config := ConfigFile.new()
+	var err := config.load(AUDIO_SETTINGS_PATH)
+	var linear := 1.0
+
+	if err == OK:
+		linear = float(config.get_value(AUDIO_SETTINGS_SECTION, AUDIO_ENEMIES_KEY, 1.0))
+
+	linear = clampf(linear, 0.0, 1.0)
+	return linear_to_db(linear) if linear > 0.0 else -80.0
