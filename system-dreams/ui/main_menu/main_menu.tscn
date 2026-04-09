@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cs52caresdf34" path="res://ui/main_menu/button_tuttorial.png" id="5_3c04x"]
 [ext_resource type="Script" uid="uid://bo8r1m0kcwcej" path="res://ui/main_menu/settings.gd" id="5_joh67"]
 [ext_resource type="Script" uid="uid://x4dlkujbe1a0" path="res://ui/main_menu/button.gd" id="7_u184e"]
-[ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="8_music"]
+[ext_resource type="Script" uid="uid://lkypwojeci6e" path="res://ui/main_menu/main_menu.gd" id="8_music"]
 
 [node name="main_menu" type="Node2D" unique_id=1349091975]
 script = ExtResource("8_music")

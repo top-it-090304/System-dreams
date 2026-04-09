@@ -22,10 +22,13 @@ MusicManager="*res://src/music/music_manager.gd"
 
 window/size/viewport_width=270
 window/size/viewport_height=480
+window/size/initial_position_type=0
 window/size/window_width_override=540
 window/size/window_height_override=960
 window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
+window/handheld/orientation=1
 
 [global_group]
 
@@ -64,7 +67,6 @@ right={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
-pointing/emulate_mouse_from_touch=false
 
 [physics]
 
@@ -76,3 +78,4 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

@@ -12,6 +12,7 @@ const BUS_ENEMIES_FALLBACK := "SFX"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	process_mode = PROCESS_MODE_ALWAYS 
 	layer = 30
 	MusicManager.play_menu_music()
