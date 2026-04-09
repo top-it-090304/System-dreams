@@ -15,8 +15,12 @@ extends CharacterBody2D
 @onready var _sprite: Sprite2D = $Sprite2D
 @export var damage: int = 10
 const ENEMY_DAMAGE_SFX_STREAM := preload("res://src/music/enemyGetDamage.mp3")
+const ENEMY_DEATH_SFX_STREAM := preload("res://src/music/enemyDeath.mp3")
 const BUS_ENEMIES_PRIMARY := "Enemies"
 const BUS_ENEMIES_FALLBACK := "SFX"
+const AUDIO_SETTINGS_PATH := "user://audio_settings.cfg"
+const AUDIO_SETTINGS_SECTION := "audio"
+const AUDIO_ENEMIES_KEY := "enemies"
 
 var _attack_timer: float = 0.0
 var _hurt_timer: float = 0.0
@@ -27,6 +31,7 @@ func _ready() -> void:
 	_damage_sfx_player = AudioStreamPlayer.new()
 	_damage_sfx_player.stream = ENEMY_DAMAGE_SFX_STREAM
 	_damage_sfx_player.bus = _resolve_enemy_sfx_bus()
+	_damage_sfx_player.volume_db = _get_enemy_sfx_volume_db()
 	add_child(_damage_sfx_player)
 
 	player = get_tree().get_first_node_in_group("player")
@@ -82,6 +87,8 @@ func take_damage(amount: int) -> void:
 
 
 func die() -> void:
+	_play_death_sfx()
+
 	# иногда вместо опыта падает хилка
 	if heal_scene and randf() < heal_drop_chance:
 		var heal = heal_scene.instantiate()
@@ -101,3 +108,25 @@ func _resolve_enemy_sfx_bus() -> String:
 	if AudioServer.get_bus_index(BUS_ENEMIES_FALLBACK) != -1:
 		return BUS_ENEMIES_FALLBACK
 	return "Master"
+
+
+func _play_death_sfx() -> void:
+	var audio := AudioStreamPlayer.new()
+	audio.stream = ENEMY_DEATH_SFX_STREAM
+	audio.bus = _resolve_enemy_sfx_bus()
+	audio.volume_db = _get_enemy_sfx_volume_db()
+	get_tree().root.add_child(audio)
+	audio.finished.connect(audio.queue_free)
+	audio.play()
+
+
+func _get_enemy_sfx_volume_db() -> float:
+	var config := ConfigFile.new()
+	var err := config.load(AUDIO_SETTINGS_PATH)
+	var linear := 1.0
+
+	if err == OK:
+		linear = float(config.get_value(AUDIO_SETTINGS_SECTION, AUDIO_ENEMIES_KEY, 1.0))
+
+	linear = clampf(linear, 0.0, 1.0)
+	return linear_to_db(linear) if linear > 0.0 else -80.0
