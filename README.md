@@ -5,7 +5,8 @@
 **эстетика культуры раннего интернета (2000-2010 годов), глитч-арт**
 
 #Скриншоты
-![Image_0](for_read_me/image_2026-04-10_06-23-35.png)
-![Image](for_read_me/image1.png)
-![Image_2](for_read_me/image2.png)
+| Геймплэй               | Настройки              | Экран смерти           |
+| ---------------------- | ---------------------- | ---------------------- |
+| ![Image_0](for_read_me/image_2026-04-10_06-23-35.png) | ![Image](for_read_me/image1.png) | ![Image_2](for_read_me/image2.png) |
+
 
