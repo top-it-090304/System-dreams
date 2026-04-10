@@ -6,6 +6,6 @@
 
 #Скриншоты
 ![Image_0](for_read_me/image_2026-04-10_06-23-35.png)
-![Image](for_read_me/image_2026-04-10_06-23-35(3).png)
-![Image_2](for_read_me/image_2026-04-10_06-23-35(2).png)
+![Image](for_read_me/image_2026-04-10_06-23-35 (3).png)
+![Image_2](for_read_me/image_2026-04-10_06-23-35 (2).png)
 
