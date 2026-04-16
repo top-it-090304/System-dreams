@@ -1,17 +1,16 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://6s6jqxnvbdan"]
 
-[ext_resource type="Script" path="res://src/Player/heal/heal.gd" id="1_q8p3n"]
-[ext_resource type="Texture2D" path="res://src/assets/drop/heal.png" id="2_q8p3n"]
+[ext_resource type="Script" uid="uid://d0cldkntjhggf" path="res://src/Player/heal/heal.gd" id="1_q8p3n"]
+[ext_resource type="Texture2D" uid="uid://b553uei80ee1k" path="res://src/assets/drop/heal.png" id="2_q8p3n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_heal"]
 radius = 4.0
 
-[node name="Heal" type="Area2D"]
+[node name="Heal" type="Area2D" unique_id=1480012742]
 script = ExtResource("1_q8p3n")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1895002932]
 texture = ExtResource("2_q8p3n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1781761849]
 shape = SubResource("CircleShape2D_heal")
-
