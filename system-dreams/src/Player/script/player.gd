@@ -14,7 +14,7 @@ var state : String = "idle"
 var level: int = 1
 var current_xp: int = 0
 var is_alive: bool = true 
-var next_level_xp: int = 10
+var next_level_xp: int = 1
 # как сильно пинают котенка
 var knockback_force: float = 500.0
 var _knockback_timer: float = 0.0
@@ -246,7 +246,7 @@ func add_xp(amount: int) -> void:
 	while current_xp >= next_level_xp:
 		current_xp -= next_level_xp
 		level += 1
-		next_level_xp *= 2
+		next_level_xp += 1
 		_update_xp_ui()
 		_on_level_up()
 
