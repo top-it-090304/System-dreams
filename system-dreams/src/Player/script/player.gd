@@ -9,7 +9,7 @@ signal level_updated(new_level)
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
-var move_speed : float = 140.0
+var move_speed : float = 170.0
 var state : String = "idle"
 var level: int = 1
 var current_xp: int = 0
