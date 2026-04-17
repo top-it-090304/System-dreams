@@ -1,13 +1,8 @@
 [gd_scene format=3 uid="uid://bsetmijj7jl7x"]
 
-[ext_resource type="Script" uid="uid://cf55bp8bjcn4v" path="res://scripts/level_up_menu.gd" id="1_vkps6"]
-[ext_resource type="Texture2D" uid="uid://dduk5cq7f12n3" path="res://sprites/ui/drop_menu.png" id="2_l261j"]
-[ext_resource type="Texture2D" uid="uid://d11rhxk7bnjfo" path="res://sprites/ui/hpUp.png" id="3_ixuu3"]
-[ext_resource type="Texture2D" uid="uid://dcqxvcuv6471c" path="res://sprites/ui/shootUp.png" id="4_uklwp"]
-[ext_resource type="Texture2D" uid="uid://du13hsgk4byuv" path="res://sprites/ui/moveUp.png" id="5_jpc1i"]
+[ext_resource type="Texture2D" uid="uid://hb60d13syc4y" path="res://sprites/ui/push_up.png" id="1_iqehe"]
 
 [node name="LevelUpMenu" type="CanvasLayer" unique_id=1084969996]
-script = ExtResource("1_vkps6")
 
 [node name="Control" type="Control" parent="." unique_id=593504272]
 layout_mode = 3
@@ -17,21 +12,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="TextureRect" parent="Control" unique_id=940783725]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control" unique_id=1448963277]
+texture_filter = 1
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -160.0
-offset_right = 80.0
-offset_bottom = 160.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_l261j")
-stretch_mode = 1
+texture = ExtResource("1_iqehe")
+patch_margin_left = 25
+patch_margin_top = 61
+patch_margin_right = 113
+patch_margin_bottom = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1139199042]
 layout_mode = 1
@@ -60,7 +53,6 @@ offset_left = -18.0
 offset_top = 10.0
 offset_right = 158.0
 offset_bottom = 67.0
-texture = ExtResource("3_ixuu3")
 stretch_mode = 3
 
 [node name="Option2" type="Button" parent="Control/VBoxContainer" unique_id=485419594]
@@ -74,7 +66,6 @@ offset_left = -19.0
 offset_top = 6.0
 offset_right = 157.0
 offset_bottom = 63.0
-texture = ExtResource("4_uklwp")
 stretch_mode = 3
 
 [node name="Option3" type="Button" parent="Control/VBoxContainer" unique_id=1954516981]
@@ -88,5 +79,4 @@ offset_left = -19.0
 offset_top = 3.0
 offset_right = 156.0
 offset_bottom = 60.0
-texture = ExtResource("5_jpc1i")
 stretch_mode = 3
