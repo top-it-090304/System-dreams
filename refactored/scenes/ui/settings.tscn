@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cwr105tw6121k"]
+
+[ext_resource type="Script" uid="uid://crqoaneubmlxq" path="res://scripts/settings.gd" id="1_ptynm"]
+[ext_resource type="Texture2D" uid="uid://cvjk7kytbh1nj" path="res://sprites/ui/pause_back.png" id="2_ncfhn"]
+[ext_resource type="Texture2D" uid="uid://bx4dcc4a3avae" path="res://sprites/ui/back_button.png" id="3_ob3hf"]
+[ext_resource type="Texture2D" uid="uid://yxirkyur1nid" path="res://sprites/ui/Sprite-0001.png" id="4_4xk3x"]
+
+[node name="Settings" type="CanvasLayer" unique_id=1886999747]
+script = ExtResource("1_ptynm")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1711862640]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ncfhn")
+
+[node name="Control" type="Control" parent="." unique_id=1968262533]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1098984363]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 93.0
+offset_right = 234.0
+offset_bottom = 430.0
+
+[node name="settings_back" type="Button" parent="Control/VBoxContainer" unique_id=268611816]
+layout_mode = 2
+icon = ExtResource("3_ob3hf")
+flat = true
+text_overrun_behavior = 2
+autowrap_trim_flags = 192
+
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=1016975006]
+layout_mode = 2
+text = "звук всей игры"
+
+[node name="HSlider2" type="HSlider" parent="Control/VBoxContainer" unique_id=1961387289]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer" unique_id=1667070318]
+layout_mode = 2
+text = "звуки эффектов"
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer" unique_id=356328721]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Control/VBoxContainer" unique_id=1642400319]
+layout_mode = 2
+text = "музыка"
+
+[node name="HSlider3" type="HSlider" parent="Control/VBoxContainer" unique_id=1781288809]
+layout_mode = 2
+
+[node name="reset_progress" type="Button" parent="Control/VBoxContainer" unique_id=128460622]
+layout_mode = 2
+icon = ExtResource("4_4xk3x")
+flat = true
+
+[connection signal="pressed" from="Control/VBoxContainer/settings_back" to="." method="_on_settings_back_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/reset_progress" to="." method="_on_reset_progress_pressed"]

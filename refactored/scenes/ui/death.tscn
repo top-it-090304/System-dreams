@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://73bsucnawmc3"]
+
+[ext_resource type="Script" uid="uid://cn74nhm4ynhsn" path="res://scripts/death.gd" id="1_bvjni"]
+[ext_resource type="Texture2D" uid="uid://bvdpnr306frmi" path="res://sprites/ui/death.png" id="2_ci7ue"]
+[ext_resource type="Texture2D" uid="uid://b4eyhka3f27ke" path="res://sprites/ui/death_restart_button.png" id="3_nb7wh"]
+[ext_resource type="Texture2D" uid="uid://c5ca3oi7tfuta" path="res://sprites/ui/death_menu_button.png" id="4_41m72"]
+
+[sub_resource type="FontVariation" id="FontVariation_v5ly4"]
+
+[sub_resource type="FontVariation" id="FontVariation_g40y4"]
+
+[node name="DeathScreen" type="CanvasLayer" unique_id=91102058]
+script = ExtResource("1_bvjni")
+
+[node name="Control" type="Control" parent="." unique_id=1878066665]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BackGround" type="TextureRect" parent="Control" unique_id=1352031745]
+layout_mode = 0
+offset_right = 269.0
+offset_bottom = 481.0
+texture = ExtResource("2_ci7ue")
+
+[node name="GameOver" type="HBoxContainer" parent="Control" unique_id=1291868737]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 215.0
+offset_right = 245.0
+offset_bottom = 264.0
+
+[node name="RestartButton" type="Button" parent="Control/GameOver" unique_id=143155042]
+layout_mode = 2
+icon = ExtResource("3_nb7wh")
+flat = true
+
+[node name="MenuButton" type="Button" parent="Control/GameOver" unique_id=1569046608]
+layout_mode = 2
+icon = ExtResource("4_41m72")
+flat = true
+
+[node name="Records" type="VBoxContainer" parent="Control" unique_id=104023553]
+clip_contents = true
+layout_mode = 0
+offset_left = 62.0
+offset_top = 82.0
+offset_right = 214.0
+offset_bottom = 227.0
+alignment = 1
+
+[node name="TimeLabel" type="Label" parent="Control/Records" unique_id=1178033826]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16078432, 0.13333334, 0.21568628, 1)
+theme_override_fonts/font = SubResource("FontVariation_v5ly4")
+text = "time"
+horizontal_alignment = 1
+
+[node name="MaxLevelLabel" type="Label" parent="Control/Records" unique_id=568452135]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16078432, 0.13725491, 0.21176471, 1)
+theme_override_fonts/font = SubResource("FontVariation_g40y4")
+text = "max"
+horizontal_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="Control/Records" unique_id=1762059966]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16078432, 0.13333334, 0.21568628, 1)
+text = "cur"
+horizontal_alignment = 1
