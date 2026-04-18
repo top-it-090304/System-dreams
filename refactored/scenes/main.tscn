@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://csg127egno6b2" path="res://scenes/Player/player.tscn" id="1_2u7ne"]
 [ext_resource type="Texture2D" uid="uid://oleolhkgd8pk" path="res://tilemaps/Tileset bg.png" id="1_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cy02l755bmfuv" path="res://scenes/spawner.tscn" id="3_7j17x"]
+[ext_resource type="PackedScene" uid="uid://bpcdgjg8am0o7" path="res://scenes/Enemies/defaultEnemy.tscn" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://btf0iccai10qr" path="res://addons/versatile-mobile-joystick/joystick.tscn" id="5_tx72l"]
 [ext_resource type="Texture2D" uid="uid://cs4h51homajet" path="res://addons/versatile-mobile-joystick/default_textures/BaseJoystick.png" id="6_1dkgf"]
 [ext_resource type="Texture2D" uid="uid://bmdhjcypdf6t0" path="res://addons/versatile-mobile-joystick/default_textures/TipJoystick.png" id="7_vdiyp"]
@@ -74,6 +75,7 @@ scale = Vector2(3, 3)
 [node name="Spawner" parent="." unique_id=1069112289 instance=ExtResource("3_7j17x")]
 position = Vector2(78, 118)
 scale = Vector2(3, 3)
+enemy_scene = ExtResource("4_85g3d")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1950706563]
 

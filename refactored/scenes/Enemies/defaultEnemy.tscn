@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://bpcdgjg8am0o7"]
 
 [ext_resource type="Script" uid="uid://d2ihswb34165w" path="res://scripts/default_enemy.gd" id="1_qo7qq"]
+[ext_resource type="PackedScene" path="res://scenes/Enemies/exp.tscn" id="2_2061f"]
 [ext_resource type="Texture2D" uid="uid://s0008duovor3" path="res://sprites/enemies/enemy1.png" id="2_j0sw7"]
+[ext_resource type="PackedScene" path="res://scenes/Enemies/heal.tscn" id="3_ahfmk"]
+[ext_resource type="Texture2D" uid="uid://c00owtr281bbd" path="res://sprites/enemies/hurted_enemy1.png" id="5_s2vna"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3few"]
 radius = 4.3333335
@@ -10,6 +13,10 @@ height = 13.333334
 [node name="DefaultEnemy" type="CharacterBody2D" unique_id=940495428 groups=["enemy"]]
 scale = Vector2(3, 3)
 script = ExtResource("1_qo7qq")
+exp_scene = ExtResource("2_2061f")
+heal_scene = ExtResource("3_ahfmk")
+normal_texture = ExtResource("2_j0sw7")
+hurt_texture = ExtResource("5_s2vna")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1427238615 groups=["enemy"]]
 rotation = 1.5707964

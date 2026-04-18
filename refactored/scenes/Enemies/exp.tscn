@@ -1,17 +1,16 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bkkwslr00dmlw"]
 
-[ext_resource type="Script" uid="uid://c465r32lprxn7" path="res://src/Player/exp/exp.gd" id="1_gh0xp"]
-[ext_resource type="Texture2D" uid="uid://crickfrmm0svc" path="res://src/assets/drop/exp.png" id="2_gh0xp"]
+[ext_resource type="Script" uid="uid://cp4ybggomqr5m" path="res://scripts/exp.gd" id="1_0op53"]
+[ext_resource type="Texture2D" uid="uid://cuthtx7ig1nst" path="res://sprites/exp.png" id="2_dkved"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_exp"]
 radius = 4.0
 
-[node name="Exp" type="Area2D"]
-script = ExtResource("1_gh0xp")
+[node name="Exp" type="Area2D" unique_id=1124518325]
+script = ExtResource("1_0op53")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_gh0xp")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1012945328]
+texture = ExtResource("2_dkved")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1842584580]
 shape = SubResource("CircleShape2D_exp")
-

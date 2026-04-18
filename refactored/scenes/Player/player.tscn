@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://csg127egno6b2"]
 
 [ext_resource type="Script" uid="uid://bjp1ulugftol7" path="res://scripts/player.gd" id="1_1kbk7"]
+[ext_resource type="PackedScene" uid="uid://kca4335hfy3k" path="res://scenes/Player/cursor.tscn" id="2_c4h5g"]
 [ext_resource type="Texture2D" uid="uid://c0f12tn1esh8m" path="res://sprites/sprites_character.png" id="2_gqjuk"]
+[ext_resource type="PackedScene" uid="uid://73bsucnawmc3" path="res://scenes/ui/death.tscn" id="3_uiqp4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_chuli"]
 radius = 8.0
@@ -137,6 +139,8 @@ _data = {
 [node name="Player" type="CharacterBody2D" unique_id=1779298022 groups=["player"]]
 texture_filter = 1
 script = ExtResource("1_1kbk7")
+bullet_scene = ExtResource("2_c4h5g")
+DEATH_SCREEN_SCENE = ExtResource("3_uiqp4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1581354019 groups=["player"]]
 position = Vector2(0, 4)

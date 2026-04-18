@@ -1,8 +1,8 @@
 extends CharacterBody2D
 @export var speed = 20;
-@export var speed_variants: Array[float]= [100.0, 200.0 ,70.0, 85.0]
+@export var speed_variants: Array[float]= [100.0, 20.0 ,60.0, 15.0]
 @export var health: int = 100
-@export var health_variants: Array[int]= [100, 10, 50, 66, 200]
+@export var health_variants: Array[int]= [70, 10, 50, 66, 20]
 @export var exp_scene: PackedScene
 @export var heal_scene: PackedScene
 @export var heal_drop_chance: float = 0.1

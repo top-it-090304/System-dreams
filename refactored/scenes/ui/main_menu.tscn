@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://c181x53j06mk6" path="res://sprites/ui/main_menu.png" id="1_1g8jr"]
 [ext_resource type="Texture2D" uid="uid://byeanol37r6hv" path="res://sprites/ui/button_start.png" id="2_m1kxf"]
+[ext_resource type="Script" uid="uid://dh0iqotystgr4" path="res://scripts/strart.gd" id="3_uhagc"]
 [ext_resource type="Texture2D" uid="uid://b6ik37d1xy58j" path="res://sprites/ui/button_setting.png" id="3_x2yvf"]
+[ext_resource type="Script" uid="uid://b0vs78i2llwka" path="res://scripts/settings_button.gd" id="5_x2yvf"]
 
 [node name="main_menu" type="Node2D" unique_id=1349091975]
 texture_filter = 1
@@ -63,6 +65,7 @@ layout_mode = 2
 icon = ExtResource("2_m1kxf")
 flat = true
 icon_alignment = 1
+script = ExtResource("3_uhagc")
 
 [node name="settings" type="Button" parent="CanvasLayer/Control/CenterContainer/buttons_box" unique_id=566822079]
 texture_filter = 1
@@ -70,6 +73,7 @@ layout_mode = 2
 icon = ExtResource("3_x2yvf")
 flat = true
 icon_alignment = 1
+script = ExtResource("5_x2yvf")
 
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/buttons_box/strart" to="CanvasLayer/Control/CenterContainer/buttons_box/strart" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/buttons_box/settings" to="CanvasLayer/Control/CenterContainer/buttons_box/settings" method="_on_pressed"]

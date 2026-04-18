@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if not is_instance_valid(_player):
-		_player = get_tree().get_first_node_in_group("Player")
+		_player = get_tree().get_first_node_in_group("player")
 		if not _player:
 			return
 

@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://bsetmijj7jl7x"]
 
 [ext_resource type="Texture2D" uid="uid://hb60d13syc4y" path="res://sprites/ui/push_up.png" id="1_iqehe"]
+[ext_resource type="Script" uid="uid://cf55bp8bjcn4v" path="res://scripts/level_up_menu.gd" id="1_vkps6"]
+[ext_resource type="Texture2D" uid="uid://d11rhxk7bnjfo" path="res://sprites/ui/hpUp.png" id="3_l261j"]
+[ext_resource type="Texture2D" uid="uid://c0b28cvm0ria4" path="res://sprites/ui/dmgUp.png" id="4_ixuu3"]
+[ext_resource type="Texture2D" uid="uid://du13hsgk4byuv" path="res://sprites/ui/moveUp.png" id="5_uklwp"]
 
 [node name="LevelUpMenu" type="CanvasLayer" unique_id=1084969996]
+script = ExtResource("1_vkps6")
 
 [node name="Control" type="Control" parent="." unique_id=593504272]
 layout_mode = 3
@@ -53,6 +58,7 @@ offset_left = -18.0
 offset_top = 10.0
 offset_right = 158.0
 offset_bottom = 67.0
+texture = ExtResource("3_l261j")
 stretch_mode = 3
 
 [node name="Option2" type="Button" parent="Control/VBoxContainer" unique_id=485419594]
@@ -66,6 +72,7 @@ offset_left = -19.0
 offset_top = 6.0
 offset_right = 157.0
 offset_bottom = 63.0
+texture = ExtResource("4_ixuu3")
 stretch_mode = 3
 
 [node name="Option3" type="Button" parent="Control/VBoxContainer" unique_id=1954516981]
@@ -79,4 +86,5 @@ offset_left = -19.0
 offset_top = 3.0
 offset_right = 156.0
 offset_bottom = 60.0
+texture = ExtResource("5_uklwp")
 stretch_mode = 3
