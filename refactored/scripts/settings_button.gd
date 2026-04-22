@@ -11,10 +11,7 @@ func _process(_delta: float) -> void:
 	
 	
 func _on_pressed() -> void:
-	var pause_scene = load("res://scenes/ui/settings.tscn")  
-	if pause_scene == null:
-		print("Ошибка: не удалось загрузить сцену настроек! Проверьте путь.")
-		return
+	var pause_scene = load("res://scenes/ui/settings.tscn")
 
 	settings_menu_instance = pause_scene.instantiate()
 	get_tree().root.add_child(settings_menu_instance)

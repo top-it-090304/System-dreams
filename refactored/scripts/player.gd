@@ -1,20 +1,20 @@
 class_name Player
 extends CharacterBody2D
 
-
 signal health_updated(new_health, new_max_health)
 signal level_updated(new_level)
-
-
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
 var move_speed : float = 140.0
+var click_position = Vector2()
+var target_position = Vector2()
 var state : String = "idle"
 var level: int = 1
 var current_xp: int = 0
 var is_alive: bool = true 
-var next_level_xp: int = 10
+var next_level_xp: int = 1
+
 # как сильно пинают котенка
 var knockback_force: float = 500.0
 var _knockback_timer: float = 0.0
@@ -40,9 +40,8 @@ const AUDIO_ENEMIES_KEY := "enemies"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var shoot_timer: Timer = $ShootTimer
-@onready var joystick = $JoystickUI/JoystickArea
-var _damage_sfx_player: AudioStreamPlayer
 
+var _damage_sfx_player: AudioStreamPlayer
 
 func _ready():
 	_damage_sfx_player = AudioStreamPlayer.new()
@@ -66,33 +65,40 @@ func _ready():
 	_xp_label = get_tree().root.get_node_or_null("Main/HUD/XPLabel")
 	_update_xp_ui()
 	
-	print("Current level: ", level)
-
 	shoot_timer.wait_time = 1
 
 func _physics_process(delta):
 	# уменьшения таймера неприкосаемости после пинка
 	if _invincibility_timer > 0.0:
 		_invincibility_timer -= delta
+	
 	# уменьшения таймера для прекращения улета от пинка
 	if _knockback_timer > 0.0:
 		_knockback_timer -= delta
-		
-		# Во время отбрасывания управление котиком блокируется
 		move_and_slide()
 		_run_time += delta
 		_update_time_ui()
-		_update_xp_ui()
 		return  
 		
-	var joy_input = joystick.get_input_vector() if joystick else Vector2.ZERO
+	# Чтение ввода с клавиатуры
 	var key_input = Vector2(
 		Input.get_axis("ui_left", "ui_right"),
-		Input.get_axis("ui_up", "ui_down"))
-	if joy_input.length() > 0.1:
-		direction = joy_input
-	else:
+		Input.get_axis("ui_up", "ui_down")
+	)
+	
+	# Считываем нажатие мыши/тапа
+	if Input.is_action_just_pressed("left_click"):
+		click_position = get_global_mouse_position()
+
+	# ОПРЕДЕЛЯЕМ НАПРАВЛЕНИЕ (приоритет у клавиатуры)
+	if key_input.length() > 0.1:
 		direction = key_input
+		# Сбрасываем click_position, чтобы клик не "тянул" назад после отпускания клавиш
+		click_position = position 
+	elif position.distance_to(click_position) > 5:
+		direction = (click_position - position).normalized()
+	else:
+		direction = Vector2.ZERO
 	
 	velocity = direction * move_speed
 	
@@ -107,10 +113,8 @@ func _physics_process(delta):
 
 func take_damage(amount: int, knockback_direction: Vector2 = Vector2.ZERO) -> void:
 	_apply_damage(amount, knockback_direction)
-	
 
 func _apply_damage(amount: int, knockback_direction: Vector2) -> void:
-
 	if _invincibility_timer > 0.0:
 		return
 	
@@ -120,7 +124,6 @@ func _apply_damage(amount: int, knockback_direction: Vector2) -> void:
 		_damage_sfx_player.volume_db = _get_combat_sfx_volume_db()
 		_damage_sfx_player.play()
 	_flash_red()                               
-	
 	
 	if knockback_direction != Vector2.ZERO:
 		_knockback_timer = 0.10
@@ -132,19 +135,11 @@ func _apply_damage(amount: int, knockback_direction: Vector2) -> void:
 	if health <= 0:
 		_on_player_died()
 
-	
 func _on_player_died() -> void:
-	print("Player died")
-	
 	velocity = Vector2.ZERO
 	get_tree().paused = true
-	
-	const DEATH_SCREEN_SCENE := preload("res://scenes/ui/death.tscn")
-	
-	if not DEATH_SCREEN_SCENE:
-		return
-	
-	var death_screen = DEATH_SCREEN_SCENE.instantiate()
+	const DEATH_SCREEN_SCENE_RES := preload("res://scenes/ui/death.tscn")
+	var death_screen = DEATH_SCREEN_SCENE_RES.instantiate()
 	get_tree().root.add_child(death_screen)
 	
 	if death_screen:
@@ -160,8 +155,6 @@ func _on_death_screen_restart() -> void:
 	get_tree().paused = false
 	MusicManager.play_gameplay_music()
 	get_tree().reload_current_scene()
-  
-
 
 func _on_death_screen_menu() -> void:
 	get_tree().paused = false
@@ -174,7 +167,6 @@ func SetDirection() -> bool:
 	
 	var new_dir: Vector2 = cardinal_direction
 	
-	
 	if abs(direction.x) > abs(direction.y):
 		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
 	else:
@@ -186,6 +178,7 @@ func SetDirection() -> bool:
 	cardinal_direction = new_dir
 	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
 	return true
+
 func SetState() -> bool:
 	var new_state: String = "idle" if direction == Vector2.ZERO else "walk"
 	if new_state == state:
@@ -229,7 +222,6 @@ func find_closest_enemy():
 
 func shoot(target):
 	if not bullet_scene:
-		print("Ошибка: bullet_scene не назначен!")
 		return
 	
 	var bullet = bullet_scene.instantiate()
@@ -238,15 +230,13 @@ func shoot(target):
 	bullet.damage += bullet_damage_bonus
 	get_parent().add_child(bullet)
 
-
 func add_xp(amount: int) -> void:
 	current_xp += amount
 	_update_xp_ui()
-	
 	while current_xp >= next_level_xp:
 		current_xp -= next_level_xp
 		level += 1
-		next_level_xp *= 2
+		next_level_xp += 1.5
 		_update_xp_ui()
 		_on_level_up()
 
@@ -255,22 +245,16 @@ func heal(amount: int) -> void:
 	_update_hp_ui()
 	health_updated.emit(health, max_health)
 
-
 func _on_level_up() -> void:
-	print("Level up! New level: ", level)
 	level_updated.emit(level)
-	
-	if not LEVEL_UP_MENU_SCENE:
-		return
+	if not LEVEL_UP_MENU_SCENE: return
 	
 	var menu = LEVEL_UP_MENU_SCENE.instantiate()
 	if menu:
 		if menu.has_signal("option_chosen"):
 			menu.option_chosen.connect(_on_level_up_option_chosen)
-		
 		get_tree().root.add_child(menu)
 		get_tree().paused = true
-
 
 func _on_level_up_option_chosen(option_id: String) -> void:
 	match option_id:
@@ -285,14 +269,11 @@ func _on_level_up_option_chosen(option_id: String) -> void:
 			shoot_timer.wait_time = shoot_timer.wait_time * 0.8
 		"dmg":
 			bullet_damage_bonus += 10
-	
 	get_tree().paused = false
-
 
 func _update_hp_ui() -> void:
 	if _hp_label:
 		_hp_label.text = "HP: %d/%d" % [health, max_health]
-
 
 func _update_time_ui() -> void:
 	if _time_label:
@@ -308,14 +289,11 @@ func _flash_red() -> void:
 		var tween := get_tree().create_tween()
 		tween.tween_property(sprite, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.2)
 
-
 func _get_combat_sfx_volume_db() -> float:
 	var config := ConfigFile.new()
 	var err := config.load(AUDIO_SETTINGS_PATH)
 	var linear := 1.0
-
 	if err == OK:
 		linear = float(config.get_value(AUDIO_SETTINGS_SECTION, AUDIO_ENEMIES_KEY, 1.0))
-
 	linear = clampf(linear, 0.0, 1.0)
 	return linear_to_db(linear) if linear > 0.0 else -80.0

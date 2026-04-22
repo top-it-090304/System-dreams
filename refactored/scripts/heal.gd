@@ -4,7 +4,7 @@ extends Area2D
 
 # Если игрок близко — дроп притягивается к нему, чтобы подбор был “магнитным”.
 @export var magnet_enabled: bool = true
-@export var magnet_range: float = 140.0
+@export var magnet_range: float = 200.0
 @export var magnet_speed: float = 320.0
 @export var magnet_snap_distance: float = 10.0
 

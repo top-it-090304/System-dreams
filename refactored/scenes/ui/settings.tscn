@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://5wne2ydj1dtl"]
 
+[ext_resource type="Script" uid="uid://crqoaneubmlxq" path="res://scripts/settings.gd" id="1_7pacj"]
 [ext_resource type="Texture2D" uid="uid://hb60d13syc4y" path="res://sprites/ui/push_up.png" id="1_o2bc3"]
 
 [node name="Settings" type="CanvasLayer" unique_id=1886999747]
+script = ExtResource("1_7pacj")
 
 [node name="Control" type="Control" parent="." unique_id=1968262533]
 layout_mode = 3
