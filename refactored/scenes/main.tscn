@@ -89,11 +89,13 @@ strength_curve = SubResource("Curve_timk5")
 visibility_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2133521390]
+zoom = Vector2(0.67, 0.67)
 limit_left = -100000
 limit_top = -100000
 limit_right = 100000
 limit_bottom = 100000
 limit_smoothed = true
 script = ExtResource("9_trceg")
+deadzone_size = Vector2(67, 67)
 
 [node name="Hud" parent="." unique_id=1545635808 instance=ExtResource("9_vdiyp")]
