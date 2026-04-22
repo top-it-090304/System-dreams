@@ -137,6 +137,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=1779298022 groups=["player"]]
+z_index = 1
 texture_filter = 1
 script = ExtResource("1_1kbk7")
 bullet_scene = ExtResource("2_c4h5g")
