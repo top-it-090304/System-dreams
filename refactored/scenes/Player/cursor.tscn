@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://kca4335hfy3k"]
+
+[ext_resource type="Script" uid="uid://oy28tvasbxiq" path="res://scripts/cursor.gd" id="1_lqmk1"]
+[ext_resource type="Texture2D" uid="uid://dam4d23disoif" path="res://sprites/cursor.png" id="2_5grky"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2xojb"]
+radius = 8.0
+
+[node name="Cursor" type="Area2D" unique_id=1985163120]
+scale = Vector2(2, 2)
+script = ExtResource("1_lqmk1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=22448175]
+texture_filter = 1
+scale = Vector2(0.76, 0.76)
+texture = ExtResource("2_5grky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1604116037]
+shape = SubResource("CircleShape2D_2xojb")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1048781557]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

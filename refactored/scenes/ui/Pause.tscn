@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://crcm6eqypewq3"]
+
+[ext_resource type="Script" uid="uid://cpnbb8lcoexm7" path="res://scripts/pause.gd" id="1_wfecl"]
+[ext_resource type="Texture2D" uid="uid://cvjk7kytbh1nj" path="res://sprites/ui/pause_back.png" id="2_5egfa"]
+[ext_resource type="Texture2D" uid="uid://bx4dcc4a3avae" path="res://sprites/ui/back_button.png" id="3_tausj"]
+[ext_resource type="Texture2D" uid="uid://bejxjhg0nq1ga" path="res://sprites/ui/settings_button.png" id="4_4fdmb"]
+[ext_resource type="Texture2D" uid="uid://b6n5bysaawypb" path="res://sprites/ui/into_menu.png" id="5_wfya0"]
+
+[node name="Pause" type="CanvasLayer" unique_id=905663592]
+script = ExtResource("1_wfecl")
+
+[node name="back_texture" type="TextureRect" parent="." unique_id=833450966]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_5egfa")
+
+[node name="Control" type="Control" parent="." unique_id=333800888]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=2086686199]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 134.0
+offset_right = 244.0
+offset_bottom = 390.0
+
+[node name="ResumeButton" type="Button" parent="Control/VBoxContainer" unique_id=229581185]
+layout_mode = 2
+icon = ExtResource("3_tausj")
+flat = true
+
+[node name="settings" type="Button" parent="Control/VBoxContainer" unique_id=544793783]
+layout_mode = 2
+icon = ExtResource("4_4fdmb")
+flat = true
+
+[node name="menu" type="Button" parent="Control/VBoxContainer" unique_id=2029429075]
+layout_mode = 2
+icon = ExtResource("5_wfya0")
+flat = true
+
+[connection signal="pressed" from="Control/VBoxContainer/ResumeButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/menu" to="." method="_on_menu_pressed"]

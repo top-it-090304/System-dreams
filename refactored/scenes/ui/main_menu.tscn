@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://c1amy2ape0ne7"]
+
+[ext_resource type="Texture2D" uid="uid://c181x53j06mk6" path="res://sprites/ui/main_menu.png" id="1_1g8jr"]
+[ext_resource type="Texture2D" uid="uid://byeanol37r6hv" path="res://sprites/ui/button_start.png" id="2_m1kxf"]
+[ext_resource type="Script" uid="uid://dh0iqotystgr4" path="res://scripts/strart.gd" id="3_uhagc"]
+[ext_resource type="Texture2D" uid="uid://b6ik37d1xy58j" path="res://sprites/ui/button_setting.png" id="3_x2yvf"]
+[ext_resource type="Script" uid="uid://b0vs78i2llwka" path="res://scripts/settings_button.gd" id="5_x2yvf"]
+
+[node name="main_menu" type="Node2D" unique_id=1349091975]
+texture_filter = 1
+texture_repeat = 1
+
+[node name="Control" type="Control" parent="." unique_id=1426797441]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1136296114]
+layer = -1
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1105729218]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control" unique_id=2041522856]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1g8jr")
+patch_margin_left = 52
+patch_margin_top = 34
+patch_margin_right = 89
+patch_margin_bottom = 8
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control" unique_id=698870729]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buttons_box" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer" unique_id=245725427]
+layout_direction = 2
+layout_mode = 2
+alignment = 1
+
+[node name="strart" type="Button" parent="CanvasLayer/Control/CenterContainer/buttons_box" unique_id=174551196]
+texture_filter = 3
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+icon = ExtResource("2_m1kxf")
+flat = true
+icon_alignment = 1
+script = ExtResource("3_uhagc")
+
+[node name="settings" type="Button" parent="CanvasLayer/Control/CenterContainer/buttons_box" unique_id=566822079]
+texture_filter = 1
+layout_mode = 2
+icon = ExtResource("3_x2yvf")
+flat = true
+icon_alignment = 1
+script = ExtResource("5_x2yvf")
+
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/buttons_box/strart" to="CanvasLayer/Control/CenterContainer/buttons_box/strart" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/buttons_box/settings" to="CanvasLayer/Control/CenterContainer/buttons_box/settings" method="_on_pressed"]

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dnw8mkrfkfgr3"]
+
+[ext_resource type="Script" uid="uid://40jm4dps2sba" path="res://scripts/hud.gd" id="1_4ed8p"]
+[ext_resource type="Texture2D" uid="uid://3jeryhybj58u" path="res://sprites/ui/Level_place.png" id="2_rnyu1"]
+[ext_resource type="Texture2D" uid="uid://cguvb63f77qso" path="res://sprites/ui/pause_button.png" id="3_jlufg"]
+[ext_resource type="Texture2D" uid="uid://drwy5uknj3wsf" path="res://sprites/ui/under_hp_bar.png" id="4_l20r4"]
+[ext_resource type="Texture2D" uid="uid://clktpfpb4b33b" path="res://sprites/ui/hp_bar.png" id="5_jvmx1"]
+
+[node name="Hud" type="CanvasLayer" unique_id=1545635808]
+script = ExtResource("1_4ed8p")
+
+[node name="Container" type="Control" parent="." unique_id=2066101786]
+texture_filter = 1
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Container" unique_id=1671127936]
+texture_filter = 1
+layout_mode = 0
+offset_left = 236.0
+offset_top = 11.0
+offset_right = 264.0
+offset_bottom = 39.0
+texture = ExtResource("2_rnyu1")
+
+[node name="PauseButton" type="Button" parent="Container" unique_id=1501869449]
+texture_filter = 1
+layout_mode = 0
+offset_left = -7.0
+offset_top = -5.0
+offset_right = 9.0
+offset_bottom = 11.0
+scale = Vector2(4, 4)
+icon = ExtResource("3_jlufg")
+flat = true
+
+[node name="LevelLabel" type="Label" parent="Container" unique_id=1565089002]
+texture_filter = 1
+layout_mode = 0
+offset_left = 241.0
+offset_top = 13.0
+offset_right = 281.0
+offset_bottom = 36.0
+text = " 1"
+
+[node name="HealthBar" type="TextureProgressBar" parent="Container" unique_id=1664349747]
+texture_filter = 1
+layout_mode = 0
+offset_left = 56.0
+offset_top = 10.0
+offset_right = 230.54546
+offset_bottom = 42.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_l20r4")
+texture_progress = ExtResource("5_jvmx1")
