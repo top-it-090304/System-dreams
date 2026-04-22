@@ -7,6 +7,7 @@
 radius = 4.0
 
 [node name="Exp" type="Area2D" unique_id=1124518325]
+texture_filter = 1
 script = ExtResource("1_0op53")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1012945328]

@@ -7,6 +7,7 @@
 radius = 4.0
 
 [node name="Heal" type="Area2D" unique_id=1829300429]
+texture_filter = 1
 script = ExtResource("1_x47yv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1218092084]
