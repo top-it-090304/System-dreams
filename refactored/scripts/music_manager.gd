@@ -1,7 +1,7 @@
 extends Node
 
-const MENU_MUSIC_PATH := "res://src/music/MainMenuLoop.mp3"
-const GAMEPLAY_MUSIC_PATH := "res://src/music/gameplayLoop.mp3"
+const MENU_MUSIC_PATH := "res://audio/MainMenuLoop.mp3"
+const GAMEPLAY_MUSIC_PATH := "res://audio/gameplayLoop.mp3"
 const AUDIO_SETTINGS_PATH := "user://audio_settings.cfg"
 const BUS_MASTER := "Master"
 const BUS_ENEMIES_PRIMARY := "Enemies"
