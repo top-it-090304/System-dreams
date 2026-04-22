@@ -1,8 +1,8 @@
 extends Area2D
 
-@export var xp_amount: int = 10
+@export var xp_amount: int = 1
 @export var magnet_enabled: bool = true
-@export var magnet_range: float = 140.0
+@export var magnet_range: float = 200.0
 @export var magnet_speed: float = 320.0
 # Чтобы быстрее гарантировать pickup при очень близком расстоянии.
 @export var magnet_snap_distance: float = 10.0
