@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://s0008duovor3" path="res://sprites/enemies/enemy1.png" id="2_j0sw7"]
 [ext_resource type="PackedScene" uid="uid://dn7s37ri1ektu" path="res://scenes/Enemies/heal.tscn" id="3_ahfmk"]
 [ext_resource type="Texture2D" uid="uid://c00owtr281bbd" path="res://sprites/enemies/hurted_enemy1.png" id="5_s2vna"]
+[ext_resource type="Texture2D" uid="uid://80fmquxgbyoh" path="res://sprites/enemies/enemy1(1).png" id="5_wta2e"]
+[ext_resource type="Texture2D" uid="uid://b1phus0bn54oi" path="res://sprites/enemies/enemy1(2).png" id="6_g71qr"]
+[ext_resource type="Texture2D" uid="uid://ceubj5aex2p65" path="res://sprites/enemies/enemy1(3).png" id="7_2sd76"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3few"]
 radius = 4.3333335
@@ -17,6 +20,7 @@ script = ExtResource("1_qo7qq")
 exp_scene = ExtResource("2_2061f")
 heal_scene = ExtResource("3_ahfmk")
 normal_texture = ExtResource("2_j0sw7")
+normal_texture_variants = Array[Texture2D]([ExtResource("5_wta2e"), ExtResource("6_g71qr"), ExtResource("7_2sd76")])
 hurt_texture = ExtResource("5_s2vna")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1427238615 groups=["enemy"]]
