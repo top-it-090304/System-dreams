@@ -10,6 +10,7 @@
 script = ExtResource("1_4ed8p")
 
 [node name="Container" type="Control" parent="." unique_id=2066101786]
+texture_filter = 1
 layout_direction = 2
 layout_mode = 3
 anchors_preset = 15

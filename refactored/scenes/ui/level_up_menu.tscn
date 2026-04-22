@@ -49,6 +49,7 @@ theme_override_constants/separation = 16
 [node name="Option1" type="Button" parent="Control/VBoxContainer" unique_id=187019069]
 self_modulate = Color(1, 1, 1, 0)
 light_mask = 33
+texture_filter = 1
 custom_minimum_size = Vector2(140, 64)
 layout_mode = 2
 
@@ -63,6 +64,7 @@ stretch_mode = 3
 
 [node name="Option2" type="Button" parent="Control/VBoxContainer" unique_id=485419594]
 self_modulate = Color(1, 1, 1, 0)
+texture_filter = 1
 custom_minimum_size = Vector2(140, 64)
 layout_mode = 2
 
@@ -77,6 +79,7 @@ stretch_mode = 3
 
 [node name="Option3" type="Button" parent="Control/VBoxContainer" unique_id=1954516981]
 self_modulate = Color(1, 1, 1, 0)
+texture_filter = 1
 custom_minimum_size = Vector2(140, 64)
 layout_mode = 2
 
