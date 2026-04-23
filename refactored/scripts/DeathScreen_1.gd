@@ -5,12 +5,12 @@ class_name DeathScreen
 signal restart_requested
 signal menu_requested
 
-@onready var restart_btn: Button = $Control/GameOver/RestartButton
-@onready var menu_btn: Button = $Control/GameOver/MenuButton
+@onready var restart_btn: Button = $Control/CenterContainer/VBoxContainer/GameOver/RestartButton
+@onready var menu_btn: Button = $Control/CenterContainer/VBoxContainer/GameOver/MenuButton
 
-@onready var time_label: Label = $Control/Records/TimeLabel
-@onready var level_label: Label = $Control/Records/LevelLabel
-@onready var max_level_label: Label = $Control/Records/MaxLevelLabel
+@onready var time_label: Label = $Control/CenterContainer/VBoxContainer/Records/TimeLabel
+@onready var level_label: Label = $Control/CenterContainer/VBoxContainer/Records/LevelLabel
+@onready var max_level_label: Label = $Control/CenterContainer/VBoxContainer/Records/MaxLevelLabel
 var session_time: float = 0.0
 var final_level: int = 1
 var max_level_ever: int = 1
@@ -26,10 +26,7 @@ func _ready() -> void:
 		restart_btn.pressed.connect(_on_restart_pressed)
 	if menu_btn:
 		menu_btn.pressed.connect(_on_menu_pressed)
-		
-	if time_label:
-		time_label.text = "TEST"
-
+	
 
 func init_stats(time: float, level: int) -> void:
 	print("init_stats called with time=", time, " level=", level)
@@ -83,3 +80,11 @@ func _on_restart_pressed() -> void:
 func _on_menu_pressed() -> void:
 	menu_requested.emit()
 	queue_free()
+
+
+func _on_restart_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_menu_button_pressed() -> void:
+	pass # Replace with function body.

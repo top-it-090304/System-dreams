@@ -46,6 +46,9 @@ func _ready() -> void:
 		_sprite.texture = normal_texture
 
 func _physics_process(delta: float) -> void:
+	if get_tree().paused:
+		return
+
 	if player:
 		var distance_to_player = global_position.distance_to(player.global_position)
 		if distance_to_player > attack_range:

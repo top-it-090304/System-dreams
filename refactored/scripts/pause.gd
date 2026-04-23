@@ -45,3 +45,9 @@ func _on_menu_pressed() -> void:
 	get_tree().paused = false
 	MusicManager.play_menu_music()
 	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+
+
+func _on_resume_button_pressed() -> void:
+	queue_free()
+	get_tree().paused = false
+	
