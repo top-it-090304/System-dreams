@@ -74,6 +74,7 @@ offset_left = 211.0
 offset_top = 23.0
 offset_right = 256.0
 offset_bottom = 63.0
+flat = true
 text_overrun_behavior = 2
 autowrap_trim_flags = 192
 

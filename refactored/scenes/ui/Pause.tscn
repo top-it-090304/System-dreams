@@ -60,6 +60,7 @@ offset_left = 214.0
 offset_top = 25.0
 offset_right = 254.0
 offset_bottom = 65.0
+flat = true
 
 [connection signal="pressed" from="Control/VBoxContainer/ResumeButton" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/settings" to="." method="_on_settings_pressed"]
