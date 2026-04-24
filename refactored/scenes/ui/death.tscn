@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://73bsucnawmc3"]
 
-[ext_resource type="Script" uid="uid://cn74nhm4ynhsn" path="res://scripts/death.gd" id="1_bvjni"]
+[ext_resource type="Script" uid="uid://bobq64tbi5oab" path="res://scripts/DeathScreen_1.gd" id="1_ci7ue"]
 [ext_resource type="Texture2D" uid="uid://hb60d13syc4y" path="res://sprites/ui/push_up.png" id="1_hwssb"]
 [ext_resource type="Texture2D" uid="uid://b4eyhka3f27ke" path="res://sprites/ui/death_restart_button.png" id="2_bvjni"]
 [ext_resource type="Texture2D" uid="uid://c5ca3oi7tfuta" path="res://sprites/ui/death_menu_button.png" id="3_ci7ue"]
@@ -10,7 +10,7 @@
 [sub_resource type="Theme" id="Theme_4yn08"]
 
 [node name="DeathScreen" type="CanvasLayer" unique_id=91102058]
-script = ExtResource("1_bvjni")
+script = ExtResource("1_ci7ue")
 
 [node name="Control" type="Control" parent="." unique_id=1878066665]
 layout_mode = 3

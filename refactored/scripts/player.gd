@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 signal health_updated(new_health, new_max_health)
 signal level_updated(new_level)
+signal xp_updated(current_xp, next_level_xp)
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
@@ -28,13 +29,13 @@ var _run_time: float = 0.0
 var bullet_damage_bonus: int = 0
 
 const LEVEL_UP_MENU_SCENE := preload("res://scenes/ui/level_up_menu.tscn")
+const DEATH_SCREEN_SCENE := preload("res://scenes/ui/death.tscn")
 const DAMAGE_SFX_STREAM := preload("res://audio/playerGetDamage.mp3")
 const AUDIO_SETTINGS_PATH := "user://audio_settings.cfg"
 const AUDIO_SETTINGS_SECTION := "audio"
 const AUDIO_ENEMIES_KEY := "enemies"
 
 @export var bullet_scene: PackedScene
-@export var DEATH_SCREEN_SCENE: PackedScene
 @export var max_health: int = 100
 @export var invincibility_time: float = 0.1
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -136,25 +137,28 @@ func _apply_damage(amount: int, knockback_direction: Vector2) -> void:
 		_on_player_died()
 
 func _on_player_died() -> void:
+	is_alive = false
 	velocity = Vector2.ZERO
-	get_tree().paused = true
-	const DEATH_SCREEN_SCENE_RES := preload("res://scenes/ui/death.tscn")
-	var death_screen = DEATH_SCREEN_SCENE_RES.instantiate()
-	get_tree().root.add_child(death_screen)
-	
-	if death_screen:
-		death_screen.init_stats(_run_time, level)
-		death_screen.restart_requested.connect(_on_death_screen_restart)
-		death_screen.menu_requested.connect(_on_death_screen_menu)
-	
-	SetDirection()
-	SetState()
-	UpdateAnimation()
+	direction = Vector2.ZERO
+	state = "death"
+	if sprite:
+		sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		SetDirection()
+		SetState()
+		UpdateAnimation()
+		get_tree().paused = true
+		animation_player.process_mode = AnimationPlayer.PROCESS_MODE_ALWAYS
+		await animation_player.animation_finished
+		var death_screen = DEATH_SCREEN_SCENE.instantiate()
+		get_tree().root.add_child(death_screen)
+		if death_screen:
+			death_screen.init_stats(_run_time, level)
+			death_screen.restart_requested.connect(_on_death_screen_restart)
+			death_screen.menu_requested.connect(_on_death_screen_menu)
 
 func _on_death_screen_restart() -> void:
 	get_tree().paused = false
 	MusicManager.play_gameplay_music()
-	get_tree().reload_current_scene()
 
 func _on_death_screen_menu() -> void:
 	get_tree().paused = false
@@ -178,16 +182,24 @@ func SetDirection() -> bool:
 	cardinal_direction = new_dir
 	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
 	return true
-
+	
 func SetState() -> bool:
 	var new_state: String = "idle" if direction == Vector2.ZERO else "walk"
+	if is_alive == false:
+		new_state = "death"
 	if new_state == state:
 		return false
 	state = new_state
 	return true
-
+		
+		
 func UpdateAnimation() -> void:
-	var anim_name: String = state + "_" + AnimDirection()
+	var anim_name: String
+	if state == "death":
+		anim_name = "death"
+	else:
+		anim_name = state + "_" + AnimDirection()
+	
 	if animation_player.has_animation(anim_name):
 		animation_player.play(anim_name)
 
@@ -233,11 +245,13 @@ func shoot(target):
 func add_xp(amount: int) -> void:
 	current_xp += amount
 	_update_xp_ui()
+	emit_signal("xp_updated", current_xp, next_level_xp)
 	while current_xp >= next_level_xp:
 		current_xp -= next_level_xp
 		level += 1
 		next_level_xp += 1.5
 		_update_xp_ui()
+		emit_signal("xp_updated", current_xp, next_level_xp)
 		_on_level_up()
 
 func heal(amount: int) -> void:

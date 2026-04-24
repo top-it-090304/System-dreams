@@ -6,9 +6,9 @@ const BUS_MASTER := "Master"
 const BUS_ENEMIES_PRIMARY := "Enemies"
 const BUS_ENEMIES_FALLBACK := "SFX"
 
-@onready var _master_slider: HSlider = $Control/VBoxContainer/HSlider2
-@onready var _enemies_slider: HSlider = $Control/VBoxContainer/HSlider
-@onready var _music_slider: HSlider = $Control/VBoxContainer/HSlider3
+@onready var _master_slider: HSlider = $Control/CenterContainer/VBoxContainer/HSlider2
+@onready var _enemies_slider: HSlider = $Control/CenterContainer/VBoxContainer/HSlider
+@onready var _music_slider: HSlider = $Control/CenterContainer/VBoxContainer/HSlider3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,8 +16,8 @@ func _ready() -> void:
 	process_mode = PROCESS_MODE_ALWAYS 
 	layer = 30
 	MusicManager.play_menu_music()
-	$Control/VBoxContainer/settings_back.pressed.connect(_on_settings_back_pressed)
-	$Control/VBoxContainer/reset_progress.pressed.connect(_on_reset_progress_pressed)
+	$Control/settings_back.pressed.connect(_on_settings_back_pressed)
+	$Control/CenterContainer/VBoxContainer/reset_progress.pressed.connect(_on_reset_progress_pressed)
 	_setup_sliders()
 	_load_audio_settings_to_sliders()
 	_apply_audio_settings_from_sliders()
@@ -30,11 +30,13 @@ func _process(delta: float) -> void:
 
 
 func _on_reset_progress_pressed() -> void:
+	print("dklfk")
 	_restore_music_after_close()
 	queue_free()
 
 
 func _on_settings_back_pressed() -> void:
+	print("араро")
 	_restore_music_after_close()
 	queue_free()
 	
@@ -131,3 +133,15 @@ func _save_audio_settings() -> void:
 	config.set_value(AUDIO_SECTION, "enemies", _enemies_slider.value)
 	config.set_value(AUDIO_SECTION, "music", _music_slider.value)
 	config.save(AUDIO_SETTINGS_PATH)
+
+
+func _on_h_slider_2_value_changed(value: float) -> void:
+	pass # Replace with function body.
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	pass # Replace with function body.
+
+
+func _on_h_slider_3_value_changed(value: float) -> void:
+	pass # Replace with function body.
