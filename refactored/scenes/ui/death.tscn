@@ -4,11 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://hb60d13syc4y" path="res://sprites/ui/push_up.png" id="1_hwssb"]
 [ext_resource type="Texture2D" uid="uid://b4eyhka3f27ke" path="res://sprites/ui/death_restart_button.png" id="2_bvjni"]
 [ext_resource type="Texture2D" uid="uid://c5ca3oi7tfuta" path="res://sprites/ui/death_menu_button.png" id="3_ci7ue"]
-[ext_resource type="Texture2D" uid="uid://1a3w5y1srniv" path="res://sprites/ui/button_tuttorial.png" id="5_ci7ue"]
+[ext_resource type="FontFile" uid="uid://byu2sxb8ko23c" path="res://fonts/LCD5x8HRU.ttf" id="3_nb7wh"]
+[ext_resource type="Texture2D" uid="uid://di1512fox17b2" path="res://sprites/ui/die_pic.png" id="6_41m72"]
 
-[sub_resource type="FontVariation" id="FontVariation_v5ly4"]
-
-[sub_resource type="FontVariation" id="FontVariation_g40y4"]
+[sub_resource type="Theme" id="Theme_4yn08"]
 
 [node name="DeathScreen" type="CanvasLayer" unique_id=91102058]
 script = ExtResource("1_bvjni")
@@ -59,21 +58,23 @@ alignment = 1
 
 [node name="TimeLabel" type="Label" parent="Control/CenterContainer/VBoxContainer/Records" unique_id=1178033826]
 layout_mode = 2
+theme = SubResource("Theme_4yn08")
 theme_override_colors/font_color = Color(0.16078432, 0.13333334, 0.21568628, 1)
-theme_override_fonts/font = SubResource("FontVariation_v5ly4")
+theme_override_fonts/font = ExtResource("3_nb7wh")
 text = "time"
 horizontal_alignment = 1
 
 [node name="MaxLevelLabel" type="Label" parent="Control/CenterContainer/VBoxContainer/Records" unique_id=568452135]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.16078432, 0.13725491, 0.21176471, 1)
-theme_override_fonts/font = SubResource("FontVariation_g40y4")
+theme_override_fonts/font = ExtResource("3_nb7wh")
 text = "max"
 horizontal_alignment = 1
 
 [node name="LevelLabel" type="Label" parent="Control/CenterContainer/VBoxContainer/Records" unique_id=1762059966]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.16078432, 0.13333334, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("3_nb7wh")
 text = "cur"
 horizontal_alignment = 1
 
@@ -81,15 +82,18 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="RestartButton" type="Button" parent="Control/CenterContainer/VBoxContainer/GameOver" unique_id=143155042]
+texture_filter = 1
 layout_mode = 2
 icon = ExtResource("2_bvjni")
 flat = true
 
 [node name="MenuButton" type="Button" parent="Control/CenterContainer/VBoxContainer/GameOver" unique_id=1569046608]
+texture_filter = 1
 layout_mode = 2
 icon = ExtResource("3_ci7ue")
 flat = true
 
 [node name="TextureRect" type="TextureRect" parent="Control/CenterContainer/VBoxContainer" unique_id=319318957]
+texture_filter = 1
 layout_mode = 2
-texture = ExtResource("5_ci7ue")
+texture = ExtResource("6_41m72")
