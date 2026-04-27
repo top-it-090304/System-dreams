@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bjp1ulugftol7" path="res://scripts/player.gd" id="1_1kbk7"]
 [ext_resource type="PackedScene" uid="uid://kca4335hfy3k" path="res://scenes/Player/cursor.tscn" id="2_c4h5g"]
 [ext_resource type="Texture2D" uid="uid://eds4ibe11m6e" path="res://sprites/animation_sprite.png" id="4_c4h5g"]
+[ext_resource type="Script" uid="uid://cr1v8pk65bluf" path="res://scripts/orbital_weapon.gd" id="4_uiqp4"]
+[ext_resource type="PackedScene" uid="uid://cfbw63ejqoutv" path="res://scenes/Player/dvdCircle.tscn" id="5_uiqp4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_chuli"]
 radius = 8.0
@@ -176,3 +178,8 @@ libraries/ = SubResource("AnimationLibrary_pl8oh")
 autostart = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=540514452]
+
+[node name="OrbitalWeapon" type="Node2D" parent="." unique_id=948630900]
+script = ExtResource("4_uiqp4")
+projectile_scene = ExtResource("5_uiqp4")
+base_damage = 25.0

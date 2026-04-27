@@ -1,23 +1,22 @@
-[gd_scene format=3 uid="uid://kca4335hfy3k"]
+[gd_scene format=3 uid="uid://cfbw63ejqoutv"]
 
-[ext_resource type="Script" uid="uid://oy28tvasbxiq" path="res://scripts/cursor.gd" id="1_lqmk1"]
-[ext_resource type="Texture2D" uid="uid://dam4d23disoif" path="res://sprites/cursor.png" id="2_5grky"]
+[ext_resource type="Script" uid="uid://d2lj8e5bhvhn1" path="res://scripts/orbitalDVD.gd" id="1_80yps"]
+[ext_resource type="Texture2D" uid="uid://vagh666eqrrk" path="res://sprites/DVD.png" id="2_80yps"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2xojb"]
 radius = 8.0
 
-[node name="Cursor" type="Area2D" unique_id=1985163120]
+[node name="DVD" type="Area2D" unique_id=1985163120]
 z_index = -1
 scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 20
-script = ExtResource("1_lqmk1")
-damage = 30
+script = ExtResource("1_80yps")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=22448175]
 texture_filter = 1
 scale = Vector2(0.76, 0.76)
-texture = ExtResource("2_5grky")
+texture = ExtResource("2_80yps")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1604116037]
 shape = SubResource("CircleShape2D_2xojb")

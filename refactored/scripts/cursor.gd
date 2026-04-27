@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var speed: float = 400.0
-@export var damage: int = 30
+@export var damage: int = 0
 var direction: Vector2 = Vector2.ZERO
 
 func _physics_process(delta):
