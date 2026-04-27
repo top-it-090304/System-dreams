@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vagh666eqrrk"
-path="res://.godot/imported/DVD.png-7872c1ce525aafd1c785bbeadf541d02.ctex"
+uid="uid://sm4wf7cjqikm"
+path="res://.godot/imported/DVDLogo.png-964c82dfa2bf0e96e5f6e9f16645c90b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/DVD.png"
-dest_files=["res://.godot/imported/DVD.png-7872c1ce525aafd1c785bbeadf541d02.ctex"]
+source_file="res://sprites/DVDLogo.png"
+dest_files=["res://.godot/imported/DVDLogo.png-964c82dfa2bf0e96e5f6e9f16645c90b.ctex"]
 
 [params]
 
