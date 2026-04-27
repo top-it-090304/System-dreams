@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://rps_animation_uid"]
+
+[node name="RPSAnimation" type="CanvasLayer"]
+layer = 25
+process_mode = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(960, 540)

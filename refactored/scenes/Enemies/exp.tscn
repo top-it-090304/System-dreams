@@ -8,6 +8,8 @@ radius = 4.0
 
 [node name="Exp" type="Area2D" unique_id=1124518325]
 texture_filter = 1
+collision_layer = 8
+collision_mask = 2
 script = ExtResource("1_0op53")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1012945328]
@@ -15,3 +17,5 @@ texture = ExtResource("2_dkved")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1842584580]
 shape = SubResource("CircleShape2D_exp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

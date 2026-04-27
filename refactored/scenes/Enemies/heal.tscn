@@ -8,6 +8,8 @@ radius = 4.0
 
 [node name="Heal" type="Area2D" unique_id=1829300429]
 texture_filter = 1
+collision_layer = 8
+collision_mask = 2
 script = ExtResource("1_x47yv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1218092084]
@@ -15,3 +17,5 @@ texture = ExtResource("2_d706e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=530156264]
 shape = SubResource("CircleShape2D_heal")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

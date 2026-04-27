@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://j7ydqchp0nsk"]
+
+[ext_resource type="Script" uid="uid://c0i0lmycggqr0" path="res://scripts/enemy_bullet.gd" id="1_enemybullet"]
+[ext_resource type="Texture2D" uid="uid://c3x8d4x0uxu70" path="res://sprites/enemies/tetris/o_shape_bullet.png" id="2_o_texture"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o"]
+size = Vector2(34, 34)
+
+[node name="OBullet" type="Area2D" unique_id=1000000021]
+texture_filter = 1
+collision_layer = 32
+collision_mask = 18
+script = ExtResource("1_enemybullet")
+bullet_type = 1
+speed = 950.0
+pierce_count = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1000000022]
+scale = Vector2(2, 2)
+texture = ExtResource("2_o_texture")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1000000023]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_o")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1000000024]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

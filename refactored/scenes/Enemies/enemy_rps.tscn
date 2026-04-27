@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://cvmqwhccqcwfl"]
+
+[ext_resource type="Script" uid="uid://cnjpacecvf1u" path="res://scripts/enemy_rps.gd" id="1_rps"]
+[ext_resource type="PackedScene" uid="uid://bkkwslr00dmlw" path="res://scenes/Enemies/exp.tscn" id="2_exp"]
+[ext_resource type="PackedScene" uid="uid://dn7s37ri1ektu" path="res://scenes/Enemies/heal.tscn" id="3_heal"]
+[ext_resource type="Texture2D" uid="uid://d0a8eclfdbrjk" path="res://sprites/enemies/hand/Hand_moving.png" id="4_dp58a"]
+[ext_resource type="Texture2D" uid="uid://c6buj0tvp7iok" path="res://sprites/enemies/hand/hand_grab_1.png" id="5_vk1nl"]
+[ext_resource type="Texture2D" uid="uid://ckp50udhpbviv" path="res://sprites/enemies/hand/hand_grab_2.png" id="6_kpatk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rps"]
+radius = 3.8571427
+height = 7.7142854
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s8gxy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dp58a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_vk1nl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vk1nl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vk1nl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kpatk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kpatk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kpatk")
+}],
+"loop": false,
+"name": &"finded",
+"speed": 1.0
+}]
+
+[node name="EnemyRPS" type="CharacterBody2D" unique_id=-294967295 groups=["enemy"]]
+texture_filter = 1
+scale = Vector2(7, 7)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_rps")
+speed = null
+health = 400
+exp_scene = ExtResource("2_exp")
+heal_scene = ExtResource("3_heal")
+heal_drop_chance = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=-294967294 groups=["enemy"]]
+light_mask = 4
+visibility_layer = 3
+z_index = 1
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_rps")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=264524180]
+position = Vector2(-0.99999976, -1.8571428)
+scale = Vector2(0.19657609, 0.21302816)
+sprite_frames = SubResource("SpriteFrames_s8gxy")
+animation = &"finded"
+autoplay = "default"
+
+[node name="Label" type="Label" parent="." unique_id=971673009]
+visible = false
+offset_left = -15.333332
+offset_top = -6.0
+offset_right = 47.666668
+offset_bottom = 17.0
+theme_override_font_sizes/font_size = 8
+text = "РУКААА"

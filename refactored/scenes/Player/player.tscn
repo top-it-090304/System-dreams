@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bjp1ulugftol7" path="res://scripts/player.gd" id="1_1kbk7"]
 [ext_resource type="PackedScene" uid="uid://kca4335hfy3k" path="res://scenes/Player/cursor.tscn" id="2_c4h5g"]
-[ext_resource type="PackedScene" uid="uid://73bsucnawmc3" path="res://scenes/ui/death.tscn" id="3_uiqp4"]
 [ext_resource type="Texture2D" uid="uid://eds4ibe11m6e" path="res://sprites/animation_sprite.png" id="4_c4h5g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_chuli"]
@@ -156,9 +155,10 @@ _data = {
 [node name="Player" type="CharacterBody2D" unique_id=1779298022 groups=["player"]]
 z_index = 1
 texture_filter = 1
+collision_layer = 2
+collision_mask = 40
 script = ExtResource("1_1kbk7")
 bullet_scene = ExtResource("2_c4h5g")
-DEATH_SCREEN_SCENE = ExtResource("3_uiqp4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1581354019 groups=["player"]]
 position = Vector2(0, 4)

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://rps_result_uid"]
+
+[ext_resource type="Script" uid="uid://dfmh2fiw5k6sy" path="res://scripts/rps_result_window.gd" id="1_script"]
+
+[node name="RPSResultWindow" type="CanvasLayer"]
+layer = 30
+process_mode = 3
+visible = false
+script = ExtResource("1_script")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+patch_margin_left = 52
+patch_margin_top = 34
+patch_margin_right = 89
+patch_margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ResultLabel" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Результат"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OKButton" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "OK"
