@@ -1,7 +1,13 @@
 extends Node2D
 
 @export var projectile_scene: PackedScene 
-@export var projectile_count: int = 1
+
+@export var projectile_count: int = 0:
+	set(value):
+		projectile_count = value
+		if is_inside_tree():
+			spawn_projectiles()
+			
 @export var orbit_radius: float = 30.0   # расстояние от игрока
 @export var rotation_speed: float = 2.0   # скорость вращения (рад/сек)
 @export var base_damage: float = 10.0     # урон первого снаряда

@@ -27,6 +27,10 @@ var _options_data := [
 		"id": "dmg",
 		"icon": preload("res://sprites/ui/dmgUp.png")
 	},
+	{
+		"id": "dvd",
+		"icon": preload("res://sprites/ui/orbital.png")
+	}
 ]
 
 

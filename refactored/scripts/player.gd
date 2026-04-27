@@ -284,6 +284,8 @@ func _on_level_up_option_chosen(option_id: String) -> void:
 			shoot_timer.wait_time = shoot_timer.wait_time * 0.8
 		"dmg":
 			bullet_damage_bonus += 10
+		"dvd":
+			$OrbitalWeapon.projectile_count += 1
 	get_tree().paused = false
 
 func _update_hp_ui() -> void:
