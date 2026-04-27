@@ -1,9 +1,15 @@
-[gd_scene format=3 uid="uid://rps_animation_uid"]
+[gd_scene format=3 uid="uid://b3c1bwyfxojht"]
 
-[node name="RPSAnimation" type="CanvasLayer"]
-layer = 25
+[ext_resource type="Script" uid="uid://dmdn1bxxs82o1" path="res://scripts/rps_animation.gd" id="1_jbbpq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbbpq"]
+
+[node name="RPSAnimation" type="CanvasLayer" unique_id=167150644]
 process_mode = 3
+layer = 25
+script = ExtResource("1_jbbpq")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=729377618]
 texture_filter = 1
 position = Vector2(960, 540)
+sprite_frames = SubResource("SpriteFrames_jbbpq")

@@ -59,6 +59,7 @@ scale = Vector2(3, 3)
 [node name="Spawner" parent="." unique_id=1069112289 instance=ExtResource("3_7j17x")]
 position = Vector2(78, 118)
 scale = Vector2(3, 3)
+pusher_enemy_scene = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1950706563]
 

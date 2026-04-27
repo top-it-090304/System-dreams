@@ -1,14 +1,13 @@
-[gd_scene format=3 uid="uid://rps_result_uid"]
+[gd_scene format=3 uid="uid://b3hdpjua4rspr"]
 
 [ext_resource type="Script" uid="uid://dfmh2fiw5k6sy" path="res://scripts/rps_result_window.gd" id="1_script"]
 
-[node name="RPSResultWindow" type="CanvasLayer"]
-layer = 30
+[node name="RPSResultWindow" type="CanvasLayer" unique_id=1258644521]
 process_mode = 3
-visible = false
+layer = 30
 script = ExtResource("1_script")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1427036917]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control" unique_id=1071291542]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -29,7 +28,7 @@ patch_margin_top = 34
 patch_margin_right = 89
 patch_margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1810174705]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -45,12 +44,12 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="ResultLabel" type="Label" parent="Control/VBoxContainer"]
+[node name="ResultLabel" type="Label" parent="Control/VBoxContainer" unique_id=835131176]
 layout_mode = 2
 text = "Результат"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OKButton" type="Button" parent="Control/VBoxContainer"]
+[node name="OKButton" type="Button" parent="Control/VBoxContainer" unique_id=1865805590]
 layout_mode = 2
 text = "OK"

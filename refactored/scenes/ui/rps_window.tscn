@@ -3,176 +3,176 @@
 [ext_resource type="Texture2D" uid="uid://c181x53j06mk6" path="res://sprites/ui/main_menu.png" id="1_qp3ht"]
 [ext_resource type="Script" uid="uid://dyyb3acnln2tc" path="res://scripts/rps_window.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://b7rs0msv1wnyi" path="res://animations/default.png" id="3_gor4o"]
-[ext_resource type="Texture2D" uid="uid://dfucv6plhjvkx" path="res://animations/ножницы_бумага-Sheet.png" id="3_nk12j"]
-[ext_resource type="Texture2D" uid="uid://seexjccatqkk" path="res://animations/ножницы_камень-Sheet.png" id="4_gor4o"]
-[ext_resource type="Texture2D" uid="uid://xxvr6l2ypgtk" path="res://animations/ножницы_ножницыь-Sheet.png" id="5_k47gn"]
+[ext_resource type="Texture2D" uid="uid://byu5ger6tdvi7" path="res://animations/scissors_paper.png" id="4_gor4o"]
+[ext_resource type="Texture2D" uid="uid://d4in532radb8k" path="res://animations/scissors_rock.png" id="4_xh72f"]
+[ext_resource type="Texture2D" uid="uid://byt22sesqv4yc" path="res://animations/scissors_scissors.png" id="6_k47gn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olkek"]
-atlas = ExtResource("3_nk12j")
+atlas = ExtResource("4_gor4o")
 region = Rect2(0, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xk2ki"]
-atlas = ExtResource("3_nk12j")
+atlas = ExtResource("4_gor4o")
 region = Rect2(120, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hbx3n"]
-atlas = ExtResource("3_nk12j")
+atlas = ExtResource("4_gor4o")
 region = Rect2(240, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nuetx"]
-atlas = ExtResource("3_nk12j")
+atlas = ExtResource("4_gor4o")
 region = Rect2(360, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xb72"]
-atlas = ExtResource("3_nk12j")
+atlas = ExtResource("4_gor4o")
 region = Rect2(480, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwu5g"]
-atlas = ExtResource("3_nk12j")
+atlas = ExtResource("4_gor4o")
 region = Rect2(600, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_122rk"]
-atlas = ExtResource("3_nk12j")
+atlas = ExtResource("4_gor4o")
 region = Rect2(720, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uqomb"]
-atlas = ExtResource("3_nk12j")
+atlas = ExtResource("4_gor4o")
 region = Rect2(840, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xk5eo"]
-atlas = ExtResource("3_nk12j")
+atlas = ExtResource("4_gor4o")
 region = Rect2(960, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mlots"]
-atlas = ExtResource("3_nk12j")
+atlas = ExtResource("4_gor4o")
 region = Rect2(1080, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbvd2"]
-atlas = ExtResource("3_nk12j")
+atlas = ExtResource("4_gor4o")
 region = Rect2(1200, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_is7gw"]
-atlas = ExtResource("3_nk12j")
+atlas = ExtResource("4_gor4o")
 region = Rect2(1320, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hyaw7"]
-atlas = ExtResource("3_nk12j")
+atlas = ExtResource("4_gor4o")
 region = Rect2(1440, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cn34r"]
-atlas = ExtResource("3_nk12j")
+atlas = ExtResource("4_gor4o")
 region = Rect2(1560, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2on3"]
-atlas = ExtResource("4_gor4o")
+atlas = ExtResource("4_xh72f")
 region = Rect2(0, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pt48h"]
-atlas = ExtResource("4_gor4o")
+atlas = ExtResource("4_xh72f")
 region = Rect2(120, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lre08"]
-atlas = ExtResource("4_gor4o")
+atlas = ExtResource("4_xh72f")
 region = Rect2(240, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4rtlp"]
-atlas = ExtResource("4_gor4o")
+atlas = ExtResource("4_xh72f")
 region = Rect2(360, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7pc7t"]
-atlas = ExtResource("4_gor4o")
+atlas = ExtResource("4_xh72f")
 region = Rect2(480, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s2xdj"]
-atlas = ExtResource("4_gor4o")
+atlas = ExtResource("4_xh72f")
 region = Rect2(600, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gq1la"]
-atlas = ExtResource("4_gor4o")
+atlas = ExtResource("4_xh72f")
 region = Rect2(720, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwlye"]
-atlas = ExtResource("4_gor4o")
+atlas = ExtResource("4_xh72f")
 region = Rect2(840, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_chl7u"]
-atlas = ExtResource("4_gor4o")
+atlas = ExtResource("4_xh72f")
 region = Rect2(960, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gssw"]
-atlas = ExtResource("4_gor4o")
+atlas = ExtResource("4_xh72f")
 region = Rect2(1080, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fq5mp"]
-atlas = ExtResource("4_gor4o")
+atlas = ExtResource("4_xh72f")
 region = Rect2(1200, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8vof5"]
-atlas = ExtResource("4_gor4o")
+atlas = ExtResource("4_xh72f")
 region = Rect2(1320, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_urw71"]
-atlas = ExtResource("4_gor4o")
+atlas = ExtResource("4_xh72f")
 region = Rect2(1440, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24u1b"]
-atlas = ExtResource("4_gor4o")
+atlas = ExtResource("4_xh72f")
 region = Rect2(1560, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ggxef"]
-atlas = ExtResource("5_k47gn")
+atlas = ExtResource("6_k47gn")
 region = Rect2(0, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0c7a"]
-atlas = ExtResource("5_k47gn")
+atlas = ExtResource("6_k47gn")
 region = Rect2(120, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33cod"]
-atlas = ExtResource("5_k47gn")
+atlas = ExtResource("6_k47gn")
 region = Rect2(240, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y3134"]
-atlas = ExtResource("5_k47gn")
+atlas = ExtResource("6_k47gn")
 region = Rect2(360, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j1m12"]
-atlas = ExtResource("5_k47gn")
+atlas = ExtResource("6_k47gn")
 region = Rect2(480, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i53gp"]
-atlas = ExtResource("5_k47gn")
+atlas = ExtResource("6_k47gn")
 region = Rect2(600, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p8kwv"]
-atlas = ExtResource("5_k47gn")
+atlas = ExtResource("6_k47gn")
 region = Rect2(720, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yeomu"]
-atlas = ExtResource("5_k47gn")
+atlas = ExtResource("6_k47gn")
 region = Rect2(840, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pdv7x"]
-atlas = ExtResource("5_k47gn")
+atlas = ExtResource("6_k47gn")
 region = Rect2(960, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ks70n"]
-atlas = ExtResource("5_k47gn")
+atlas = ExtResource("6_k47gn")
 region = Rect2(1080, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uw4kb"]
-atlas = ExtResource("5_k47gn")
+atlas = ExtResource("6_k47gn")
 region = Rect2(1200, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d65vj"]
-atlas = ExtResource("5_k47gn")
+atlas = ExtResource("6_k47gn")
 region = Rect2(1320, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pvt63"]
-atlas = ExtResource("5_k47gn")
+atlas = ExtResource("6_k47gn")
 region = Rect2(1440, 0, 120, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_56bey"]
-atlas = ExtResource("5_k47gn")
+atlas = ExtResource("6_k47gn")
 region = Rect2(1560, 0, 120, 70)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_inxmf"]
@@ -328,6 +328,7 @@ animations = [{
 }]
 
 [node name="RPSWindow" type="CanvasLayer" unique_id=705032705]
+process_mode = 3
 layer = 30
 script = ExtResource("1_script")
 
@@ -410,6 +411,7 @@ texture_filter = 1
 position = Vector2(137, 338)
 scale = Vector2(1.9285715, 1.9285715)
 sprite_frames = SubResource("SpriteFrames_inxmf")
+animation = &"scissors_paper"
 autoplay = "default"
 
 [connection signal="pressed" from="Control/PaperButton" to="." method="_on_paper_button_pressed"]
