@@ -1,10 +1,27 @@
 [gd_scene format=3 uid="uid://cy02l755bmfuv"]
 
 [ext_resource type="Script" uid="uid://4i7ves2sw0xo" path="res://scripts/spawner.gd" id="1_2vbf6"]
+[ext_resource type="PackedScene" uid="uid://bpcdgjg8am0o7" path="res://scenes/Enemies/defaultEnemy.tscn" id="2_cmhla"]
+[ext_resource type="PackedScene" uid="uid://bnwqd1lv8hmys" path="res://scenes/Enemies/enemy_shooter.tscn" id="3_4wbs5"]
+[ext_resource type="PackedScene" uid="uid://cq8ifucy4w0as" path="res://scenes/Enemies/enemy_pusher.tscn" id="4_30a77"]
+[ext_resource type="PackedScene" uid="uid://cvmqwhccqcwfl" path="res://scenes/Enemies/enemy_rps.tscn" id="5_p5s3f"]
 
 [node name="Spawner" type="Node2D" unique_id=1069112289]
 script = ExtResource("1_2vbf6")
+enemy_scene = ExtResource("2_cmhla")
+spawn_radius = 500.0
+max_spawn_position_attempts = 20
+shooter_enemy_scene = ExtResource("3_4wbs5")
+pusher_enemy_scene = ExtResource("4_30a77")
+rps_enemy_scene = ExtResource("5_p5s3f")
+default_weight = 20
+shooter_weight = 1
+pusher_weight = 1
+rps_spawn_radius = 400.0
 
 [node name="Timer" type="Timer" parent="." unique_id=684817458]
-wait_time = 1.2
+wait_time = 3.0
+autostart = true
+
+[node name="RPSTimer" type="Timer" parent="." unique_id=684817459]
 autostart = true

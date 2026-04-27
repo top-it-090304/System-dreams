@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c0hsie2cveb5q"]
+
+[ext_resource type="Script" uid="uid://c0i0lmycggqr0" path="res://scripts/enemy_bullet.gd" id="1_enemybullet"]
+[ext_resource type="Texture2D" uid="uid://mk8ewm1mlkip" path="res://sprites/enemies/tetris/i_shape_bullet.png" id="2_i_texture"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i"]
+size = Vector2(54, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v72ua"]
+size = Vector2(18, 20)
+
+[node name="IBullet" type="Area2D" unique_id=1000000011]
+texture_filter = 1
+collision_layer = 32
+collision_mask = 18
+script = ExtResource("1_enemybullet")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1000000012]
+scale = Vector2(2, 2)
+texture = ExtResource("2_i_texture")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1000000013]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=979917864]
+position = Vector2(-18, 8)
+shape = SubResource("RectangleShape2D_v72ua")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1000000014]
+position = Vector2(0, -9)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

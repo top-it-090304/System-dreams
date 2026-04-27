@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 [autoload]
 
 MusicManager="*uid://d2ossg4issrns"
+Bus="*uid://d3f7fmntvdli7"
 
 [display]
 

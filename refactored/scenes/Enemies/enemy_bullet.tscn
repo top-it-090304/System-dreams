@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c5tohu668jqne"]
+
+[ext_resource type="Script" uid="uid://c0i0lmycggqr0" path="res://scripts/enemy_bullet.gd" id="1_enemybullet"]
+[ext_resource type="Texture2D" uid="uid://mk8ewm1mlkip" path="res://sprites/enemies/tetris/i_shape_bullet.png" id="2_62wwa"]
+[ext_resource type="Texture2D" uid="uid://c3x8d4x0uxu70" path="res://sprites/enemies/tetris/o_shape_bullet.png" id="3_nuqmr"]
+[ext_resource type="Texture2D" uid="uid://c47nk0uy140el" path="res://sprites/enemies/tetris/t_shape_bullet.png" id="7_t_shape"]
+[ext_resource type="Texture2D" uid="uid://bn8c808vmd6va" path="res://sprites/enemies/tetris/l_shape_bullet.png" id="8_l_shape"]
+[ext_resource type="Texture2D" uid="uid://bpdpy2fiqwd73" path="res://sprites/enemies/tetris/z_shape_bullet.png" id="9_z_shape"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oefal"]
+size = Vector2(40, 20)
+
+[node name="EnemyBullet" type="Area2D" unique_id=1000000001]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_enemybullet")
+normal_sprite = ExtResource("2_62wwa")
+fast_sprite = ExtResource("3_nuqmr")
+heavy_sprite = ExtResource("7_t_shape")
+l_shape_sprite = ExtResource("8_l_shape")
+z_shape_sprite = ExtResource("9_z_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1000000002]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1000000003]
+shape = SubResource("RectangleShape2D_oefal")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1000000004]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

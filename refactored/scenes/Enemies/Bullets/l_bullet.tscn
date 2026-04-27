@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cplyh8u8jbxsn"]
+
+[ext_resource type="Script" uid="uid://c0i0lmycggqr0" path="res://scripts/enemy_bullet.gd" id="1_enemybullet"]
+[ext_resource type="Texture2D" uid="uid://bn8c808vmd6va" path="res://sprites/enemies/tetris/l_shape_bullet.png" id="2_l_texture"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l"]
+size = Vector2(52, 16.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2vc3"]
+size = Vector2(17, 20)
+
+[node name="LBullet" type="Area2D" unique_id=1000000041]
+texture_filter = 1
+collision_layer = 32
+collision_mask = 18
+script = ExtResource("1_enemybullet")
+bullet_type = 3
+speed = 700.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1000000042]
+scale = Vector2(2, 2)
+texture = ExtResource("2_l_texture")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1000000043]
+position = Vector2(0, -9.25)
+shape = SubResource("RectangleShape2D_l")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1000000044]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=948059289]
+position = Vector2(17.5, 7)
+shape = SubResource("RectangleShape2D_c2vc3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

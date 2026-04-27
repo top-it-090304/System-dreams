@@ -252,6 +252,7 @@ func add_xp(amount: int) -> void:
 		next_level_xp += 1.5
 		_update_xp_ui()
 		emit_signal("xp_updated", current_xp, next_level_xp)
+		level_updated.emit(level)
 		_on_level_up()
 
 func heal(amount: int) -> void:
@@ -296,6 +297,10 @@ func _update_time_ui() -> void:
 func _update_xp_ui() -> void:
 	if _xp_label:
 		_xp_label.text = "XP: %d/%d" % [current_xp, next_level_xp]
+
+# Метод для получения текущего уровня (используется спавнером)
+func get_level() -> int:
+	return level
 
 func _flash_red() -> void:
 	if sprite:
