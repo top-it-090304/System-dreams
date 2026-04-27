@@ -34,6 +34,7 @@ const DAMAGE_SFX_STREAM := preload("res://audio/playerGetDamage.mp3")
 const AUDIO_SETTINGS_PATH := "user://audio_settings.cfg"
 const AUDIO_SETTINGS_SECTION := "audio"
 const AUDIO_ENEMIES_KEY := "enemies"
+const TAP_ENEMY_LAYER = 5   # или 1 << 4, если слой 5
 
 @export var bullet_scene: PackedScene
 @export var max_health: int = 100
@@ -89,8 +90,13 @@ func _physics_process(delta):
 	
 	# Считываем нажатие мыши/тапа
 	if Input.is_action_just_pressed("left_click"):
-		click_position = get_global_mouse_position()
-
+		var mouse_pos = get_global_mouse_position()
+		# проверяем, есть ли под мышкой tap-враг
+		if _try_tap_enemy(mouse_pos):
+			return   # не идём, клик ушёл на уничтожение врага
+		# иначе обычное движение
+		click_position = mouse_pos
+	
 	# ОПРЕДЕЛЯЕМ НАПРАВЛЕНИЕ (приоритет у клавиатуры)
 	if key_input.length() > 0.1:
 		direction = key_input
@@ -111,6 +117,23 @@ func _physics_process(delta):
 	_run_time += delta
 	_update_time_ui()
 	_update_xp_ui()
+
+func _try_tap_enemy(mouse_pos: Vector2) -> bool:
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsPointQueryParameters2D.new()
+	query.position = mouse_pos
+	query.collision_mask = 1 << (TAP_ENEMY_LAYER - 1)   # внимание: нумерация с 0
+	# если используете именно номер слоя от 1 до 32, формула: 1 << (layer-1)
+	query.collide_with_areas = true
+	query.collide_with_bodies = false   # достаточно Area2D
+	
+	var results = space_state.intersect_point(query)
+	for result in results:
+		var collider = result.collider
+		if collider.is_in_group("tap_enemy"):
+			collider.on_tap()
+			return true
+	return false
 
 func take_damage(amount: int, knockback_direction: Vector2 = Vector2.ZERO) -> void:
 	_apply_damage(amount, knockback_direction)

@@ -1,26 +1,25 @@
 [gd_scene format=3 uid="uid://cq8ifucy4w0as"]
 
-[ext_resource type="Script" uid="uid://balvbh0udd8j0" path="res://scripts/enemy_pusher.gd" id="1_pusher"]
+[ext_resource type="Script" uid="uid://balvbh0udd8j0" path="res://scripts/tap_enemy.gd" id="1_pusher"]
 [ext_resource type="PackedScene" uid="uid://bkkwslr00dmlw" path="res://scenes/Enemies/exp.tscn" id="2_exp"]
 [ext_resource type="PackedScene" uid="uid://dn7s37ri1ektu" path="res://scenes/Enemies/heal.tscn" id="3_heal"]
 [ext_resource type="Texture2D" uid="uid://btd4j2cs2gm54" path="res://sprites/ui/base_back.png" id="4_l7u5s"]
-[ext_resource type="Texture2D" uid="uid://07ple75571yt" path="res://sprites/ui/menu_back.png" id="5_863v1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k84vp"]
 size = Vector2(417.33337, 232)
 
-[node name="EnemyPusher" type="CharacterBody2D" unique_id=-1294967295 groups=["enemy", "enemy_pusher"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_862v4"]
+size = Vector2(230, 240.00002)
+
+[node name="tap_enemy" type="CharacterBody2D" unique_id=-1294967295 groups=["enemy", "enemy_pusher"]]
 z_index = 3
 texture_filter = 1
 scale = Vector2(0.2, 0.2)
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_pusher")
-push_force = 5.0
 exp_scene = ExtResource("2_exp")
 heal_scene = ExtResource("3_heal")
-normal_texture = ExtResource("4_l7u5s")
-hurt_texture = ExtResource("5_863v1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=-1294967294 groups=["enemy", "enemy_pusher"]]
 position = Vector2(-0.6666667, -3.6666565)
@@ -38,16 +37,9 @@ offset_bottom = -85.999985
 theme_override_font_sizes/font_size = 35
 text = "реклама"
 
-[node name="PushTimer" type="Timer" parent="." unique_id=-1294967289]
-wait_time = 0.1
+[node name="Area2D" type="Area2D" parent="." unique_id=52292974]
 
-[node name="StateTimer" type="Timer" parent="." unique_id=-1294967288]
-wait_time = 2.0
-
-[node name="Button" type="Button" parent="." unique_id=2105856740]
-offset_left = -54.999996
-offset_top = -169.99998
-offset_right = 54.999996
-offset_bottom = -64.99999
-
-[connection signal="pressed" from="Button" to="." method="take_damage_from_cross"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1072183194]
+position = Vector2(-5, -95.00001)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_862v4")
