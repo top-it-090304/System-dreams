@@ -15,6 +15,7 @@ var level: int = 1
 var current_xp: int = 0
 var is_alive: bool = true 
 var next_level_xp: int = 1
+var min_wait_time: float = 0.2
 
 # как сильно пинают котенка
 var knockback_force: float = 500.0
@@ -281,9 +282,9 @@ func _on_level_up_option_chosen(option_id: String) -> void:
 		"move":
 			move_speed += 20.0
 		"shoot":
-			shoot_timer.wait_time = shoot_timer.wait_time * 0.8
+			shoot_timer.wait_time = lerp(shoot_timer.wait_time, min_wait_time, 0.15)
 		"dmg":
-			bullet_damage_bonus += 10
+			bullet_damage_bonus += 10.0 / sqrt(level)
 		"dvd":
 			$OrbitalWeapon.projectile_count += 1
 	get_tree().paused = false
