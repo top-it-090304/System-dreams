@@ -35,10 +35,22 @@ var _options_data := [
 
 
 func _ready() -> void:
-	#process_mode, 2 == PROCESS_MODE_WHEN_PAUSED
-	process_mode = 2
+	process_mode = PROCESS_MODE_ALWAYS
 	layer = 20 
+	
 	_randomize_and_apply_options()
+	_prevent_misclick(0.3) # защита на 0.3 секунды
+
+
+func _prevent_misclick(duration: float) -> void:
+	for btn in option_buttons:
+		btn.disabled = true
+		
+	await get_tree().create_timer(duration, true, false, true).timeout
+
+	for btn in option_buttons:
+		btn.disabled = false
+		btn.modulate.a = 1.0
 
 
 func _randomize_and_apply_options() -> void:
@@ -49,17 +61,19 @@ func _randomize_and_apply_options() -> void:
 		var btn = option_buttons[i]
 		var data = shuffled[i]
 		
-		
 		if btn.has_node("Icon"):
 			var icon_node = btn.get_node("Icon")
 			if icon_node is TextureRect:
 				icon_node.texture = data["icon"]
 		
-		# Подключаем сигнал нажатия к обработчику, передавая id опции
-		if not btn.pressed.is_connected(_on_option_pressed):
-			btn.pressed.connect(_on_option_pressed.bind(data["id"]))
+		# Очищаем старые связи, если они были, чтобы избежать дублирования
+		if btn.pressed.is_connected(_on_option_pressed):
+			btn.pressed.disconnect(_on_option_pressed)
+			
+		btn.pressed.connect(_on_option_pressed.bind(data["id"]))
 
 
 func _on_option_pressed(option_id: String) -> void:
 	option_chosen.emit(option_id)
+	get_tree().paused = false 
 	queue_free()
