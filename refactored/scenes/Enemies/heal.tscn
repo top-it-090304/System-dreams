@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bmm64nd65ml4c" path="res://sprites/heal.png" id="2_d706e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_heal"]
-radius = 4.0
+radius = 18.027756
 
 [node name="Heal" type="Area2D" unique_id=1829300429]
 texture_filter = 1
@@ -13,6 +13,8 @@ collision_mask = 2
 script = ExtResource("1_x47yv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1218092084]
+position = Vector2(0, 4.7683716e-07)
+scale = Vector2(1.7631578, 1.7666667)
 texture = ExtResource("2_d706e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=530156264]
