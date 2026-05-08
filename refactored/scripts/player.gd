@@ -160,6 +160,7 @@ func _on_player_died() -> void:
 func _on_death_screen_restart() -> void:
 	get_tree().paused = false
 	MusicManager.play_gameplay_music()
+	get_tree().reload_current_scene()
 
 func _on_death_screen_menu() -> void:
 	get_tree().paused = false
