@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://crqoaneubmlxq" path="res://scripts/settings.gd" id="1_7pacj"]
 [ext_resource type="Texture2D" uid="uid://hb60d13syc4y" path="res://sprites/ui/push_up.png" id="1_o2bc3"]
 [ext_resource type="Texture2D" uid="uid://yxirkyur1nid" path="res://sprites/ui/Sprite-0001.png" id="3_h175o"]
+[ext_resource type="FontFile" uid="uid://byu2sxb8ko23c" path="res://fonts/LCD5x8HRU.ttf" id="3_ptynm"]
 
 [node name="Settings" type="CanvasLayer" unique_id=1886999747]
 script = ExtResource("1_7pacj")
@@ -43,6 +44,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=1016975006]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ptynm")
 text = "звук всей игры"
 
 [node name="HSlider2" type="HSlider" parent="Control/CenterContainer/VBoxContainer" unique_id=1961387289]
@@ -50,6 +52,7 @@ layout_mode = 2
 
 [node name="Label2" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=1667070318]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ptynm")
 text = "звуки эффектов"
 
 [node name="HSlider" type="HSlider" parent="Control/CenterContainer/VBoxContainer" unique_id=356328721]
@@ -57,9 +60,45 @@ layout_mode = 2
 
 [node name="Label3" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=1642400319]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ptynm")
 text = "музыка"
 
 [node name="HSlider3" type="HSlider" parent="Control/CenterContainer/VBoxContainer" unique_id=1781288809]
+layout_mode = 2
+
+[node name="Управление" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=1141887271]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ptynm")
+text = "Управление"
+
+[node name="controll_options" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer" unique_id=350288330]
+layout_mode = 2
+
+[node name="joy_stick_option" type="HBoxContainer" parent="Control/CenterContainer/VBoxContainer/controll_options" unique_id=418936981]
+layout_direction = 2
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer/controll_options/joy_stick_option" unique_id=810582190]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_color = Color(0.02745098, 0.1882353, 0.7882353, 1)
+theme_override_fonts/font = ExtResource("3_ptynm")
+text = "Джостик"
+
+[node name="Joy_stick_Check" type="CheckBox" parent="Control/CenterContainer/VBoxContainer/controll_options/joy_stick_option" unique_id=1811288399]
+layout_mode = 2
+
+[node name="touch_screen_option" type="HBoxContainer" parent="Control/CenterContainer/VBoxContainer/controll_options" unique_id=1301385272]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer/controll_options/touch_screen_option" unique_id=2000849168]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.02745098, 0.1882353, 0.7882353, 1)
+theme_override_fonts/font = ExtResource("3_ptynm")
+text = "Нажатие на экран"
+
+[node name="Touch_Check" type="CheckBox" parent="Control/CenterContainer/VBoxContainer/controll_options/touch_screen_option" unique_id=486174676]
 layout_mode = 2
 
 [node name="reset_progress" type="Button" parent="Control/CenterContainer/VBoxContainer" unique_id=128460622]
@@ -77,6 +116,11 @@ offset_bottom = 63.0
 flat = true
 text_overrun_behavior = 2
 autowrap_trim_flags = 192
+
+[node name="Control_choice" type="Control" parent="Control" unique_id=507867175]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="value_changed" from="Control/CenterContainer/VBoxContainer/HSlider2" to="." method="_on_h_slider_2_value_changed"]
 [connection signal="value_changed" from="Control/CenterContainer/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]

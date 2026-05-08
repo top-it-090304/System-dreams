@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 
 MusicManager="*uid://d2ossg4issrns"
 Bus="*uid://d3f7fmntvdli7"
+ControlSettings="*res://scripts/control_settings.gd"
 
 [display]
 

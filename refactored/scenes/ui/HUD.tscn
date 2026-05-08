@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://clktpfpb4b33b" path="res://sprites/ui/hp_bar.png" id="5_jvmx1"]
 [ext_resource type="Texture2D" uid="uid://dklv7r4wdj1qj" path="res://sprites/ui/progress_bar_back.png" id="6_jlufg"]
 [ext_resource type="Texture2D" uid="uid://ctbexqspb8doq" path="res://sprites/ui/progress_bar.png" id="7_l20r4"]
+[ext_resource type="PackedScene" uid="uid://btf0iccai10qr" path="res://addons/versatile-mobile-joystick/joystick.tscn" id="9_p4k5r"]
+[ext_resource type="Script" uid="uid://dfhx0grtfbr4j" path="res://scripts/joystick_controller.gd" id="10_euikm"]
 
 [sub_resource type="Theme" id="Theme_euikm"]
 
@@ -77,3 +79,15 @@ offset_bottom = 56.0
 scale = Vector2(3, 3)
 texture_under = ExtResource("6_jlufg")
 texture_progress = ExtResource("7_l20r4")
+
+[node name="Control" type="Control" parent="." unique_id=348059315]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="JoystickController" parent="Control" unique_id=77799066 instance=ExtResource("9_p4k5r")]
+visible = false
+texture_filter = 1
+script = ExtResource("10_euikm")
+joystick_scene = null

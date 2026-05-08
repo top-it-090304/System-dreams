@@ -88,19 +88,28 @@ func _physics_process(delta):
 		Input.get_axis("ui_up", "ui_down")
 	)
 	
-	# Считываем нажатие мыши/тапа
-	if Input.is_action_just_pressed("left_click"):
-		click_position = get_global_mouse_position()
-
-	# ОПРЕДЕЛЯЕМ НАПРАВЛЕНИЕ (приоритет у клавиатуры)
-	if key_input.length() > 0.1:
-		direction = key_input
-		# Сбрасываем click_position, чтобы клик не "тянул" назад после отпускания клавиш
-		click_position = position 
-	elif position.distance_to(click_position) > 5:
-		direction = (click_position - position).normalized()
+	# ОПРЕДЕЛЯЕМ НАПРАВЛЕНИЕ в зависимости от типа управления
+	if ControlSettings.is_joystick_enabled():
+		# Режим джойстика - используем только ввод от джойстика (через Input actions)
+		if key_input.length() > 0.1:
+			direction = key_input
+			click_position = position
+		else:
+			direction = Vector2.ZERO
 	else:
-		direction = Vector2.ZERO
+		# Режим touch - используем нажатие на экран
+		# Считываем нажатие мыши/тапа
+		if Input.is_action_just_pressed("left_click"):
+			click_position = get_global_mouse_position()
+		
+		if key_input.length() > 0.1:
+			direction = key_input
+			# Сбрасываем click_position, чтобы клик не "тянул" назад после отпускания клавиш
+			click_position = position 
+		elif position.distance_to(click_position) > 5:
+			direction = (click_position - position).normalized()
+		else:
+			direction = Vector2.ZERO
 	
 	velocity = direction * move_speed
 	
