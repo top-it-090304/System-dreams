@@ -43,6 +43,7 @@ offset_top = -5.0
 offset_right = 9.0
 offset_bottom = 11.0
 scale = Vector2(4, 4)
+button_mask = 7
 icon = ExtResource("3_jlufg")
 flat = true
 
@@ -83,8 +84,9 @@ texture_progress = ExtResource("7_l20r4")
 [node name="Control" type="Control" parent="." unique_id=348059315]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = 50.0
+offset_right = 271.0
+offset_bottom = 480.0
 
 [node name="JoystickController" parent="Control" unique_id=77799066 instance=ExtResource("9_p4k5r")]
 visible = false
