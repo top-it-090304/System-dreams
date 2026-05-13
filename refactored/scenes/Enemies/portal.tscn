@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://b6sv4s1x8gjtc"]
+
+[ext_resource type="Script" uid="uid://dtw68e3hwmke8" path="res://scripts/portal.gd" id="1_vgqk5"]
+[ext_resource type="Texture2D" uid="uid://dxh7r3jcnrfi7" path="res://sprites/Portal.png" id="2_vgqk5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqk5"]
+size = Vector2(77.75, 104.25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_204ep"]
+atlas = ExtResource("2_vgqk5")
+region = Rect2(0, 0, 40, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkrqh"]
+atlas = ExtResource("2_vgqk5")
+region = Rect2(40, 0, 40, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoott"]
+atlas = ExtResource("2_vgqk5")
+region = Rect2(80, 0, 40, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjvlu"]
+atlas = ExtResource("2_vgqk5")
+region = Rect2(120, 0, 40, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8whwk"]
+atlas = ExtResource("2_vgqk5")
+region = Rect2(160, 0, 40, 103)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qu36i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_204ep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkrqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xoott")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjvlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8whwk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Portal" type="Area2D" unique_id=1124518325]
+texture_filter = 1
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_vgqk5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1842584580]
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_vgqk5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1372236989]
+position = Vector2(-2.3841858e-07, 5.722046e-06)
+scale = Vector2(1.725, 1.725)
+sprite_frames = SubResource("SpriteFrames_qu36i")
+frame_progress = 0.18805571
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

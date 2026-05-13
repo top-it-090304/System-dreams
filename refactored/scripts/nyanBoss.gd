@@ -1,11 +1,13 @@
 extends CharacterBody2D
 @export var speed = 50;
-@export var health: int = 1000
+@export var health: int = 1
 @export var hurt_time: float = 0.3
 @export var attack_range: float = 10.0
 @export var attack_cooldown: float = 0.8
+
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+@export var portal_scene: PackedScene
 @export var anim_hurt: String = "hurt"
 @export var anim_normal: String = "default"
 @export var damage: int = 10
@@ -82,6 +84,10 @@ func take_damage(amount: int) -> void:
 
 func die() -> void:
 	_play_death_sfx()
+	
+	var portal = portal_scene.instantiate()
+	portal.global_position = global_position
+	get_parent().add_child(portal)
 	
 	queue_free()
 
