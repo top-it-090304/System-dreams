@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://djepfmbk8nauq"]
+
+[ext_resource type="Script" uid="uid://bhwo7qkcjrosb" path="res://scripts/WinScreen.gd" id="1_8noy3"]
+[ext_resource type="Texture2D" uid="uid://hb60d13syc4y" path="res://sprites/ui/push_up.png" id="2_nyiwu"]
+[ext_resource type="FontFile" uid="uid://byu2sxb8ko23c" path="res://fonts/LCD5x8HRU.ttf" id="3_m0chk"]
+[ext_resource type="Texture2D" uid="uid://b4eyhka3f27ke" path="res://sprites/ui/death_restart_button.png" id="4_4whcy"]
+[ext_resource type="Texture2D" uid="uid://c5ca3oi7tfuta" path="res://sprites/ui/death_menu_button.png" id="5_gtoyh"]
+[ext_resource type="Texture2D" uid="uid://dirymu2kgf7ds" path="res://sprites/ui/winPicture.png" id="6_8noy3"]
+
+[sub_resource type="Theme" id="Theme_4yn08"]
+
+[node name="WinScreen" type="CanvasLayer" unique_id=91102058]
+script = ExtResource("1_8noy3")
+
+[node name="Control" type="Control" parent="." unique_id=1878066665]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control" unique_id=151886296]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nyiwu")
+patch_margin_left = 25
+patch_margin_top = 61
+patch_margin_right = 113
+patch_margin_bottom = 32
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=700679373]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_right = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer" unique_id=150479144]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/CenterContainer/VBoxContainer" unique_id=762191658]
+layout_mode = 2
+
+[node name="Records" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer" unique_id=104023553]
+clip_contents = true
+layout_mode = 2
+alignment = 1
+
+[node name="TimeLabel" type="Label" parent="Control/CenterContainer/VBoxContainer/Records" unique_id=1178033826]
+layout_mode = 2
+theme = SubResource("Theme_4yn08")
+theme_override_colors/font_color = Color(0.16078432, 0.13333334, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("3_m0chk")
+text = "time"
+horizontal_alignment = 1
+
+[node name="MaxLevelLabel" type="Label" parent="Control/CenterContainer/VBoxContainer/Records" unique_id=568452135]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16078432, 0.13725491, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("3_m0chk")
+text = "max"
+horizontal_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="Control/CenterContainer/VBoxContainer/Records" unique_id=1762059966]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16078432, 0.13333334, 0.21568628, 1)
+theme_override_fonts/font = ExtResource("3_m0chk")
+text = "cur"
+horizontal_alignment = 1
+
+[node name="GameOver" type="HBoxContainer" parent="Control/CenterContainer/VBoxContainer" unique_id=1291868737]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="Control/CenterContainer/VBoxContainer/GameOver" unique_id=143155042]
+texture_filter = 1
+layout_mode = 2
+icon = ExtResource("4_4whcy")
+flat = true
+
+[node name="MenuButton" type="Button" parent="Control/CenterContainer/VBoxContainer/GameOver" unique_id=1569046608]
+texture_filter = 1
+layout_mode = 2
+icon = ExtResource("5_gtoyh")
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/CenterContainer/VBoxContainer" unique_id=319318957]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("6_8noy3")
