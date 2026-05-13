@@ -175,7 +175,7 @@ func _determine_winner(player_choice: int, enemy_choice: int) -> String:
 	return "lose"
 
 func _kill_all_enemies() -> void:
-	var enemies = get_tree().get_nodes_in_group("enemy")
+	var enemies = get_tree().get_nodes_in_group("rpsCanKill")
 	for enemy in enemies:
 		if not is_instance_valid(enemy):
 			continue

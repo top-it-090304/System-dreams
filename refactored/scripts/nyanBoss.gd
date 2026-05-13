@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @export var speed = 50;
-@export var health: int = 1
+@export var health: int = 10000
 @export var hurt_time: float = 0.3
 @export var attack_range: float = 10.0
 @export var attack_cooldown: float = 0.8
@@ -67,15 +67,21 @@ func attack() -> void:
 		var direction_to_player = (player.global_position - global_position).normalized()
 		
 		player.take_damage(damage, direction_to_player)
-		
+
+signal health_updated(current_hp)
+	
 func take_damage(amount: int) -> void:
 	health -= amount
+	
+	health_updated.emit(health) 
+	if health <= 0:
+		queue_free()
 	if _damage_sfx_player:
 		_damage_sfx_player.volume_db = _get_enemy_sfx_volume_db()
 		_damage_sfx_player.play()
 	
 	if _sprite:
-		_sprite.play(anim_hurt) # Запускаем анимацию получения урона
+		_sprite.play(anim_hurt) 
 		_hurt_timer = hurt_time
 	
 	if health <= 0:

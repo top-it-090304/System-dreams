@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c3rjdulja5jgi" path="res://sprites/enemies/nyanBosstHurtt.png" id="3_r0jnv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3few"]
-radius = 4.3333335
-height = 13.333334
+radius = 23.0
+height = 80.66667
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0jnv"]
 atlas = ExtResource("2_7uvap")
@@ -74,6 +74,9 @@ script = ExtResource("1_r0jnv")
 portal_scene = ExtResource("2_mlqxn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1427238615 groups=["enemy"]]
+light_mask = 3
+visibility_layer = 2
+position = Vector2(-0.33333334, -8.881784e-16)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_a3few")
 

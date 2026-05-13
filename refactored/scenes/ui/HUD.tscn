@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dklv7r4wdj1qj" path="res://sprites/ui/progress_bar_back.png" id="6_jlufg"]
 [ext_resource type="Texture2D" uid="uid://ctbexqspb8doq" path="res://sprites/ui/progress_bar.png" id="7_l20r4"]
 [ext_resource type="Texture2D" uid="uid://dgodcopluonrv" path="res://sprites/ui/killTheBoss.png" id="9_jvmx1"]
+[ext_resource type="Texture2D" uid="uid://ctgra8qaowq7r" path="res://sprites/ui/under_hp_boss_bar-export.png" id="10_p4k5r"]
+[ext_resource type="Texture2D" uid="uid://cbhxfrm7gn011" path="res://sprites/ui/hp_boss_bar-export.png" id="11_38nk3"]
 
 [sub_resource type="Theme" id="Theme_euikm"]
 
@@ -128,4 +130,16 @@ position = Vector2(92.00001, 46.000004)
 rotation = -0.24958208
 scale = Vector2(0.493187, 0.49318707)
 sprite_frames = SubResource("SpriteFrames_4wy6o")
-frame_progress = 0.6486524
+frame_progress = 0.51610106
+
+[node name="BossHealthBar" type="TextureProgressBar" parent="Container" unique_id=1571179220]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 382.0
+offset_right = 264.34482
+offset_bottom = 451.0
+max_value = 10000.0
+nine_patch_stretch = true
+texture_under = ExtResource("10_p4k5r")
+texture_progress = ExtResource("11_38nk3")

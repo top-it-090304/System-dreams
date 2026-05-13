@@ -17,7 +17,7 @@ extends Node2D
 @export var pusher_weight: int = 15
 
 # боссярик раз в 5 минут спавнится 
-@export var nyan_boss_spawn_interval: float = 10.0 
+@export var nyan_boss_spawn_interval: float = 30.0 
 @export var nyan_boss_spawn_radius: float = 400.0
 
 @onready var nyan_timer: Timer = Timer.new() # 
@@ -274,7 +274,6 @@ func spawn_nyan_boss():
 
 	var boss = nyan_boss_scene.instantiate()
 	
-	# Масштабируем статы (можно сделать босса сильнее обычных врагов)
 	_scale_enemy_stats(boss, player)
 	
 	# Поиск позиции
@@ -302,12 +301,21 @@ func spawn_nyan_boss():
 	var hud_nodes = get_tree().get_nodes_in_group("hud_group")
 	if hud_nodes.size() > 0:
 		var hud = hud_nodes[0]
-		if hud.fire_sprite:
+		
+		if "fire_sprite" in hud:
 			hud.fire_sprite.visible = true
 			hud.fire_sprite.play("default")
-			
+		
+		if hud.has_method("show_boss_bar"):
+			hud.show_boss_bar(boss.health)
+		
+		if boss.has_signal("health_updated"): 
+			boss.health_updated.connect(hud.update_boss_bar)
+
 		boss.tree_exited.connect(func():
 			nyan_boss_present = false
-			if is_instance_valid(hud) and hud.fire_sprite:
-				hud.fire_sprite.visible = false
+			if is_instance_valid(hud):
+				hud.hide_boss_bar()
+				if "fire_sprite" in hud:
+					hud.fire_sprite.visible = false
 		)
