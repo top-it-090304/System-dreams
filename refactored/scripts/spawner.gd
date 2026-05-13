@@ -17,7 +17,7 @@ extends Node2D
 @export var pusher_weight: int = 15
 
 # боссярик раз в 5 минут спавнится 
-@export var nyan_boss_spawn_interval: float = 5.0 
+@export var nyan_boss_spawn_interval: float = 10.0 
 @export var nyan_boss_spawn_radius: float = 400.0
 
 @onready var nyan_timer: Timer = Timer.new() # 
@@ -293,6 +293,21 @@ func spawn_nyan_boss():
 	
 	nyan_boss_present = true
 	
-	# Следим за смертью босса, чтобы разрешить следующий спавн через 5 минут
 	if boss.has_signal("tree_exited"):
 		boss.tree_exited.connect(func(): nyan_boss_present = false)
+	
+	get_parent().add_child(boss)
+	nyan_boss_present = true
+
+	var hud_nodes = get_tree().get_nodes_in_group("hud_group")
+	if hud_nodes.size() > 0:
+		var hud = hud_nodes[0]
+		if hud.fire_sprite:
+			hud.fire_sprite.visible = true
+			hud.fire_sprite.play("default")
+			
+		boss.tree_exited.connect(func():
+			nyan_boss_present = false
+			if is_instance_valid(hud) and hud.fire_sprite:
+				hud.fire_sprite.visible = false
+		)

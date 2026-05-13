@@ -8,10 +8,54 @@
 [ext_resource type="Texture2D" uid="uid://clktpfpb4b33b" path="res://sprites/ui/hp_bar.png" id="5_jvmx1"]
 [ext_resource type="Texture2D" uid="uid://dklv7r4wdj1qj" path="res://sprites/ui/progress_bar_back.png" id="6_jlufg"]
 [ext_resource type="Texture2D" uid="uid://ctbexqspb8doq" path="res://sprites/ui/progress_bar.png" id="7_l20r4"]
+[ext_resource type="Texture2D" uid="uid://dgodcopluonrv" path="res://sprites/ui/killTheBoss.png" id="9_jvmx1"]
 
 [sub_resource type="Theme" id="Theme_euikm"]
 
-[node name="Hud" type="CanvasLayer" unique_id=1545635808]
+[sub_resource type="AtlasTexture" id="AtlasTexture_euikm"]
+atlas = ExtResource("9_jvmx1")
+region = Rect2(0, 0, 369, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4k5r"]
+atlas = ExtResource("9_jvmx1")
+region = Rect2(369, 0, 369, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38nk3"]
+atlas = ExtResource("9_jvmx1")
+region = Rect2(738, 0, 369, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bi52"]
+atlas = ExtResource("9_jvmx1")
+region = Rect2(1107, 0, 369, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8r00"]
+atlas = ExtResource("9_jvmx1")
+region = Rect2(1476, 0, 369, 99)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4wy6o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_euikm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4k5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38nk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bi52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8r00")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Hud" type="CanvasLayer" unique_id=1545635808 groups=["hud_group"]]
 script = ExtResource("1_4ed8p")
 
 [node name="Container" type="Control" parent="." unique_id=2066101786]
@@ -77,3 +121,11 @@ offset_bottom = 56.0
 scale = Vector2(3, 3)
 texture_under = ExtResource("6_jlufg")
 texture_progress = ExtResource("7_l20r4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Container" unique_id=147262770]
+visible = false
+position = Vector2(92.00001, 46.000004)
+rotation = -0.24958208
+scale = Vector2(0.493187, 0.49318707)
+sprite_frames = SubResource("SpriteFrames_4wy6o")
+frame_progress = 0.6486524
