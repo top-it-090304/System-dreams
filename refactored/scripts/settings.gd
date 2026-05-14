@@ -9,6 +9,8 @@ const BUS_ENEMIES_FALLBACK := "SFX"
 @onready var _master_slider: HSlider = $Control/CenterContainer/VBoxContainer/HSlider2
 @onready var _enemies_slider: HSlider = $Control/CenterContainer/VBoxContainer/HSlider
 @onready var _music_slider: HSlider = $Control/CenterContainer/VBoxContainer/HSlider3
+@onready var _joy_stick_check: CheckBox = $Control/CenterContainer/VBoxContainer/controll_options/joy_stick_option/Joy_stick_Check
+@onready var _touch_check: CheckBox = $Control/CenterContainer/VBoxContainer/controll_options/touch_screen_option/Touch_Check
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,6 +24,7 @@ func _ready() -> void:
 	_load_audio_settings_to_sliders()
 	_apply_audio_settings_from_sliders()
 	_connect_slider_signals()
+	_setup_control_checkboxes()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -145,3 +148,52 @@ func _on_h_slider_value_changed(value: float) -> void:
 
 func _on_h_slider_3_value_changed(value: float) -> void:
 	pass # Replace with function body.
+
+
+func _setup_control_checkboxes() -> void:
+	# Подключаем сигналы от чекбоксов
+	_joy_stick_check.toggled.connect(_on_joy_stick_check_toggled)
+	_touch_check.toggled.connect(_on_touch_check_toggled)
+	
+	# Устанавливаем состояние чекбоксов в соответствии с сохраненными настройками
+	_update_checkbox_states()
+	
+	# Подписываемся на изменения типа управления
+	ControlSettings.control_type_changed.connect(_on_control_type_changed)
+
+
+func _update_checkbox_states() -> void:
+	# Обновляем состояние чекбоксов в зависимости от текущего типа управления
+	if ControlSettings.is_joystick_enabled():
+		_joy_stick_check.button_pressed = true
+		_touch_check.button_pressed = false
+	else:
+		_joy_stick_check.button_pressed = false
+		_touch_check.button_pressed = true
+
+
+func _on_control_type_changed(new_type: int) -> void:
+	# Обновляем UI при изменении типа управления из другого места
+	_update_checkbox_states()
+
+
+func _on_joy_stick_check_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		# Если включили джойстик, выключаем touch
+		_touch_check.button_pressed = false
+		ControlSettings.set_control_type(ControlSettings.ControlType.JOYSTICK)
+	else:
+		# Если выключили джойстик, включаем touch
+		if not _touch_check.button_pressed:
+			_touch_check.button_pressed = true
+
+
+func _on_touch_check_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		# Если включили touch, выключаем джойстик
+		_joy_stick_check.button_pressed = false
+		ControlSettings.set_control_type(ControlSettings.ControlType.TOUCH)
+	else:
+		# Если выключили touch, включаем джойстик
+		if not _joy_stick_check.button_pressed:
+			_joy_stick_check.button_pressed = true

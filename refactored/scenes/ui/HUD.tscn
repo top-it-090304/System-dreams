@@ -87,6 +87,7 @@ offset_top = -5.0
 offset_right = 9.0
 offset_bottom = 11.0
 scale = Vector2(4, 4)
+button_mask = 7
 icon = ExtResource("3_jlufg")
 flat = true
 
