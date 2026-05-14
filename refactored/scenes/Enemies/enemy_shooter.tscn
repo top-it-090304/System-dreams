@@ -3,30 +3,32 @@
 [ext_resource type="Script" uid="uid://dux0wao3h3laj" path="res://scripts/enemy_shooter.gd" id="1_shooter"]
 [ext_resource type="PackedScene" uid="uid://bkkwslr00dmlw" path="res://scenes/Enemies/exp.tscn" id="2_exp"]
 [ext_resource type="PackedScene" uid="uid://dn7s37ri1ektu" path="res://scenes/Enemies/heal.tscn" id="3_heal"]
-[ext_resource type="Texture2D" uid="uid://c181x53j06mk6" path="res://sprites/ui/main_menu.png" id="4_wi74t"]
-[ext_resource type="Texture2D" uid="uid://hb60d13syc4y" path="res://sprites/ui/push_up.png" id="5_k8kvs"]
+[ext_resource type="Texture2D" uid="uid://cvqrs2e1kk16a" path="res://sprites/enemies/tetris_damage.png" id="5_q7arj"]
 [ext_resource type="PackedScene" uid="uid://c0hsie2cveb5q" path="res://scenes/Enemies/Bullets/i_bullet.tscn" id="6_i_bullet"]
 [ext_resource type="PackedScene" uid="uid://j7ydqchp0nsk" path="res://scenes/Enemies/Bullets/o_bullet.tscn" id="7_o_bullet"]
 [ext_resource type="PackedScene" uid="uid://1nndmredoamf" path="res://scenes/Enemies/Bullets/t_bullet.tscn" id="8_t_bullet"]
 [ext_resource type="PackedScene" uid="uid://cplyh8u8jbxsn" path="res://scenes/Enemies/Bullets/l_bullet.tscn" id="9_l_bullet"]
 [ext_resource type="PackedScene" uid="uid://bo8453qgeqajv" path="res://scenes/Enemies/Bullets/z_bullet.tscn" id="10_z_bullet"]
+[ext_resource type="Texture2D" uid="uid://b3urkosjwfkmh" path="res://sprites/enemies/tetris.png" id="11_htin5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wi74t"]
-size = Vector2(48.333344, 138.66667)
+size = Vector2(98, 75.00001)
 
 [node name="EnemyShooter" type="CharacterBody2D" unique_id=2000000001 groups=["enemy"]]
 z_index = -1
 texture_filter = 1
+scale = Vector2(4, 4)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_shooter")
 speed = 200.0
 health = 132
 stop_distance = 800.0
+shoot_cooldown = 5.0
 exp_scene = ExtResource("2_exp")
 heal_scene = ExtResource("3_heal")
-normal_texture = ExtResource("4_wi74t")
-hurt_texture = ExtResource("5_k8kvs")
+normal_texture = ExtResource("11_htin5")
+hurt_texture = ExtResource("5_q7arj")
 i_bullet_scene = ExtResource("6_i_bullet")
 o_bullet_scene = ExtResource("7_o_bullet")
 t_bullet_scene = ExtResource("8_t_bullet")
@@ -39,17 +41,9 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2000000002 groups=["enemy"]]
 z_index = -2
-position = Vector2(-1.3333359, 2.1666667)
+position = Vector2(-0.50000036, -9.536743e-07)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_wi74t")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2000000003]
-texture = ExtResource("4_wi74t")
-
-[node name="Label" type="Label" parent="." unique_id=1607132618]
-offset_left = -47.333332
-offset_top = -1.6666667
-offset_right = 59.33334
-offset_bottom = 21.333334
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "стрелятель"
+texture = ExtResource("11_htin5")
