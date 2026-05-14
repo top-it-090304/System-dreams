@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 var settings_menu_instance: Node = null 
 
