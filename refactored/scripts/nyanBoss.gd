@@ -12,7 +12,7 @@ extends CharacterBody2D
 @export var anim_normal: String = "default"
 @export var damage: int = 10
 
-const ENEMY_DAMAGE_SFX_STREAM := preload("res://audio/enemyGetDamage.mp3")
+const ENEMY_DAMAGE_SFX_STREAM := preload("res://audio/bossDamage.wav")
 const ENEMY_DEATH_SFX_STREAM := preload("res:///audio/enemyDeath.mp3")
 const BUS_ENEMIES_PRIMARY := "Enemies"
 const BUS_ENEMIES_FALLBACK := "SFX"
@@ -72,7 +72,7 @@ signal health_updated(current_hp)
 	
 func take_damage(amount: int) -> void:
 	health -= amount
-	
+	print("Здоровье босса:", health)
 	health_updated.emit(health) 
 	if health <= 0:
 		queue_free()

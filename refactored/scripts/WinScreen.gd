@@ -71,12 +71,14 @@ func save_max_level(new_level: int) -> void:
 
 
 func _on_restart_pressed() -> void:
+	get_tree().paused = false
 	restart_requested.emit()
 	queue_free()
 
 
 func _on_menu_pressed() -> void:
-	menu_requested.emit()
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 	queue_free()
 
 

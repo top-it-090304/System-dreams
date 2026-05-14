@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dklv7r4wdj1qj" path="res://sprites/ui/progress_bar_back.png" id="6_jlufg"]
 [ext_resource type="Texture2D" uid="uid://ctbexqspb8doq" path="res://sprites/ui/progress_bar.png" id="7_l20r4"]
 [ext_resource type="Texture2D" uid="uid://dgodcopluonrv" path="res://sprites/ui/killTheBoss.png" id="9_jvmx1"]
-[ext_resource type="Texture2D" uid="uid://ctgra8qaowq7r" path="res://sprites/ui/under_hp_boss_bar-export.png" id="10_p4k5r"]
-[ext_resource type="Texture2D" uid="uid://cbhxfrm7gn011" path="res://sprites/ui/hp_boss_bar-export.png" id="11_38nk3"]
+[ext_resource type="Texture2D" uid="uid://b834k7wkvoohy" path="res://sprites/ui/under_hp_boss_ba.png" id="10_euikm"]
+[ext_resource type="Texture2D" uid="uid://du5y7m2rtd1o2" path="res://sprites/ui/GOLOVA.png" id="11_p4k5r"]
 
 [sub_resource type="Theme" id="Theme_euikm"]
 
@@ -56,6 +56,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p4k5r"]
+load_path = "res://.godot/imported/hp_boss_bar-export.png-0385e1f220b72e83d46497748c5183a4.ctex"
 
 [node name="Hud" type="CanvasLayer" unique_id=1545635808 groups=["hud_group"]]
 script = ExtResource("1_4ed8p")
@@ -136,11 +139,16 @@ frame_progress = 0.51610106
 [node name="BossHealthBar" type="TextureProgressBar" parent="Container" unique_id=1571179220]
 visible = false
 layout_mode = 0
-offset_left = 5.0
-offset_top = 382.0
-offset_right = 264.34482
-offset_bottom = 451.0
-max_value = 10000.0
+offset_left = 73.0
+offset_top = 429.0
+offset_right = 263.6947
+offset_bottom = 454.0
+max_value = 100000.0
 nine_patch_stretch = true
-texture_under = ExtResource("10_p4k5r")
-texture_progress = ExtResource("11_38nk3")
+texture_under = ExtResource("10_euikm")
+texture_progress = SubResource("CompressedTexture2D_p4k5r")
+
+[node name="Sprite2D" type="Sprite2D" parent="Container/BossHealthBar" unique_id=641729465]
+position = Vector2(-36, 3)
+scale = Vector2(2.086207, 2.086207)
+texture = ExtResource("11_p4k5r")
