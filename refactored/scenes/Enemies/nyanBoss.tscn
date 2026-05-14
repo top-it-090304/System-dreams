@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://ccmjej1sde6t5"]
+
+[ext_resource type="Script" uid="uid://l8bjjjon1l6m" path="res://scripts/nyanBoss.gd" id="1_r0jnv"]
+[ext_resource type="Texture2D" uid="uid://cu53vwmudpwbm" path="res://sprites/enemies/nyanBosst.png" id="2_7uvap"]
+[ext_resource type="PackedScene" uid="uid://b6sv4s1x8gjtc" path="res://scenes/Enemies/portal.tscn" id="2_mlqxn"]
+[ext_resource type="Texture2D" uid="uid://c3rjdulja5jgi" path="res://sprites/enemies/nyanBosstHurtt.png" id="3_r0jnv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3few"]
+radius = 23.0
+height = 80.66667
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0jnv"]
+atlas = ExtResource("2_7uvap")
+region = Rect2(0, 0, 72, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlqxn"]
+atlas = ExtResource("2_7uvap")
+region = Rect2(72, 0, 72, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4fa7"]
+atlas = ExtResource("2_7uvap")
+region = Rect2(144, 0, 72, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg06f"]
+atlas = ExtResource("3_r0jnv")
+region = Rect2(0, 0, 72, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtoen"]
+atlas = ExtResource("3_r0jnv")
+region = Rect2(72, 0, 72, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2eeu"]
+atlas = ExtResource("3_r0jnv")
+region = Rect2(144, 0, 72, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bg06f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0jnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlqxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4fa7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg06f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtoen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2eeu")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}]
+
+[node name="NyanBoss" type="CharacterBody2D" unique_id=940495428 groups=["enemy"]]
+z_index = -1
+texture_filter = 1
+scale = Vector2(3, 3)
+collision_layer = 4
+collision_mask = 16
+script = ExtResource("1_r0jnv")
+portal_scene = ExtResource("2_mlqxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1427238615 groups=["enemy"]]
+light_mask = 3
+visibility_layer = 2
+position = Vector2(-0.33333334, -8.881784e-16)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_a3few")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1522708247]
+sprite_frames = SubResource("SpriteFrames_bg06f")

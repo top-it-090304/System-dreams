@@ -29,6 +29,11 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 
+[global_group]
+
+hud_group=""
+rpsCanKill=""
+
 [input]
 
 left_click={

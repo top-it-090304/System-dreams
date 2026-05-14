@@ -6,6 +6,7 @@ extends Area2D
 @export var magnet_speed: float = 320.0
 # Чтобы быстрее гарантировать pickup при очень близком расстоянии.
 @export var magnet_snap_distance: float = 10.0
+@onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var _player: Node2D = null
 

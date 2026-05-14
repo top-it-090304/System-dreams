@@ -6,11 +6,18 @@ class_name HUD
 @onready var level_label: Label = $Container/LevelLabel
 @onready var health_bar: TextureProgressBar = $Container/HealthBar
 @onready var exp_bar: TextureProgressBar = $Container/ExpBar
+@onready var fire_sprite: AnimatedSprite2D = $Container/AnimatedSprite2D
+@onready var boss_health_bar: TextureProgressBar = $Container/BossHealthBar
+
+@export var anim_normal: String = "default"
 
 var player: Player
 var pause_menu_instance: Node = null 
 
 func _ready():
+	if fire_sprite:
+		fire_sprite.play(anim_normal)
+	
 	process_mode = PROCESS_MODE_ALWAYS
 	player = get_tree().get_first_node_in_group("player")
 	if not player:
@@ -21,6 +28,8 @@ func _ready():
 	else:
 		print("HUD: Player not found!")
 	pause_button.pressed.connect(_on_pause_pressed)
+
+	
 
 func _connect_signals():
 	print("HUD: _connect_signals called, player = ", player)
@@ -71,3 +80,14 @@ func _hide_pause_menu():
 		pause_menu_instance = null
 	
 		get_tree().paused = false
+
+func show_boss_bar(max_hp: int):
+	boss_health_bar.max_value = max_hp
+	boss_health_bar.value = max_hp
+	boss_health_bar.visible = true
+
+func update_boss_bar(current_hp: int):
+	boss_health_bar.value = current_hp
+
+func hide_boss_bar():
+	boss_health_bar.visible = false

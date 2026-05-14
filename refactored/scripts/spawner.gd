@@ -6,6 +6,7 @@ extends Node2D
 @export var max_spawn_position_attempts: int = 12
 
 # Новые типы врагов
+@export var nyan_boss_scene: PackedScene
 @export var shooter_enemy_scene: PackedScene
 @export var pusher_enemy_scene: PackedScene
 @export var rps_enemy_scene: PackedScene
@@ -14,6 +15,15 @@ extends Node2D
 @export var default_weight: int = 50
 @export var shooter_weight: int = 20
 @export var pusher_weight: int = 15
+
+# боссярик раз в 5 минут спавнится 
+@export var nyan_boss_spawn_interval: float = 30.0 
+@export var nyan_boss_spawn_radius: float = 400.0
+
+@onready var nyan_timer: Timer = Timer.new() # 
+
+# флаг присутствия босса
+var nyan_boss_present: bool = false
 
 # RPS враг спавнится отдельно раз в минуту
 @export var rps_spawn_interval: float = 60.0  # 1 минута
@@ -52,6 +62,11 @@ func _ready():
 	# Устанавливаем начальный таймер спавна
 	timer.wait_time = base_spawn_interval
 	timer.start()
+	
+	add_child(nyan_timer)
+	nyan_timer.timeout.connect(_on_nyan_spawn_timer_timeout)
+	nyan_timer.wait_time = nyan_boss_spawn_interval
+	nyan_timer.start()
 
 func _process(delta):
 	if not get_tree().paused:
@@ -243,3 +258,64 @@ func _cleanup_inactive_shooters():
 	for shooter in active_shooters:
 		if not is_instance_valid(shooter) or not shooter.is_inside_tree():
 			active_shooters.erase(shooter)
+			
+			
+func _on_nyan_spawn_timer_timeout():
+	spawn_nyan_boss()
+
+func spawn_nyan_boss():
+	# проверяем лимит (1 враг) и наличие сцены
+	if nyan_boss_present or nyan_boss_scene == null:
+		return
+		
+	var player := get_parent().get_node_or_null("Player")
+	if player == null:
+		return
+
+	var boss = nyan_boss_scene.instantiate()
+	
+	_scale_enemy_stats(boss, player)
+	
+	# Поиск позиции
+	var attempts := 0
+	var spawn_pos := global_position
+	while attempts < max_spawn_position_attempts:
+		attempts += 1
+		var random_offset := Vector2.from_angle(randf() * TAU) * nyan_boss_spawn_radius
+		var candidate: Vector2 = player.global_position + random_offset
+		if candidate.distance_to(player.global_position) >= min_spawn_distance_from_player:
+			spawn_pos = candidate
+			break
+			
+	boss.global_position = spawn_pos
+	get_parent().add_child(boss)
+	
+	nyan_boss_present = true
+	
+	if boss.has_signal("tree_exited"):
+		boss.tree_exited.connect(func(): nyan_boss_present = false)
+	
+	get_parent().add_child(boss)
+	nyan_boss_present = true
+
+	var hud_nodes = get_tree().get_nodes_in_group("hud_group")
+	if hud_nodes.size() > 0:
+		var hud = hud_nodes[0]
+		
+		if "fire_sprite" in hud:
+			hud.fire_sprite.visible = true
+			hud.fire_sprite.play("default")
+		
+		if hud.has_method("show_boss_bar"):
+			hud.show_boss_bar(boss.health)
+		
+		if boss.has_signal("health_updated"): 
+			boss.health_updated.connect(hud.update_boss_bar)
+
+		boss.tree_exited.connect(func():
+			nyan_boss_present = false
+			if is_instance_valid(hud):
+				hud.hide_boss_bar()
+				if "fire_sprite" in hud:
+					hud.fire_sprite.visible = false
+		)
