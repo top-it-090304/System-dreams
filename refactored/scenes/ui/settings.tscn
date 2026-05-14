@@ -67,11 +67,13 @@ text = "музыка"
 layout_mode = 2
 
 [node name="Управление" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=1141887271]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ptynm")
 text = "Управление"
 
 [node name="controll_options" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer" unique_id=350288330]
+visible = false
 layout_mode = 2
 
 [node name="joy_stick_option" type="HBoxContainer" parent="Control/CenterContainer/VBoxContainer/controll_options" unique_id=418936981]
