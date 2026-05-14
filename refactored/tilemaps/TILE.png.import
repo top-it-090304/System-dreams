@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmmohdk5fhrrs"
-path="res://.godot/imported/scissors_scissors.png-fbc4a5fba88888494f130e3f34f39e36.ctex"
+uid="uid://cv4xbuy7bglwl"
+path="res://.godot/imported/TILE.png-4f990152289ea1bc4abe7fc2dc1e1df6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://animations/scissors_scissors.png"
-dest_files=["res://.godot/imported/scissors_scissors.png-fbc4a5fba88888494f130e3f34f39e36.ctex"]
+source_file="res://tilemaps/TILE.png"
+dest_files=["res://.godot/imported/TILE.png-4f990152289ea1bc4abe7fc2dc1e1df6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmmohdk5fhrrs"
-path="res://.godot/imported/scissors_scissors.png-fbc4a5fba88888494f130e3f34f39e36.ctex"
+uid="uid://bjj8bk4sex1o4"
+path="res://.godot/imported/камень_ножницы.png-3d49f8335ab703050a60f89d2e216561.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://animations/scissors_scissors.png"
-dest_files=["res://.godot/imported/scissors_scissors.png-fbc4a5fba88888494f130e3f34f39e36.ctex"]
+source_file="res://animations/камень_ножницы.png"
+dest_files=["res://.godot/imported/камень_ножницы.png-3d49f8335ab703050a60f89d2e216561.ctex"]
 
 [params]
 

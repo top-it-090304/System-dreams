@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7rs0msv1wnyi"
-path="res://.godot/imported/default.png-634d32a9007bf30b662cb5a56f0a9a6e.ctex"
+uid="uid://m5ix47vw2hfv"
+path="res://.godot/imported/ножницы.png-826d6ee449a1fe5e4fae1374fc92d634.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://animations/default.png"
-dest_files=["res://.godot/imported/default.png-634d32a9007bf30b662cb5a56f0a9a6e.ctex"]
+source_file="res://sprites/ui/ножницы.png"
+dest_files=["res://.godot/imported/ножницы.png-826d6ee449a1fe5e4fae1374fc92d634.ctex"]
 
 [params]
 
