@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://hb60d13syc4y" path="res://sprites/ui/push_up.png" id="1_iqehe"]
 [ext_resource type="Script" uid="uid://cf55bp8bjcn4v" path="res://scripts/level_up_menu.gd" id="1_vkps6"]
+[ext_resource type="FontFile" uid="uid://byu2sxb8ko23c" path="res://fonts/LCD5x8HRU.ttf" id="3_ixuu3"]
 [ext_resource type="Texture2D" uid="uid://d11rhxk7bnjfo" path="res://sprites/ui/hpUp.png" id="3_l261j"]
 [ext_resource type="Texture2D" uid="uid://c0b28cvm0ria4" path="res://sprites/ui/dmgUp.png" id="4_ixuu3"]
 [ext_resource type="Texture2D" uid="uid://du13hsgk4byuv" path="res://sprites/ui/moveUp.png" id="5_uklwp"]
@@ -38,13 +39,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -70.0
-offset_top = -105.0
-offset_right = 70.0
-offset_bottom = 140.0
+offset_left = -109.5
+offset_top = -153.0
+offset_right = 109.5
+offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=969997762]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.012168681, 0.08565044, 0.46683258, 1)
+theme_override_fonts/font = ExtResource("3_ixuu3")
+theme_override_font_sizes/font_size = 12
+text = "Вы получили новый уровень!
+Выбери свое улучшение"
+horizontal_alignment = 1
 
 [node name="Option1" type="Button" parent="Control/VBoxContainer" unique_id=187019069]
 self_modulate = Color(1, 1, 1, 0)
@@ -52,6 +62,8 @@ light_mask = 33
 texture_filter = 1
 custom_minimum_size = Vector2(140, 64)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Option1" unique_id=1784718528]
 layout_mode = 1
@@ -67,6 +79,7 @@ self_modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 custom_minimum_size = Vector2(140, 64)
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Option2" unique_id=1350903315]
 layout_mode = 1
@@ -85,9 +98,16 @@ layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Option3" unique_id=74111696]
 layout_mode = 1
-offset_left = -19.0
-offset_top = 3.0
-offset_right = 156.0
-offset_bottom = 60.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -28.5
+offset_right = 87.5
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("5_uklwp")
 stretch_mode = 3

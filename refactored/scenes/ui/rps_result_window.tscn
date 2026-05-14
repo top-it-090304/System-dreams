@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b3hdpjua4rspr"]
 
 [ext_resource type="Script" uid="uid://dfmh2fiw5k6sy" path="res://scripts/rps_result_window.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://byu2sxb8ko23c" path="res://fonts/LCD5x8HRU.ttf" id="2_ad1t0"]
 
 [node name="RPSResultWindow" type="CanvasLayer" unique_id=1258644521]
 process_mode = 3
@@ -46,10 +47,12 @@ alignment = 1
 
 [node name="ResultLabel" type="Label" parent="Control/VBoxContainer" unique_id=835131176]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ad1t0")
 text = "Результат"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="OKButton" type="Button" parent="Control/VBoxContainer" unique_id=1865805590]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ad1t0")
 text = "OK"
