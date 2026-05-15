@@ -138,11 +138,11 @@ frame_progress = 0.51610106
 
 [node name="BossHealthBar" type="TextureProgressBar" parent="Container" unique_id=1571179220]
 visible = false
-layout_mode = 0
-offset_left = 73.0
-offset_top = 429.0
-offset_right = 263.6947
-offset_bottom = 454.0
+layout_mode = 1
+offset_left = 76.0
+offset_top = 449.0
+offset_right = 266.6947
+offset_bottom = 474.0
 max_value = 100000.0
 nine_patch_stretch = true
 texture_under = ExtResource("10_euikm")

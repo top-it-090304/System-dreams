@@ -46,6 +46,12 @@ texture = ExtResource("1_ya4ey")
 [sub_resource type="TileSet" id="TileSet_jbj1t"]
 sources/0 = SubResource("TileSetAtlasSource_jkv2x")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
+size = Vector2(7024, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
+size = Vector2(101, 5500)
+
 [node name="Main" type="Node2D" unique_id=206533239]
 
 [node name="Player" parent="." unique_id=1779298022 instance=ExtResource("1_2u7ne")]
@@ -83,6 +89,32 @@ rendering_quadrant_size = 12
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1054420964]
 z_index = -4
+texture_filter = 1
 position = Vector2(190, -547)
 scale = Vector2(2.5088, 2.5088)
 texture = ExtResource("7_o6xl0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1516889328]
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=31224497]
+position = Vector2(41, -3239)
+shape = SubResource("RectangleShape2D_o6xl0")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="StaticBody2D" unique_id=929909222]
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D2" unique_id=648011642]
+position = Vector2(104, 2218)
+shape = SubResource("RectangleShape2D_o6xl0")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=937777430]
+z_index = 1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=146114973]
+position = Vector2(-3337, -463)
+shape = SubResource("RectangleShape2D_tipki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=415430826]
+position = Vector2(3556, -522)
+shape = SubResource("RectangleShape2D_tipki")
