@@ -297,59 +297,59 @@ region = Rect2(1488, 0, 124, 110)
 atlas = ExtResource("12_cn34r")
 region = Rect2(1612, 0, 124, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mlots"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk5eo"]
 atlas = ExtResource("8_xk5eo")
 region = Rect2(0, 0, 124, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kbvd2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlots"]
 atlas = ExtResource("8_xk5eo")
 region = Rect2(124, 0, 124, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_is7gw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbvd2"]
 atlas = ExtResource("8_xk5eo")
 region = Rect2(248, 0, 124, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hyaw7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_is7gw"]
 atlas = ExtResource("8_xk5eo")
 region = Rect2(372, 0, 124, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cn34r"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyaw7"]
 atlas = ExtResource("8_xk5eo")
 region = Rect2(496, 0, 124, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c2on3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn34r"]
 atlas = ExtResource("8_xk5eo")
 region = Rect2(620, 0, 124, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pt48h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2on3"]
 atlas = ExtResource("8_xk5eo")
 region = Rect2(744, 0, 124, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lre08"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt48h"]
 atlas = ExtResource("8_xk5eo")
 region = Rect2(868, 0, 124, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4rtlp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lre08"]
 atlas = ExtResource("8_xk5eo")
 region = Rect2(992, 0, 124, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7pc7t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rtlp"]
 atlas = ExtResource("8_xk5eo")
 region = Rect2(1116, 0, 124, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s2xdj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pc7t"]
 atlas = ExtResource("8_xk5eo")
 region = Rect2(1240, 0, 124, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gq1la"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2xdj"]
 atlas = ExtResource("8_xk5eo")
 region = Rect2(1364, 0, 124, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bwlye"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq1la"]
 atlas = ExtResource("8_xk5eo")
 region = Rect2(1488, 0, 124, 110)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_chl7u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwlye"]
 atlas = ExtResource("8_xk5eo")
 region = Rect2(1612, 0, 124, 110)
 
@@ -768,6 +768,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xk5eo")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mlots")
 }, {
 "duration": 1.0,
@@ -805,13 +808,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bwlye")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_chl7u")
 }],
 "loop": false,
 "name": &"rock_scissors",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1050,7 +1050,10 @@ texture_filter = 1
 position = Vector2(134.00002, 350.00003)
 scale = Vector2(2.0818179, 2.0818179)
 sprite_frames = SubResource("SpriteFrames_inxmf")
+animation = &"rock_scissors"
 autoplay = "default"
+frame = 13
+frame_progress = 1.0
 
 [connection signal="pressed" from="Control/PaperButton" to="." method="_on_paper_button_pressed"]
 [connection signal="pressed" from="Control/ScissorsButton" to="." method="_on_scissors_button_pressed"]
