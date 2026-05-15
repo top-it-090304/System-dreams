@@ -120,9 +120,9 @@ func _start_rps_contact() -> void:
 	rps_contact_started.emit(self)
 
 # Метод вызывается из UI после выбора игрока
-func resolve_rps_result(player_choice: int) -> void:
+func resolve_rps_result(player_choice: int, enemy_choice: int) -> void:
 	# 0 = Камень, 1 = Ножницы, 2 = Бумага
-	var enemy_choice = randi() % 3
+	# enemy_choice теперь передается из UI (используется тот же выбор что и для анимации)
 	
 	var result = _determine_winner(player_choice, enemy_choice)
 	

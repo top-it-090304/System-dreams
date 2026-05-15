@@ -83,11 +83,11 @@ func _on_rps_contact_started(enemy: EnemyRPS) -> void:
 	else:
 		print("[RPSManager] ОШИБКА: rps_window_scene не загружен!")
 
-func _on_rps_option_chosen(choice: int) -> void:
+func _on_rps_option_chosen(choice: int, enemy_choice: int) -> void:
 	if current_rps_enemy and is_instance_valid(current_rps_enemy):
-		# Передаем выбор игрока врагу для разрешения результата
+		# Передаем выбор игрока и врага врагу для разрешения результата
 		# resolve_rps_result снимет паузу и восстановит видимость игрока
-		current_rps_enemy.resolve_rps_result(choice)
+		current_rps_enemy.resolve_rps_result(choice, enemy_choice)
 	
 	# Сбрасываем ссылку на окно, т.к. оно уже закрыто
 	rps_window_instance = null

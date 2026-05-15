@@ -4,7 +4,7 @@ extends CanvasLayer
 # Окно мини-игры "Камень-Ножницы-Бумага"
 # Открывается при контакте с EnemyRPS
 
-signal option_chosen(choice: int)  # 0 = Камень, 1 = Ножницы, 2 = Бумага
+signal option_chosen(choice: int, enemy_choice: int)  # choice: 0 = Камень, 1 = Ножницы, 2 = Бумага
 
 @onready var _rock_button: Button = $Control/RockButton
 @onready var _scissors_button: Button = $Control/ScissorsButton
@@ -137,8 +137,8 @@ func _show_result(result: String) -> void:
 		_rps_result_window.show_result(result_text)
 
 func _on_result_confirmed() -> void:
-	# Эмитим сигнал с выбором игрока (для обработки в enemy_rps)
-	option_chosen.emit(_current_player_choice)
+	# Эмитим сигнал с выбором игрока и врага (для обработки в enemy_rps)
+	option_chosen.emit(_current_player_choice, _current_enemy_choice)
 	
 	# Очищаем ресурсы
 	if _rps_result_window:
