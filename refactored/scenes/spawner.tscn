@@ -18,7 +18,8 @@ pusher_enemy_scene = ExtResource("4_30a77")
 rps_enemy_scene = ExtResource("5_p5s3f")
 default_weight = 10
 shooter_weight = 1
-pusher_weight = 1
+pusher_weight = 0
+rps_spawn_interval = 4.0
 rps_spawn_radius = 400.0
 
 [node name="Timer" type="Timer" parent="." unique_id=684817458]
