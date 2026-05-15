@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 MusicManager="*uid://d2ossg4issrns"
 Bus="*uid://d3f7fmntvdli7"
 ControlSettings="*res://scripts/control_settings.gd"
+flowerwall_crt="*uid://cc1fomjf362h5"
 
 [display]
 
@@ -28,6 +29,10 @@ window/size/initial_position_type=0
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/flowerwall_crt/flowerwall_crt/plugin.cfg", "res://addons/flowerwall_crt/plugin.cfg")
 
 [global_group]
 
