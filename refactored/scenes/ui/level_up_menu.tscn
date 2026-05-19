@@ -2,15 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://hb60d13syc4y" path="res://sprites/ui/push_up.png" id="1_iqehe"]
 [ext_resource type="Script" uid="uid://cf55bp8bjcn4v" path="res://scripts/level_up_menu.gd" id="1_vkps6"]
+[ext_resource type="Texture2D" uid="uid://b0u0lkm6r4de0" path="res://sprites/ui/shadow_less.png" id="2_ixuu3"]
 [ext_resource type="FontFile" uid="uid://byu2sxb8ko23c" path="res://fonts/LCD5x8HRU.ttf" id="3_ixuu3"]
 [ext_resource type="Texture2D" uid="uid://d11rhxk7bnjfo" path="res://sprites/ui/hpUp.png" id="3_l261j"]
 [ext_resource type="Texture2D" uid="uid://c0b28cvm0ria4" path="res://sprites/ui/dmgUp.png" id="4_ixuu3"]
 [ext_resource type="Texture2D" uid="uid://du13hsgk4byuv" path="res://sprites/ui/moveUp.png" id="5_uklwp"]
 
-[node name="LevelUpMenu" type="CanvasLayer" unique_id=1084969996]
+[node name="LevelUpMenu" type="CanvasLayer" unique_id=581080496]
 script = ExtResource("1_vkps6")
 
-[node name="Control" type="Control" parent="." unique_id=593504272]
+[node name="Control" type="Control" parent="." unique_id=1308409244]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,12 +19,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control" unique_id=1448963277]
+[node name="NinePatchRect2" type="NinePatchRect" parent="Control" unique_id=763616345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ixuu3")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control" unique_id=1477283240]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = -67.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_iqehe")
@@ -32,7 +44,7 @@ patch_margin_top = 61
 patch_margin_right = 113
 patch_margin_bottom = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1139199042]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=10521785]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -47,16 +59,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=969997762]
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=1946634694]
+texture_filter = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0.012168681, 0.08565044, 0.46683258, 1)
+theme_override_colors/font_color = Color(0.904883, 0.537731, 1.15514e-06, 1)
 theme_override_fonts/font = ExtResource("3_ixuu3")
 theme_override_font_sizes/font_size = 12
-text = "Вы получили новый уровень!
-Выбери свое улучшение"
+text = "!!!НОВЫЙ УРОВЕНЬ!!!
+Выбери улучшение:"
 horizontal_alignment = 1
 
-[node name="Option1" type="Button" parent="Control/VBoxContainer" unique_id=187019069]
+[node name="Option1" type="Button" parent="Control/VBoxContainer" unique_id=1832376728]
 self_modulate = Color(1, 1, 1, 0)
 light_mask = 33
 texture_filter = 1
@@ -65,7 +78,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Option1" unique_id=1784718528]
+[node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Option1" unique_id=1532432456]
 layout_mode = 1
 offset_left = -18.0
 offset_top = 10.0
@@ -74,14 +87,14 @@ offset_bottom = 67.0
 texture = ExtResource("3_l261j")
 stretch_mode = 3
 
-[node name="Option2" type="Button" parent="Control/VBoxContainer" unique_id=485419594]
+[node name="Option2" type="Button" parent="Control/VBoxContainer" unique_id=412476838]
 self_modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 custom_minimum_size = Vector2(140, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Option2" unique_id=1350903315]
+[node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Option2" unique_id=2080365892]
 layout_mode = 1
 offset_left = -19.0
 offset_top = 6.0
@@ -90,13 +103,13 @@ offset_bottom = 63.0
 texture = ExtResource("4_ixuu3")
 stretch_mode = 3
 
-[node name="Option3" type="Button" parent="Control/VBoxContainer" unique_id=1954516981]
+[node name="Option3" type="Button" parent="Control/VBoxContainer" unique_id=772746306]
 self_modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 custom_minimum_size = Vector2(140, 64)
 layout_mode = 2
 
-[node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Option3" unique_id=74111696]
+[node name="Icon" type="TextureRect" parent="Control/VBoxContainer/Option3" unique_id=894011352]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

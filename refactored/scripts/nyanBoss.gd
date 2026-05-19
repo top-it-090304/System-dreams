@@ -1,8 +1,8 @@
 extends CharacterBody2D
 @export var speed = 50;
-@export var health: int = 10000
+@export var health: int = 2000
 @export var hurt_time: float = 0.3
-@export var attack_range: float = 10.0
+@export var attack_range: float = 100.0
 @export var attack_cooldown: float = 0.8
 
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D

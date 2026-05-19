@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://5wne2ydj1dtl"]
+[gd_scene load_steps=5 format=3 uid="uid://5wne2ydj1dtl"]
 
 [ext_resource type="Script" uid="uid://crqoaneubmlxq" path="res://scripts/settings.gd" id="1_7pacj"]
 [ext_resource type="Texture2D" uid="uid://hb60d13syc4y" path="res://sprites/ui/push_up.png" id="1_o2bc3"]
 [ext_resource type="Texture2D" uid="uid://yxirkyur1nid" path="res://sprites/ui/Sprite-0001.png" id="3_h175o"]
 [ext_resource type="FontFile" uid="uid://byu2sxb8ko23c" path="res://fonts/LCD5x8HRU.ttf" id="3_ptynm"]
 
-[node name="Settings" type="CanvasLayer" unique_id=1886999747]
+[node name="Settings" type="CanvasLayer"]
 script = ExtResource("1_7pacj")
 
-[node name="Control" type="Control" parent="." unique_id=1968262533]
+[node name="Control" type="Control" parent="."]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -17,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control" unique_id=2003790973]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,7 +30,7 @@ patch_margin_top = 61
 patch_margin_right = 113
 patch_margin_bottom = 32
 
-[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=1379785099]
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -39,76 +39,76 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer" unique_id=1098984363]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=1016975006]
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ptynm")
 text = "звук всей игры"
 
-[node name="HSlider2" type="HSlider" parent="Control/CenterContainer/VBoxContainer" unique_id=1961387289]
+[node name="HSlider2" type="HSlider" parent="Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=1667070318]
+[node name="Label2" type="Label" parent="Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ptynm")
 text = "звуки эффектов"
 
-[node name="HSlider" type="HSlider" parent="Control/CenterContainer/VBoxContainer" unique_id=356328721]
+[node name="HSlider" type="HSlider" parent="Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=1642400319]
+[node name="Label3" type="Label" parent="Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ptynm")
 text = "музыка"
 
-[node name="HSlider3" type="HSlider" parent="Control/CenterContainer/VBoxContainer" unique_id=1781288809]
+[node name="HSlider3" type="HSlider" parent="Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Управление" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=1141887271]
+[node name="Управление" type="Label" parent="Control/CenterContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ptynm")
 text = "Управление"
 
-[node name="controll_options" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer" unique_id=350288330]
+[node name="controll_options" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 
-[node name="joy_stick_option" type="HBoxContainer" parent="Control/CenterContainer/VBoxContainer/controll_options" unique_id=418936981]
+[node name="joy_stick_option" type="HBoxContainer" parent="Control/CenterContainer/VBoxContainer/controll_options"]
 layout_direction = 2
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer/controll_options/joy_stick_option" unique_id=810582190]
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer/controll_options/joy_stick_option"]
 layout_mode = 2
 size_flags_horizontal = 2
-theme_override_colors/font_color = Color(0.02745098, 0.1882353, 0.7882353, 1)
+theme_override_colors/font_color = Color(0.027451, 0.188235, 0.788235, 1)
 theme_override_fonts/font = ExtResource("3_ptynm")
 text = "Джостик"
 
-[node name="Joy_stick_Check" type="CheckBox" parent="Control/CenterContainer/VBoxContainer/controll_options/joy_stick_option" unique_id=1811288399]
+[node name="Joy_stick_Check" type="CheckBox" parent="Control/CenterContainer/VBoxContainer/controll_options/joy_stick_option"]
 layout_mode = 2
 
-[node name="touch_screen_option" type="HBoxContainer" parent="Control/CenterContainer/VBoxContainer/controll_options" unique_id=1301385272]
+[node name="touch_screen_option" type="HBoxContainer" parent="Control/CenterContainer/VBoxContainer/controll_options"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer/controll_options/touch_screen_option" unique_id=2000849168]
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer/controll_options/touch_screen_option"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.02745098, 0.1882353, 0.7882353, 1)
+theme_override_colors/font_color = Color(0.027451, 0.188235, 0.788235, 1)
 theme_override_fonts/font = ExtResource("3_ptynm")
 text = "Нажатие на экран"
 
-[node name="Touch_Check" type="CheckBox" parent="Control/CenterContainer/VBoxContainer/controll_options/touch_screen_option" unique_id=486174676]
+[node name="Touch_Check" type="CheckBox" parent="Control/CenterContainer/VBoxContainer/controll_options/touch_screen_option"]
 layout_mode = 2
 
-[node name="reset_progress" type="Button" parent="Control/CenterContainer/VBoxContainer" unique_id=128460622]
+[node name="reset_progress" type="Button" parent="Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
 icon = ExtResource("3_h175o")
 flat = true
 
-[node name="settings_back" type="Button" parent="Control" unique_id=268611816]
+[node name="settings_back" type="Button" parent="Control"]
 z_index = 3
 layout_mode = 0
 offset_left = 211.0
@@ -117,9 +117,8 @@ offset_right = 256.0
 offset_bottom = 63.0
 flat = true
 text_overrun_behavior = 2
-autowrap_trim_flags = 192
 
-[node name="Control_choice" type="Control" parent="Control" unique_id=507867175]
+[node name="Control_choice" type="Control" parent="Control"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

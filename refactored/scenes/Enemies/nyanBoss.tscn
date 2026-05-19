@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c3rjdulja5jgi" path="res://sprites/enemies/nyanBosstHurtt.png" id="3_r0jnv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3few"]
-radius = 23.0
-height = 80.66667
+radius = 30.333334
+height = 65.333336
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0jnv"]
 atlas = ExtResource("2_7uvap")
@@ -64,21 +64,22 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="NyanBoss" type="CharacterBody2D" unique_id=940495428 groups=["enemy"]]
+[node name="NyanBoss" type="CharacterBody2D" unique_id=1853206702 groups=["enemy"]]
 z_index = -1
 texture_filter = 1
 scale = Vector2(3, 3)
 collision_layer = 4
-collision_mask = 16
+collision_mask = 3
 script = ExtResource("1_r0jnv")
+health = 3000
 portal_scene = ExtResource("2_mlqxn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1427238615 groups=["enemy"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1886399410 groups=["enemy"]]
 light_mask = 3
 visibility_layer = 2
-position = Vector2(-0.33333334, -8.881784e-16)
-rotation = 1.5707964
+position = Vector2(-0.333333, -8.88178e-16)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_a3few")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1522708247]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1764374542]
 sprite_frames = SubResource("SpriteFrames_bg06f")

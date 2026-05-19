@@ -14,7 +14,7 @@ var state : String = "idle"
 var level: int = 1
 var current_xp: int = 0
 var is_alive: bool = true 
-var next_level_xp: int = 1
+var next_level_xp: int = 3
 var min_wait_time: float = 0.2
 
 # как сильно пинают котенка

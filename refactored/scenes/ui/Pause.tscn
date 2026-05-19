@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://crcm6eqypewq3"]
 
 [ext_resource type="Script" uid="uid://cpnbb8lcoexm7" path="res://scripts/pause.gd" id="1_wfecl"]
-[ext_resource type="Texture2D" uid="uid://hb60d13syc4y" path="res://sprites/ui/push_up.png" id="2_wfecl"]
+[ext_resource type="Texture2D" uid="uid://besj4ukiv2jfy" path="res://sprites/ui/push_up_shadow.png" id="2_wfecl"]
 [ext_resource type="Texture2D" uid="uid://bx4dcc4a3avae" path="res://sprites/ui/back_button.png" id="3_tausj"]
 [ext_resource type="Texture2D" uid="uid://bejxjhg0nq1ga" path="res://sprites/ui/settings_button.png" id="4_4fdmb"]
 [ext_resource type="Texture2D" uid="uid://b6n5bysaawypb" path="res://sprites/ui/into_menu.png" id="5_wfya0"]
 
-[node name="Pause" type="CanvasLayer" unique_id=905663592]
+[node name="Pause" type="CanvasLayer" unique_id=2032236233]
 script = ExtResource("1_wfecl")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1819221750]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=972517169]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,38 +22,38 @@ patch_margin_top = 61
 patch_margin_right = 113
 patch_margin_bottom = 32
 
-[node name="Control" type="Control" parent="." unique_id=333800888]
+[node name="Control" type="Control" parent="." unique_id=1553321105]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=2086686199]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1868613871]
 layout_mode = 0
 offset_left = 39.0
 offset_top = 134.0
 offset_right = 244.0
 offset_bottom = 390.0
 
-[node name="ResumeButton" type="Button" parent="Control/VBoxContainer" unique_id=229581185]
+[node name="ResumeButton" type="Button" parent="Control/VBoxContainer" unique_id=1696818675]
 texture_filter = 1
 layout_mode = 2
 icon = ExtResource("3_tausj")
 flat = true
 
-[node name="settings" type="Button" parent="Control/VBoxContainer" unique_id=544793783]
+[node name="settings" type="Button" parent="Control/VBoxContainer" unique_id=464325529]
 texture_filter = 1
 layout_mode = 2
 icon = ExtResource("4_4fdmb")
 flat = true
 
-[node name="menu" type="Button" parent="Control/VBoxContainer" unique_id=2029429075]
+[node name="menu" type="Button" parent="Control/VBoxContainer" unique_id=222737077]
 texture_filter = 1
 layout_mode = 2
 icon = ExtResource("5_wfya0")
 flat = true
 
-[node name="ResumeButton" type="Button" parent="Control" unique_id=2069558083]
+[node name="ResumeButton" type="Button" parent="Control" unique_id=944819118]
 texture_filter = 1
 layout_mode = 0
 offset_left = 214.0

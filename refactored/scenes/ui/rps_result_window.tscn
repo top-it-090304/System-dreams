@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b3hdpjua4rspr"]
 
 [ext_resource type="Script" uid="uid://dfmh2fiw5k6sy" path="res://scripts/rps_result_window.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://t8mhufi2dji1" path="res://sprites/ui/shadow.png" id="2_48ly8"]
 [ext_resource type="FontFile" uid="uid://byu2sxb8ko23c" path="res://fonts/LCD5x8HRU.ttf" id="2_ad1t0"]
 [ext_resource type="Texture2D" uid="uid://c181x53j06mk6" path="res://sprites/ui/main_menu.png" id="2_sbhoy"]
 
@@ -17,14 +18,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="NinePatchRect2" type="NinePatchRect" parent="Control" unique_id=753894467]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_48ly8")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="Control" unique_id=1071291542]
 texture_filter = 1
 layout_direction = 1
 layout_mode = 0
 offset_left = -43.0
-offset_top = 98.0
+offset_top = 84.0
 offset_right = 377.0
-offset_bottom = 212.0
+offset_bottom = 230.0
 texture = ExtResource("2_sbhoy")
 patch_margin_left = 52
 patch_margin_top = 34

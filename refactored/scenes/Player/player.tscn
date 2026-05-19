@@ -2,41 +2,76 @@
 
 [ext_resource type="Script" uid="uid://bjp1ulugftol7" path="res://scripts/player.gd" id="1_1kbk7"]
 [ext_resource type="PackedScene" uid="uid://kca4335hfy3k" path="res://scenes/Player/cursor.tscn" id="2_c4h5g"]
+[ext_resource type="Animation" uid="uid://r3mpfeq6olvh" path="res://animations/death.res" id="4_7tfl1"]
 [ext_resource type="Texture2D" uid="uid://eds4ibe11m6e" path="res://sprites/animation_sprite.png" id="4_c4h5g"]
-[ext_resource type="AnimationLibrary" uid="uid://dyuansbhkwrq4" path="res://animations/.res" id="4_hvfru"]
 [ext_resource type="Script" uid="uid://cr1v8pk65bluf" path="res://scripts/orbital_weapon.gd" id="4_uiqp4"]
+[ext_resource type="Animation" uid="uid://vmhx3mb4i5bb" path="res://animations/idle_down.res" id="5_jxtnq"]
 [ext_resource type="PackedScene" uid="uid://cfbw63ejqoutv" path="res://scenes/Player/dvdCircle.tscn" id="5_uiqp4"]
+[ext_resource type="Animation" uid="uid://cdv4v7vx25vr" path="res://animations/idle_side.res" id="6_t6q27"]
+[ext_resource type="Animation" uid="uid://dwj67ee6himu0" path="res://animations/idle_up.res" id="7_wyey8"]
+[ext_resource type="Animation" uid="uid://cj20xvvaiymm5" path="res://animations/RESET.res" id="8_1bwnf"]
+[ext_resource type="Animation" uid="uid://cjrqdjifm6uhx" path="res://animations/walk_down.res" id="9_tayva"]
+[ext_resource type="Animation" uid="uid://w2om1hktw3xd" path="res://animations/walk_up.res" id="10_x8khf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_chuli"]
 radius = 8.0
 height = 22.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1779298022 groups=["player"]]
+[sub_resource type="Animation" id="Animation_7tfl1"]
+resource_name = "walk_side"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 0.0769466, 1, 1),
+"update": 1,
+"values": [17, 18, 19, 20]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aciub"]
+_data = {
+&"RESET": ExtResource("8_1bwnf"),
+&"death": ExtResource("4_7tfl1"),
+&"idle_down": ExtResource("5_jxtnq"),
+&"idle_side": ExtResource("6_t6q27"),
+&"idle_up": ExtResource("7_wyey8"),
+&"walk_down": ExtResource("9_tayva"),
+&"walk_side": SubResource("Animation_7tfl1"),
+&"walk_up": ExtResource("10_x8khf")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=1174749190 groups=["player"]]
 z_index = 1
 texture_filter = 1
 collision_layer = 2
-collision_mask = 40
+collision_mask = 3
 script = ExtResource("1_1kbk7")
 bullet_scene = ExtResource("2_c4h5g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1581354019 groups=["player"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=554691168 groups=["player"]]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_chuli")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1984181769 groups=["player"]]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1722785513 groups=["player"]]
 position = Vector2(1, 4)
 texture = ExtResource("4_c4h5g")
 hframes = 30
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1846528012]
-libraries/ = ExtResource("4_hvfru")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1382213650]
+libraries/ = SubResource("AnimationLibrary_aciub")
 
-[node name="ShootTimer" type="Timer" parent="." unique_id=397056865]
+[node name="ShootTimer" type="Timer" parent="." unique_id=2068590762]
 autostart = true
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=540514452]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=690615238]
 
-[node name="OrbitalWeapon" type="Node2D" parent="." unique_id=948630900]
+[node name="OrbitalWeapon" type="Node2D" parent="." unique_id=1793421255]
 script = ExtResource("4_uiqp4")
 projectile_scene = ExtResource("5_uiqp4")
 base_damage = 25.0

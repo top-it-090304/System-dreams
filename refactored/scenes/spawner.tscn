@@ -7,11 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://cq8ifucy4w0as" path="res://scenes/Enemies/enemy_pusher.tscn" id="4_30a77"]
 [ext_resource type="PackedScene" uid="uid://cvmqwhccqcwfl" path="res://scenes/Enemies/enemy_rps.tscn" id="5_p5s3f"]
 
-[node name="Spawner" type="Node2D" unique_id=1069112289]
+[node name="Spawner" type="Node2D" unique_id=544288999]
 script = ExtResource("1_2vbf6")
 enemy_scene = ExtResource("2_cmhla")
 spawn_radius = 500.0
-max_spawn_position_attempts = 20
+min_spawn_distance_from_player = 300.0
+max_spawn_position_attempts = 10
 nyan_boss_scene = ExtResource("3_30a77")
 shooter_enemy_scene = ExtResource("3_4wbs5")
 pusher_enemy_scene = ExtResource("4_30a77")
@@ -19,12 +20,14 @@ rps_enemy_scene = ExtResource("5_p5s3f")
 default_weight = 10
 shooter_weight = 1
 pusher_weight = 0
-rps_spawn_interval = 4.0
+nyan_boss_spawn_interval = 100.0
 rps_spawn_radius = 400.0
+base_spawn_interval = 4.0
+min_spawn_interval = 1.0
 
-[node name="Timer" type="Timer" parent="." unique_id=684817458]
+[node name="Timer" type="Timer" parent="." unique_id=1350028406]
 wait_time = 3.0
 autostart = true
 
-[node name="RPSTimer" type="Timer" parent="." unique_id=684817459]
+[node name="RPSTimer" type="Timer" parent="." unique_id=364408512]
 autostart = true

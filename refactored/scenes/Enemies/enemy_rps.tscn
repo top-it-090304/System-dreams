@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cvmqwhccqcwfl"]
+[gd_scene load_steps=9 format=3 uid="uid://cvmqwhccqcwfl"]
 
 [ext_resource type="Script" uid="uid://cnjpacecvf1u" path="res://scripts/enemy_rps.gd" id="1_rps"]
 [ext_resource type="PackedScene" uid="uid://bkkwslr00dmlw" path="res://scenes/Enemies/exp.tscn" id="2_exp"]
@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://ckp50udhpbviv" path="res://sprites/enemies/hand/hand_grab_2.png" id="6_kpatk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rps"]
-radius = 3.8571427
-height = 7.7142854
+radius = 3.85714
+height = 7.71429
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s8gxy"]
 animations = [{
@@ -45,7 +45,7 @@ animations = [{
 "speed": 1.0
 }]
 
-[node name="EnemyRPS" type="CharacterBody2D" unique_id=-294967295 groups=["enemy"]]
+[node name="EnemyRPS" type="CharacterBody2D" groups=["enemy"]]
 process_mode = 3
 texture_filter = 1
 scale = Vector2(7, 7)
@@ -57,25 +57,25 @@ health = 400
 exp_scene = ExtResource("2_exp")
 heal_scene = ExtResource("3_heal")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=-294967294 groups=["enemy"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy"]]
 light_mask = 4
 visibility_layer = 3
 z_index = 1
-rotation = 1.5707964
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_rps")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=264524180]
-position = Vector2(-0.99999976, -1.8571428)
-scale = Vector2(0.19657609, 0.21302816)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -1.85714)
+scale = Vector2(0.196576, 0.213028)
 sprite_frames = SubResource("SpriteFrames_s8gxy")
 animation = &"finded"
 autoplay = "default"
 
-[node name="Label" type="Label" parent="." unique_id=971673009]
+[node name="Label" type="Label" parent="."]
 visible = false
-offset_left = -15.333332
+offset_left = -15.3333
 offset_top = -6.0
-offset_right = 47.666668
+offset_right = 47.6667
 offset_bottom = 17.0
 theme_override_font_sizes/font_size = 8
 text = "РУКААА"

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c1amy2ape0ne7"]
+[gd_scene load_steps=9 format=3 uid="uid://c1amy2ape0ne7"]
 
 [ext_resource type="Script" uid="uid://br1r88wewhi2s" path="res://scripts/main_menu.gd" id="1_uhagc"]
 [ext_resource type="Texture2D" uid="uid://byeanol37r6hv" path="res://sprites/ui/button_start.png" id="2_m1kxf"]
@@ -9,12 +9,12 @@
 [ext_resource type="Script" uid="uid://b0vs78i2llwka" path="res://scripts/settings_button.gd" id="5_x2yvf"]
 [ext_resource type="Texture2D" uid="uid://cewc566ptfuru" path="res://sprites/ui/button_setting_pressed.png" id="7_wb0q5"]
 
-[node name="main_menu" type="Node2D" unique_id=1349091975]
+[node name="main_menu" type="Node2D"]
 texture_filter = 1
 texture_repeat = 1
 script = ExtResource("1_uhagc")
 
-[node name="Control" type="Control" parent="." unique_id=1426797441]
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,10 +24,10 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1136296114]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=1105729218]
+[node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,7 +35,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control" unique_id=2041522856]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -49,7 +49,7 @@ patch_margin_top = 34
 patch_margin_right = 89
 patch_margin_bottom = 8
 
-[node name="buttons_box" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=245725427]
+[node name="buttons_box" type="VBoxContainer" parent="CanvasLayer/Control"]
 layout_direction = 2
 layout_mode = 0
 offset_left = 15.0
@@ -58,7 +58,7 @@ offset_right = 257.0
 offset_bottom = 286.0
 alignment = 1
 
-[node name="start" type="TextureButton" parent="CanvasLayer/Control/buttons_box" unique_id=1150814751]
+[node name="start" type="TextureButton" parent="CanvasLayer/Control/buttons_box"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
@@ -66,7 +66,7 @@ texture_normal = ExtResource("2_m1kxf")
 texture_pressed = ExtResource("4_btxxm")
 script = ExtResource("5_wb0q5")
 
-[node name="settings2" type="TextureButton" parent="CanvasLayer/Control/buttons_box" unique_id=451456907]
+[node name="settings2" type="TextureButton" parent="CanvasLayer/Control/buttons_box"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4

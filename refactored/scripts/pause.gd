@@ -23,7 +23,7 @@ func _on_settings_pressed() -> void:
 		_hide_settings_menu()
 		
 func _show_settings_menu():
-	var pause_scene = load("res://scenes/ui/Settings.tscn")  
+	var pause_scene = load("res://scenes/ui/settings.tscn")  
 	if pause_scene == null:
 		print("Ошибка: не удалось загрузить сцену настроек! Проверьте путь.")
 		return

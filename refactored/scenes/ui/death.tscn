@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://73bsucnawmc3"]
 
 [ext_resource type="Script" uid="uid://bobq64tbi5oab" path="res://scripts/DeathScreen_1.gd" id="1_ci7ue"]
-[ext_resource type="Texture2D" uid="uid://hb60d13syc4y" path="res://sprites/ui/push_up.png" id="1_hwssb"]
 [ext_resource type="Texture2D" uid="uid://b4eyhka3f27ke" path="res://sprites/ui/death_restart_button.png" id="2_bvjni"]
+[ext_resource type="Texture2D" uid="uid://besj4ukiv2jfy" path="res://sprites/ui/push_up_shadow.png" id="2_nb7wh"]
 [ext_resource type="Texture2D" uid="uid://c5ca3oi7tfuta" path="res://sprites/ui/death_menu_button.png" id="3_ci7ue"]
 [ext_resource type="FontFile" uid="uid://byu2sxb8ko23c" path="res://fonts/LCD5x8HRU.ttf" id="3_nb7wh"]
 [ext_resource type="Texture2D" uid="uid://di1512fox17b2" path="res://sprites/ui/die_pic.png" id="6_41m72"]
@@ -28,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_hwssb")
+texture = ExtResource("2_nb7wh")
 patch_margin_left = 25
 patch_margin_top = 61
 patch_margin_right = 113

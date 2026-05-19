@@ -10,15 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://ceubj5aex2p65" path="res://sprites/enemies/enemy1(3).png" id="7_2sd76"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3few"]
-radius = 4.3333335
-height = 13.333334
+radius = 4.33333
+height = 13.3333
 
-[node name="DefaultEnemy" type="CharacterBody2D" unique_id=940495428 groups=["enemy", "rpsCanKill"]]
+[node name="DefaultEnemy" type="CharacterBody2D" unique_id=910866582 groups=["enemy", "rpsCanKill"]]
 z_index = -1
 texture_filter = 1
 scale = Vector2(3, 3)
 collision_layer = 4
-collision_mask = 16
+collision_mask = 3
 script = ExtResource("1_qo7qq")
 exp_scene = ExtResource("2_2061f")
 heal_scene = ExtResource("3_ahfmk")
@@ -26,9 +26,9 @@ normal_texture = ExtResource("2_j0sw7")
 normal_texture_variants = Array[Texture2D]([ExtResource("5_wta2e"), ExtResource("6_g71qr"), ExtResource("7_2sd76")])
 hurt_texture = ExtResource("5_s2vna")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1427238615 groups=["enemy"]]
-rotation = 1.5707964
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1300351064 groups=["enemy"]]
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_a3few")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1973856869]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1642947859]
 texture = ExtResource("2_j0sw7")
