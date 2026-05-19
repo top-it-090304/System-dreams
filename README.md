@@ -1,4 +1,3 @@
-markdown
 # System-dreams
 ![Icon](for_read_me/icon.png)
 **рогалик, bullet hell, казуальная, 2D**  
