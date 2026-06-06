@@ -90,7 +90,8 @@ func take_damage(amount: int) -> void:
 
 func die() -> void:
 	_play_death_sfx()
-	
+	PycoLog.log_event_by_type("boss_killed", {})
+
 	var portal = portal_scene.instantiate()
 	portal.global_position = global_position
 	get_parent().add_child(portal)
