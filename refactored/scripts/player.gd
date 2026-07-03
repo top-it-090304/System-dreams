@@ -59,7 +59,8 @@ func _ready():
 	health = max_health
 	health_updated.emit(health, max_health)
 	level_updated.emit(level)
-	
+	PycoLog.log_event_by_type("game_start", {})
+
 	_hp_label = get_tree().root.get_node_or_null("Main/HUD/HPLabel")
 	_update_hp_ui()
 	
@@ -151,6 +152,7 @@ func _on_player_died() -> void:
 	velocity = Vector2.ZERO
 	direction = Vector2.ZERO
 	state = "death"
+	PycoLog.log_event_by_type("player_death", {"time": _run_time, "level": level})
 	if sprite:
 		sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		SetDirection()
@@ -273,6 +275,7 @@ func heal(amount: int) -> void:
 
 func _on_level_up() -> void:
 	level_updated.emit(level)
+	PycoLog.log_event_by_type("player_level_up", {"level": level})
 	if not LEVEL_UP_MENU_SCENE: return
 	
 	var menu = LEVEL_UP_MENU_SCENE.instantiate()

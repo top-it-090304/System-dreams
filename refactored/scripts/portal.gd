@@ -16,7 +16,8 @@ func _on_body_entered(body: Node) -> void:
 	if body is Player:
 		var final_time = body._run_time
 		var final_level = body.level
-		
+		PycoLog.log_event_by_type("game_win", {"time": final_time, "level": final_level})
+
 		get_tree().paused = true
 		
 		var win_screen = WIN_SCREEN_SCENE.instantiate()

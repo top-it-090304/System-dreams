@@ -23,6 +23,8 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 MusicManager="*uid://d2ossg4issrns"
 Bus="*uid://d3f7fmntvdli7"
 ControlSettings="*res://scripts/control_settings.gd"
+PycoLog="*res://addons/pycolytics/pyco_log.gd"
+AppFocus="*res://scripts/app_focus.gd"
 
 [display]
 
